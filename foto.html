@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Galeri Foto — Kesbangpol Kota Nusantara</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Special+Elite&family=JetBrains+Mono:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          display: ['"Playfair Display"', 'serif'],
+          typewriter: ['"Special Elite"', 'monospace'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+          book: ['Lora', 'serif'],
+          masthead: ['"UnifrakturCook"', 'serif'],
+        },
+        colors: {
+          brand: {
+            50:'#FFF5F5',100:'#FFE3E5',200:'#FFC9CD',300:'#FFA0A8',
+            400:'#F9707C',500:'#E84A57',600:'#D32F3E',700:'#B0202E',
+            800:'#8F1A26',900:'#731520',
+          },
+          paper: {
+            50:'#FFFCF6', 100:'#FAF4E8', 200:'#F0E6CF', 300:'#E5D4AE',
+          },
+          ink: '#2B211B',
+          dark: '#0D0806',
+          darkroom: '#1A0A05'
+        },
+        boxShadow: {
+          glass: '0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
+          soft:  '0 10px 40px -12px rgba(232,74,87,0.35)',
+          glow:  '0 0 0 4px rgba(232,74,87,0.15), 0 8px 24px -6px rgba(232,74,87,0.5)',
+          glowHover: '0 0 0 6px rgba(232,74,87,0.2), 0 12px 28px -6px rgba(232,74,87,0.6)',
+          photo: '0 20px 40px -12px rgba(0,0,0,0.4), 0 4px 12px -4px rgba(0,0,0,0.25)',
+          film: '0 1px 0 rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1)'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html, body { font-family: 'Inter', sans-serif; font-size: 14px; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #1A0A05; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(#E84A57, #B0202E); border-radius: 8px; }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                inset 0 -1px 0 rgba(255,255,255,0.25);
+  }
+  .glass-dark {
+    background: rgba(30, 20, 18, 0.45);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .glass-darkroom {
+    background: rgba(13, 8, 6, 0.7);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(232, 74, 87, 0.15);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #E84A57 0%, #B0202E 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .paper-texture {
+    background-color: #FAF4E8;
+    background-image:
+      radial-gradient(rgba(120,90,50,0.06) 1px, transparent 1.5px),
+      radial-gradient(rgba(120,90,50,0.04) 1px, transparent 1.5px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 1px;
+  }
+  .paper-news {
+    background-color: #FFFCF6;
+    background-image:
+      radial-gradient(rgba(120,90,50,0.035) 1px, transparent 1.5px),
+      radial-gradient(rgba(120,90,50,0.025) 1px, transparent 1.5px);
+    background-size: 4px 4px, 9px 9px;
+    background-position: 0 0, 2px 2px;
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(rgba(232,74,87,0.18) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+  .pattern-diag {
+    background-image: repeating-linear-gradient(
+      45deg, rgba(232,74,87,0.10) 0 1px, transparent 1px 14px
+    );
+  }
+  .pattern-zigzag {
+    background-image:
+      linear-gradient(135deg, rgba(232,74,87,0.14) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(232,74,87,0.14) 25%, transparent 25%);
+    background-size: 20px 20px;
+  }
+  .pattern-dots-light {
+    background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+  .ornament-kawung {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23E84A57' stroke-width='1.2' opacity='0.35'><circle cx='30' cy='30' r='14'/><circle cx='90' cy='30' r='14'/><circle cx='30' cy='90' r='14'/><circle cx='90' cy='90' r='14'/><circle cx='60' cy='60' r='10'/></g></svg>");
+    background-size: 180px 180px;
+  }
+
+  .rule-thick { height: 2.5px; background: #2B211B; }
+  .rule-thin { height: 1px; background: #2B211B; }
+
+  .darkroom-grad {
+    background: radial-gradient(circle at 30% 20%, #2A1208 0%, #1A0A05 45%, #0D0806 100%);
+  }
+  .red-glow {
+    background: radial-gradient(circle, rgba(232,74,87,0.4) 0%, rgba(176,32,46,0.15) 40%, transparent 70%);
+  }
+
+  @keyframes spinSlow { to { transform: rotate(360deg) } }
+  .spin-slow { animation: spinSlow 40s linear infinite; }
+  @keyframes spinSlowRev { to { transform: rotate(-360deg) } }
+  .spin-slow-rev { animation: spinSlowRev 30s linear infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+  .bob { animation: bob 6s ease-in-out infinite; }
+  @keyframes blinkDot { 0%,100% { opacity: 1 } 50% { opacity: 0.25 } }
+  .blink-dot { animation: blinkDot 1.6s ease-in-out infinite; }
+  @keyframes floatY { 0%,100% { transform: translateY(0) rotate(-2deg) } 50% { transform: translateY(-8px) rotate(2deg) } }
+  .float-y { animation: floatY 8s ease-in-out infinite; }
+  @keyframes flicker {
+    0%,100% { opacity: 0.85; }
+    47% { opacity: 0.85; }
+    48% { opacity: 0.4; }
+    49% { opacity: 0.85; }
+    62% { opacity: 0.85; }
+    63% { opacity: 0.3; }
+    64% { opacity: 0.85; }
+  }
+  .flicker { animation: flicker 4s ease-in-out infinite; }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .scale-in { animation: scaleIn 400ms cubic-bezier(0.32, 0.72, 0, 1); }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms ease, transform 800ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 900ms ease, transform 900ms ease; }
+  .reveal-left.in { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 900ms ease, transform 900ms ease; }
+  .reveal-right.in { opacity: 1; transform: translateX(0); }
+
+  #scrollProgress {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+    background: linear-gradient(to right, #E84A57, #B0202E);
+    width: 0%; transition: width 100ms linear;
+    box-shadow: 0 0 12px rgba(232,74,87,0.7);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .wax-seal {
+    background: radial-gradient(circle at 32% 28%, #D32F3E, #8F1A26 65%, #6E1A08 100%);
+    box-shadow:
+      inset 0 3px 8px rgba(255,255,255,0.25),
+      inset 0 -6px 12px rgba(0,0,0,0.35),
+      0 8px 20px -6px rgba(120,20,10,0.55);
+  }
+  .stamp {
+    border: 3px double #B0202E;
+    color: #B0202E;
+    font-family: 'Special Elite', monospace;
+    transform: rotate(-8deg);
+    opacity: 0.85;
+  }
+
+  .chapter-num {
+    font-feature-settings: "tnum";
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .photo-frame {
+    position: relative;
+    background: #0D0806;
+    padding: 6px;
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.5), 0 4px 12px -4px rgba(0,0,0,0.3);
+    transition: all 400ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .photo-frame:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 28px 56px -12px rgba(232,74,87,0.35), 0 8px 20px -4px rgba(0,0,0,0.4);
+  }
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(232,74,87,0.25);
+    pointer-events: none;
+    transition: border-color 400ms ease;
+  }
+  .photo-frame:hover::before {
+    border-color: rgba(232,74,87,0.7);
+  }
+
+  .contact-sheet {
+    background: #0D0806;
+    padding: 20px;
+    position: relative;
+  }
+  .contact-cell {
+    position: relative;
+    background: #000;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .contact-cell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .contact-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.15) contrast(1.02) brightness(0.95);
+    transition: filter 500ms ease, transform 700ms ease;
+  }
+  .contact-cell:hover img {
+    filter: sepia(0) contrast(1.05) brightness(1);
+    transform: scale(1.06);
+  }
+
+  .sprocket-edge {
+    background-image:
+      linear-gradient(90deg, transparent 0%, transparent 100%),
+      repeating-linear-gradient(90deg,
+        transparent 0px, transparent 12px,
+        rgba(232,74,87,0.15) 12px, rgba(232,74,87,0.15) 22px,
+        transparent 22px, transparent 34px);
+    height: 24px;
+    background-color: #0D0806;
+  }
+
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(13, 8, 6, 0.96);
+    backdrop-filter: blur(20px);
+    display: none;
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+  .lightbox.open {
+    display: flex;
+    opacity: 1;
+  }
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    box-shadow: 0 40px 80px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(232,74,87,0.2);
+  }
+
+  .film-strip {
+    position: relative;
+    background: #0D0806;
+    padding: 18px 0;
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+  .film-strip::before,
+  .film-strip::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    height: 18px;
+    background-image: repeating-linear-gradient(90deg,
+      transparent 0px, transparent 14px,
+      rgba(232,74,87,0.2) 14px, rgba(232,74,87,0.2) 26px,
+      transparent 26px, transparent 40px);
+    background-color: #1A0A05;
+    z-index: 2;
+  }
+  .film-strip::before { top: 0; }
+  .film-strip::after { bottom: 0; }
+  .film-cell {
+    flex-shrink: 0;
+    width: 200px;
+    height: 136px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(232,74,87,0.15);
+    transition: all 400ms ease;
+  }
+  .film-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.3) contrast(1.05);
+    transition: filter 500ms ease, transform 700ms ease;
+  }
+  .film-cell:hover {
+    transform: scale(1.05);
+    border-color: rgba(232,74,87,0.6);
+    z-index: 5;
+  }
+  .film-cell:hover img {
+    filter: sepia(0) contrast(1.05);
+    transform: scale(1.1);
+  }
+
+  .album-chip {
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid rgba(232,74,87,0.25);
+    color: rgba(255,200,208,0.7);
+    cursor: pointer;
+    transition: all 250ms ease;
+    white-space: nowrap;
+  }
+  .album-chip:hover {
+    border-color: rgba(232,74,87,0.6);
+    color: #FFA0A8;
+    transform: translateY(-2px);
+  }
+  .album-chip.active {
+    background: linear-gradient(135deg, #E84A57, #B0202E);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 6px 16px -4px rgba(232,74,87,0.5);
+  }
+  .album-chip .chip-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: rgba(232,74,87,0.15);
+    color: #E84A57;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 0 5px;
+    margin-left: 6px;
+  }
+  .album-chip.active .chip-count {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+  }
+
+  .exif-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .exif-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,200,208,0.5);
+  }
+  .exif-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: #FFA0A8;
+  }
+
+  .view-btn {
+    transition: all 250ms ease;
+    color: rgba(255,200,208,0.5);
+  }
+  .view-btn.active {
+    background: linear-gradient(to right, #E84A57, #D32F3E);
+    color: #fff;
+    box-shadow: 0 4px 12px -3px rgba(232,74,87,0.5);
+  }
+
+  .scan-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #E84A57, transparent);
+    opacity: 0.6;
+    animation: scan 3s ease-in-out infinite;
+  }
+  @keyframes scan {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
+  }
+</style>
+</head>
+
+<body class="bg-[#1A0A05] text-paper-100 antialiased selection:bg-brand-500/30 overflow-x-hidden">
+
+<div id="scrollProgress"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+  <div class="glass rounded-full px-3 md:px-5 py-2 relative flex items-center gap-3">
+
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 pl-1 z-10">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft ring-2 ring-white/70">
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="leading-tight hidden sm:block">
+        <p class="font-extrabold text-[13.5px] tracking-tight text-gray-900">KESBANGPOL</p>
+        <p class="text-[10px] font-medium text-brand-600/90 tracking-wide">KOTA NUSANTARA</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
+      <li><a href="index.html" class="block px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Beranda</a></li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Profil
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-56 shadow-2xl">
+            <a href="profil.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Profil Pimpinan</a>
+            <a href="sejarah.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="struktur.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="program.html" class="block px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Program</a></li>
+      <li><a href="agenda.html" class="block px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Agenda Pimpinan</a></li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Publikasi
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="berita.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-brand-600 bg-brand-50/80 transition">
+          Galeri
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="foto.html" class="block px-3 py-2 rounded-xl text-[12px] font-semibold text-brand-700 bg-brand-50">Galeri Foto</a>
+            <a href="videokegiatan.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Video Kegiatan</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <a href="index.html#kritik" class="hidden lg:inline-flex ml-auto shrink-0 items-center gap-2 px-5 py-2.5 rounded-full text-white text-[12.5px] font-bold bg-gradient-to-r from-brand-500 to-brand-600 shadow-glow hover:shadow-glowHover hover:from-brand-600 hover:to-brand-700 active:scale-95 transition-all duration-300">
+      <span class="relative flex w-1.5 h-1.5">
+        <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+        <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-white"></span>
+      </span>
+      Kritik &amp; Saran
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+
+    <button id="menuBtn" class="lg:hidden ml-auto w-11 h-11 rounded-full flex items-center justify-center glass text-gray-800 active:scale-95 transition z-10">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== MOBILE DRAWER ===================== -->
+<div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none">
+  <div id="drawerBg" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+  <aside id="drawerPanel" class="absolute right-0 top-0 h-full w-[88%] max-w-[380px] bg-white/95 backdrop-blur-2xl shadow-[-20px_0_60px_-20px_rgba(0,0,0,0.4)] translate-x-full transition-transform duration-500 flex flex-col" style="transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);">
+
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100/80">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-extrabold text-[13.5px] tracking-tight text-gray-900">KESBANGPOL</p>
+          <p class="text-[10px] font-medium text-brand-600 tracking-wide">KOTA NUSANTARA</p>
+        </div>
+      </div>
+      <button id="closeDrawer" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 active:scale-95 transition">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-3 py-4 space-y-1 no-scrollbar">
+      <a href="index.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">01</span>
+        Beranda
+      </a>
+      <a href="program.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">03</span>
+        Program
+      </a>
+      <a href="agenda.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">04</span>
+        Agenda Pimpinan
+      </a>
+      <a href="berita.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">05</span>
+        Berita
+      </a>
+      <a href="foto.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-brand-600 bg-brand-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xs font-bold">06</span>
+        Galeri Foto
+      </a>
+    </div>
+
+    <div class="p-4 border-t border-gray-100">
+      <a href="index.html#kritik" data-close class="flex items-center justify-center gap-2 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-700 text-white font-bold shadow-soft active:scale-[0.98] transition text-[13.5px]">
+        Kirim Kritik &amp; Saran
+      </a>
+    </div>
+  </aside>
+</div>
+
+<!-- ============================================================= -->
+<main>
+
+  <!-- ===================== HERO — DARKROOM ===================== -->
+  <section class="relative min-h-screen overflow-hidden darkroom-grad">
+
+    <div class="absolute top-32 left-1/4 w-[500px] h-[500px] red-glow rounded-full pointer-events-none flicker"></div>
+    <div class="absolute bottom-20 right-1/4 w-[400px] h-[400px] red-glow rounded-full pointer-events-none flicker" style="animation-delay: 1.5s;"></div>
+
+    <div class="absolute inset-0 pattern-dots opacity-[0.08] pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-500 via-brand-700 to-brand-500"></div>
+
+    <div class="hidden md:block absolute top-32 right-10 w-[520px] h-[520px] spin-slow pointer-events-none opacity-[0.06]">
+      <svg viewBox="0 0 200 200" class="w-full h-full">
+        <circle cx="100" cy="100" r="96" fill="none" stroke="#E84A57" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#E84A57" stroke-width="1"/>
+        <circle cx="100" cy="100" r="64" fill="none" stroke="#E84A57" stroke-width="0.8" stroke-dasharray="3 4"/>
+        <text x="100" y="88" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="900" fill="#E84A57">GALERI</text>
+        <text x="100" y="122" text-anchor="middle" font-family="Playfair Display" font-size="14" font-weight="700" fill="#E84A57">FOTO</text>
+      </svg>
+    </div>
+
+    <div class="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 vertical-text font-mono text-[10px] tracking-[0.5em] uppercase text-brand-500/40">
+      Darkroom Studio · Kesbangpol · Kota Nusantara · 2025
+    </div>
+
+    <div class="relative pt-32 md:pt-36">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[9.5px] font-mono tracking-widest text-brand-500/60 uppercase">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-500 blink-dot"></span>
+            Arsip No. GAL-FTO/2025-06
+          </span>
+          <span class="hidden sm:inline text-brand-500/30">|</span>
+          <span>648 Foto Terkurasi</span>
+          <span class="hidden sm:inline text-brand-500/30">|</span>
+          <span>24 Album</span>
+        </div>
+        <div class="mt-4 h-px bg-gradient-to-r from-brand-500/40 via-brand-500/15 to-transparent"></div>
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 pt-12 md:pt-16 pb-24 md:pb-28">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+
+        <div class="lg:col-span-7 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-12 h-px bg-brand-500"></span>
+            <span class="font-typewriter text-[10.5px] tracking-[0.3em] uppercase text-brand-400">Arsip Visual · Dokumentasi Kegiatan</span>
+          </div>
+
+          <h1 class="font-display font-black text-[40px] sm:text-[52px] md:text-[64px] lg:text-[78px] leading-[0.9] tracking-[-0.03em] text-paper-100">
+            <span class="block">Ruang</span>
+            <span class="block italic text-gradient">Gelap.</span>
+          </h1>
+
+          <p class="mt-6 text-paper-100/70 text-base md:text-lg leading-relaxed max-w-2xl font-book">
+            Di ruang gelap ini, setiap momen <span class="italic text-brand-400">dikembangkan dengan sabar</span>. Tidak ada yang instan. Tidak ada yang diburu-buru. Hanya cahaya yang menembus lensa, dan cerita yang berhenti di dalamnya.
+          </p>
+
+          <div class="mt-8 grid grid-cols-3 gap-4 max-w-lg">
+            <div class="border-l-2 border-brand-500 pl-4">
+              <p class="font-display font-black text-2xl md:text-3xl text-paper-100 chapter-num">648</p>
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60 mt-1">FOTO ARSIP</p>
+            </div>
+            <div class="border-l-2 border-brand-500 pl-4">
+              <p class="font-display font-black text-2xl md:text-3xl text-paper-100 chapter-num">24</p>
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60 mt-1">ALBUM</p>
+            </div>
+            <div class="border-l-2 border-brand-500 pl-4">
+              <p class="font-display font-black text-2xl md:text-3xl text-paper-100 chapter-num">08</p>
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60 mt-1">FOTOGRAFER</p>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#koleksi" class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 font-semibold text-white text-sm shadow-glow hover:shadow-glowHover transition">
+              Jelajahi Koleksi
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#film" class="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-darkroom border-brand-500/30 font-semibold text-sm text-paper-100 hover:bg-brand-500/10 transition">
+              Lihat Film Strip
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative reveal-right">
+          <div class="relative">
+            <div class="relative aspect-[4/5] max-w-md mx-auto">
+
+              <div class="absolute top-4 left-4 w-full h-full photo-frame rounded-sm rotate-[-4deg] overflow-hidden">
+                <img src="https://picsum.photos/seed/darkroom-bg/800/1000" class="w-full h-full object-cover" alt="">
+              </div>
+              <div class="absolute top-2 left-2 w-full h-full photo-frame rounded-sm rotate-[2deg] overflow-hidden">
+                <img src="https://picsum.photos/seed/darkroom-bg2/800/1000" class="w-full h-full object-cover" alt="">
+              </div>
+
+              <div class="relative w-full h-full photo-frame rounded-sm overflow-hidden">
+                <img src="https://picsum.photos/seed/darkroom-hero/800/1000" class="w-full h-full object-cover" alt="">
+
+                <div class="scan-line"></div>
+
+                <div class="absolute top-3 left-3 right-3 flex items-center justify-between">
+                  <span class="px-2 py-1 bg-brand-600/90 backdrop-blur font-mono text-[9px] tracking-widest uppercase text-white rounded-full">
+                    ● REC
+                  </span>
+                  <span class="px-2 py-1 bg-black/60 backdrop-blur font-mono text-[9px] tracking-widest uppercase text-brand-400 rounded-full">
+                    ISO 400 · f/2.8
+                  </span>
+                </div>
+
+                <div class="absolute bottom-3 left-3 right-3">
+                  <div class="glass-darkroom rounded-lg p-3 border border-brand-500/25">
+                    <div class="grid grid-cols-3 gap-2">
+                      <div>
+                        <p class="font-mono text-[8px] tracking-widest uppercase text-brand-500/70">SHUTTER</p>
+                        <p class="font-mono text-[10px] font-bold text-brand-300 mt-0.5">1/250s</p>
+                      </div>
+                      <div>
+                        <p class="font-mono text-[8px] tracking-widest uppercase text-brand-500/70">APERTURE</p>
+                        <p class="font-mono text-[10px] font-bold text-brand-300 mt-0.5">f/2.8</p>
+                      </div>
+                      <div>
+                        <p class="font-mono text-[8px] tracking-widest uppercase text-brand-500/70">ISO</p>
+                        <p class="font-mono text-[10px] font-bold text-brand-300 mt-0.5">400</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -top-6 -right-6 w-20 h-20 rounded-full wax-seal flex items-center justify-center text-white rotate-[-12deg] bob hidden md:flex">
+              <div class="text-center">
+                <svg class="w-6 h-6 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+                  <path d="m9 12 2 2 4-4"/>
+                </svg>
+                <p class="font-display font-black text-[7px] tracking-widest mt-1">ARSIP</p>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-5 -left-5 stamp rounded-lg px-3.5 py-2 text-[9.5px] tracking-[0.2em] uppercase hidden md:block">
+              <p class="font-black text-xs">DOKUMENTASI</p>
+              <p class="text-[9px]">KESBANGPOL · 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-500/40 text-[10px] font-typewriter tracking-widest uppercase">
+      <span>Telusuri</span>
+      <span class="w-px h-8 bg-gradient-to-b from-brand-500/40 to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- ===================== QUICK FACTS STRIP ===================== -->
+  <section class="relative -mt-14 md:-mt-16 z-20 px-6 md:px-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="glass-darkroom rounded-[2rem] p-5 md:p-7 border border-brand-500/25 relative">
+        <div class="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-brand-500"></div>
+        <div class="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-brand-500"></div>
+        <div class="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-brand-500"></div>
+        <div class="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-brand-500"></div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-brand-500/15">
+
+          <div class="md:px-4">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">Total Koleksi</p>
+            <p class="mt-2 font-display font-black text-base text-paper-100 leading-tight">648 Foto</p>
+            <p class="text-xs text-paper-100/40 mt-1">Terkurasi &amp; terverifikasi</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">Album</p>
+            <p class="mt-2 font-display font-black text-base text-paper-100 leading-tight">24 Album</p>
+            <p class="text-xs text-paper-100/40 mt-1">Berdasarkan kegiatan</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">Periode</p>
+            <p class="mt-2 font-display font-black text-base text-paper-100 leading-tight">2020 — 2025</p>
+            <p class="text-xs text-paper-100/40 mt-1">Lima tahun terakhir</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">Kurator</p>
+            <p class="mt-2 font-display font-black text-base text-paper-100 leading-tight">Tim Dokumentasi</p>
+            <p class="text-xs text-paper-100/40 mt-1">8 fotografer aktif</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KOLEKSI UTAMA ===================== -->
+  <section id="koleksi" class="relative py-20 md:py-28 bg-[#1A0A05] overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-[0.06] pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-72 h-72 pattern-dots opacity-[0.08] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 reveal">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-px bg-brand-500"></span>
+            <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-500">ROLL 01 · KOLEKSI UTAMA</span>
+          </div>
+          <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">01</p>
+          <h2 class="mt-5 font-display text-2xl md:text-4xl font-black tracking-tight text-paper-100 leading-tight">
+            Arsip <span class="italic text-gradient">Visual</span>
+          </h2>
+          <p class="mt-3 text-paper-100/60 max-w-xl font-book text-sm md:text-base">
+            Setiap foto adalah fragmen cerita. Klik untuk membuka dalam mode layar penuh dengan metadata lengkap.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 shrink-0">
+          <div class="flex items-center gap-2">
+            <span class="font-mono text-[10px] tracking-widest uppercase text-brand-500/50">TAMPILAN:</span>
+            <div class="inline-flex p-1 rounded-full glass-darkroom border border-brand-500/25">
+              <button class="view-btn active px-4 py-1.5 rounded-full text-[10px] font-bold font-mono tracking-widest uppercase" data-view="grid">
+                <svg class="w-3 h-3 inline mr-1" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                GRID
+              </button>
+              <button class="view-btn px-4 py-1.5 rounded-full text-[10px] font-bold font-mono tracking-widest uppercase" data-view="sheet">
+                <svg class="w-3 h-3 inline mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="4" rx="1"/><rect x="2" y="10" width="20" height="4" rx="1"/><rect x="2" y="16" width="20" height="4" rx="1"/></svg>
+                SHEET
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-8 -mx-6 px-6 md:mx-0 md:px-0 overflow-x-auto no-scrollbar reveal">
+        <div class="flex gap-2.5">
+          <button class="album-chip active" data-album="all">Semua <span class="chip-count">12</span></button>
+          <button class="album-chip" data-album="rapat">Rapat &amp; Koordinasi <span class="chip-count">3</span></button>
+          <button class="album-chip" data-album="dialog">Dialog &amp; Sosialisasi <span class="chip-count">3</span></button>
+          <button class="album-chip" data-album="sosial">Bakti Sosial <span class="chip-count">2</span></button>
+          <button class="album-chip" data-album="kunjungan">Kunjungan Kerja <span class="chip-count">2</span></button>
+          <button class="album-chip" data-album="upacara">Upacara &amp; Apel <span class="chip-count">2</span></button>
+        </div>
+      </div>
+
+      <div id="photoGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-[220px] reveal">
+
+        <!-- Photo 1 — featured -->
+        <article class="photo-item group col-span-2 row-span-2 photo-frame rounded-sm overflow-hidden" data-album="rapat">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(0)">
+            <img src="https://picsum.photos/seed/gal-1/1200/1200" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+            <div class="absolute inset-0 p-5 flex flex-col justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="flex justify-between">
+                <span class="px-2.5 py-1 bg-brand-600 font-mono text-[9px] tracking-widest uppercase text-white rounded-full">FEATURED</span>
+                <span class="px-2.5 py-1 bg-black/60 backdrop-blur font-mono text-[9px] tracking-widest uppercase text-brand-400 rounded-full">01/12</span>
+              </div>
+              <div class="text-white">
+                <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-2">RAPAT KOORDINASI</p>
+                <h3 class="font-display font-black text-lg leading-tight">Rapat Koordinasi Forkopimda Bulan Maret 2025</h3>
+                <p class="text-xs text-white/70 mt-2 flex items-center gap-2">
+                  <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  Aula Pemkot Nusantara
+                </p>
+              </div>
+            </div>
+
+            <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/70 to-transparent group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-001 · 12 MAR 2025</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 2 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="dialog">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(1)">
+            <img src="https://picsum.photos/seed/gal-2/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-002</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">DIALOG</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Dialog Lintas Iman FKUB</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 3 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="sosial">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(2)">
+            <img src="https://picsum.photos/seed/gal-3/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-003</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">SOSIAL</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Bakti Sosial Ramadan</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 4 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="kunjungan">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(3)">
+            <img src="https://picsum.photos/seed/gal-4/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-004</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">KUNJUNGAN</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Kunjungan Kerja Provinsi</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 5 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="upacara">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(4)">
+            <img src="https://picsum.photos/seed/gal-5/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-005</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">UPACARA</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Apel Kesadaran Nasional</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 6 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="rapat">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(5)">
+            <img src="https://picsum.photos/seed/gal-6/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-006</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">RAPAT</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Rapat Penyusunan Program</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 7 — wide -->
+        <article class="photo-item group col-span-2 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="dialog">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(6)">
+            <img src="https://picsum.photos/seed/gal-7/1600/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-007 · PANORAMA</p>
+            </div>
+            <div class="absolute inset-0 p-5 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">DIALOG</p>
+              <h3 class="font-display font-black text-base text-white leading-tight">Suasana Dialog Lintas Iman</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 8 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="sosial">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(7)">
+            <img src="https://picsum.photos/seed/gal-8/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-008</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">SOSIAL</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Donor Darah Lintas Iman</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 9 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="kunjungan">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(8)">
+            <img src="https://picsum.photos/seed/gal-9/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-009</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">KUNJUNGAN</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Kunjungan Kecamatan Selatan</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 10 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="upacara">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(9)">
+            <img src="https://picsum.photos/seed/gal-10/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-010</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">UPACARA</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Apel Pagi Rutin</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 11 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="rapat">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(10)">
+            <img src="https://picsum.photos/seed/gal-11/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-011</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">RAPAT</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Rapat Evaluasi Triwulan</h3>
+            </div>
+          </div>
+        </article>
+
+        <!-- Photo 12 -->
+        <article class="photo-item group col-span-1 row-span-1 photo-frame rounded-sm overflow-hidden" data-album="dialog">
+          <div class="relative w-full h-full overflow-hidden cursor-pointer" onclick="openLightbox(11)">
+            <img src="https://picsum.photos/seed/gal-12/800/800" class="w-full h-full object-cover" alt="">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-3 group-hover:opacity-0 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-400">GAL-012</p>
+            </div>
+            <div class="absolute inset-0 p-3 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-300 mb-1">DIALOG</p>
+              <h3 class="font-display font-black text-[13px] text-white leading-tight line-clamp-2">Dialog Pancasila Bulanan</h3>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div id="photoEmpty" class="hidden text-center py-16">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-500 mb-4">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+        </div>
+        <p class="font-display text-lg font-black text-paper-100">Belum ada foto</p>
+        <p class="text-sm text-paper-100/50 mt-2">Untuk album yang dipilih.</p>
+      </div>
+
+      <div class="mt-12 text-center reveal">
+        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 glass-darkroom border border-brand-500/30 font-mono text-[10px] font-bold tracking-widest uppercase text-paper-100 hover:bg-brand-500/10 transition rounded-full">
+          Muat Foto Lainnya
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FILM STRIP ===================== -->
+  <section id="film" class="relative py-20 md:py-24 bg-[#0D0806] overflow-hidden border-y border-brand-500/15">
+    <div class="absolute inset-0 pattern-dots opacity-[0.06] pointer-events-none"></div>
+    <div class="absolute top-1/3 -left-40 w-[420px] h-[420px] red-glow rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative mb-10 reveal">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-px bg-brand-500"></span>
+            <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-500">ROLL 02 · FILM STRIP</span>
+          </div>
+          <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">02</p>
+          <h2 class="mt-5 font-display text-2xl md:text-4xl font-black tracking-tight text-paper-100 leading-tight">
+            Kontak <span class="italic text-gradient">Negatif</span>
+          </h2>
+          <p class="mt-3 text-paper-100/60 max-w-xl font-book text-sm md:text-base">
+            Arsip kontak sheet — seperti negatif film yang belum dipotong. Geser untuk menelusuri.
+          </p>
+        </div>
+        <div class="flex gap-3">
+          <button id="filmPrev" class="w-11 h-11 rounded-full glass-darkroom border border-brand-500/30 text-paper-100 hover:bg-brand-500 hover:border-brand-500 transition active:scale-95 flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button id="filmNext" class="w-11 h-11 rounded-full glass-darkroom border border-brand-500/30 text-paper-100 hover:bg-brand-500 hover:border-brand-500 transition active:scale-95 flex items-center justify-center">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="filmStrip" class="film-strip no-scrollbar px-6 md:px-10 reveal">
+      <div class="film-cell" onclick="openLightbox(0)"><img src="https://picsum.photos/seed/film-1/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(1)"><img src="https://picsum.photos/seed/film-2/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(2)"><img src="https://picsum.photos/seed/film-3/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(3)"><img src="https://picsum.photos/seed/film-4/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(4)"><img src="https://picsum.photos/seed/film-5/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(5)"><img src="https://picsum.photos/seed/film-6/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(6)"><img src="https://picsum.photos/seed/film-7/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(7)"><img src="https://picsum.photos/seed/film-8/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(8)"><img src="https://picsum.photos/seed/film-9/800/600" alt=""></div>
+      <div class="film-cell" onclick="openLightbox(9)"><img src="https://picsum.photos/seed/film-10/800/600" alt=""></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 mt-6 flex items-center gap-3">
+      <div class="flex-1 h-[3px] bg-brand-500/15 rounded-full overflow-hidden">
+        <div id="filmProgress" class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width:0%"></div>
+      </div>
+      <p class="font-mono text-[10px] tracking-widest text-brand-500/50 uppercase shrink-0">← geser →</p>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURED PHOTO ===================== -->
+  <section class="relative py-20 md:py-28 bg-[#1A0A05] overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-[0.06] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex items-center gap-3 mb-10 reveal">
+        <span class="w-10 h-px bg-brand-500"></span>
+        <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-500">ROLL 03 · FOTO BULAN INI</span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center reveal">
+        <div class="lg:col-span-7 relative">
+          <div class="relative photo-frame rounded-sm overflow-hidden">
+            <img src="https://picsum.photos/seed/featured-month/1600/1100" class="w-full h-[360px] md:h-[500px] object-cover cursor-pointer" onclick="openLightbox(0)" alt="">
+
+            <div class="scan-line"></div>
+
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1.5 bg-brand-600 backdrop-blur font-mono text-[10px] font-bold tracking-widest uppercase text-white rounded-full">
+                ★ PILIHAN BULAN INI
+              </span>
+            </div>
+
+            <div class="absolute bottom-4 right-4">
+              <span class="px-3 py-1.5 bg-black/60 backdrop-blur font-mono text-[10px] tracking-widest uppercase text-brand-400 rounded-full">
+                GAL-FTR-001
+              </span>
+            </div>
+          </div>
+
+          <div class="absolute -top-3 -left-3 w-8 h-8 border-t-2 border-l-2 border-brand-500"></div>
+          <div class="absolute -bottom-3 -right-3 w-8 h-8 border-b-2 border-r-2 border-brand-500"></div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mb-4">DIAMBIL DENGAN</p>
+          <p class="font-display font-black text-xl text-paper-100">Canon EOS R5 · RF 24-70mm f/2.8L</p>
+
+          <h3 class="mt-5 font-display font-black text-2xl md:text-3xl lg:text-4xl leading-tight tracking-tight text-paper-100">
+            Dalam Hening <span class="italic text-gradient">Rapat</span>, Ada Doa yang Terucap
+          </h3>
+
+          <p class="mt-5 text-paper-100/70 leading-relaxed font-book text-sm md:text-base">
+            Terkadang, momen paling jujur bukan saat semua orang berbicara, melainkan saat semua orang diam dan mendengarkan. Foto ini diambil tanpa disadari oleh subjek, dalam jeda hening setelah pembahasan selesai.
+          </p>
+
+          <div class="mt-7 glass-darkroom rounded-2xl p-5 md:p-6 border border-brand-500/25">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mb-4">EXIF DATA</p>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <div class="exif-item">
+                <span class="exif-label">Shutter</span>
+                <span class="exif-value">1/250s</span>
+              </div>
+              <div class="exif-item">
+                <span class="exif-label">Aperture</span>
+                <span class="exif-value">f/2.8</span>
+              </div>
+              <div class="exif-item">
+                <span class="exif-label">ISO</span>
+                <span class="exif-value">400</span>
+              </div>
+              <div class="exif-item">
+                <span class="exif-label">Focal</span>
+                <span class="exif-value">50mm</span>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-5 border-t border-brand-500/15 grid grid-cols-2 gap-4">
+              <div class="exif-item">
+                <span class="exif-label">Photographer</span>
+                <span class="exif-value">Bagas Wicaksono</span>
+              </div>
+              <div class="exif-item">
+                <span class="exif-label">Location</span>
+                <span class="exif-value">Aula Kesbangpol</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-7 flex flex-wrap gap-3">
+            <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-semibold text-sm shadow-glow hover:shadow-glowHover transition">
+              Lihat Foto Lainnya
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <button onclick="openLightbox(0)" class="inline-flex items-center gap-2 px-6 py-3 rounded-full glass-darkroom border border-brand-500/30 text-paper-100 font-semibold text-sm hover:bg-brand-500/10 transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M11 8v6M8 11h6"/></svg>
+              Perbesar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATISTIK ===================== -->
+  <section class="relative py-20 md:py-24 bg-[#0D0806] overflow-hidden border-t border-brand-500/15">
+    <div class="absolute inset-0 pattern-dots opacity-[0.05] pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-40 w-[420px] h-[420px] red-glow rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <div class="inline-flex items-center gap-3 mb-4">
+          <span class="w-10 h-px bg-brand-500"></span>
+          <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-500">ROLL 04 · STATISTIK</span>
+          <span class="w-10 h-px bg-brand-500"></span>
+        </div>
+        <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">04</p>
+        <h2 class="mt-5 font-display text-2xl md:text-4xl font-black tracking-tight text-paper-100 leading-tight">
+          Angka di Balik <span class="italic text-gradient">Lensa</span>
+        </h2>
+        <p class="mt-3 text-paper-100/60 font-book text-sm md:text-base">
+          Statistik arsip foto Badan Kesbangpol Kota Nusantara per Maret 2025.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-4 md:gap-5 md:h-[500px] reveal">
+
+        <article class="md:col-span-5 md:row-span-2 group relative overflow-hidden rounded-2xl darkroom-grad p-6 md:p-8 border border-brand-500/25">
+          <div class="absolute inset-0 pattern-dots opacity-10"></div>
+          <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-brand-500/20 spin-slow pointer-events-none"></div>
+          <div class="absolute -bottom-20 -left-20 w-64 h-64 red-glow rounded-full opacity-50"></div>
+
+          <div class="relative h-full flex flex-col">
+            <div class="flex items-center justify-between mb-5">
+              <span class="px-3 py-1.5 rounded-full glass-darkroom text-[10px] font-mono tracking-widest uppercase text-brand-300 border border-brand-500/25">TOTAL ARSIP</span>
+              <div class="w-11 h-11 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center">
+                <svg class="w-5 h-5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></svg>
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-[80px] md:text-[100px] leading-none chapter-num text-paper-100">648</p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mt-2">FOTO TERARSIP · 2020-2025</p>
+              <p class="mt-4 text-sm text-paper-100/60 leading-relaxed max-w-sm font-book">
+                Seluruh foto telah melalui proses kurasi, editing, dan verifikasi oleh tim dokumentasi Kesbangpol.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-2xl bg-[#1A0A05] border border-brand-500/20 p-5">
+          <div class="absolute top-0 right-0 w-32 h-32 pattern-diag opacity-30 rounded-bl-full"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/25 font-mono text-[10px] tracking-widest uppercase text-brand-400 w-fit">KATEGORI</span>
+
+            <div class="mt-4 space-y-3 flex-1">
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-paper-100">Rapat &amp; Koordinasi</span>
+                  <span class="font-mono text-xs text-brand-400 font-bold">28%</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-500/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 28%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-paper-100">Dialog &amp; Sosialisasi</span>
+                  <span class="font-mono text-xs text-brand-400 font-bold">24%</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-500/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 24%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-paper-100">Bakti Sosial</span>
+                  <span class="font-mono text-xs text-brand-400 font-bold">18%</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-500/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 18%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-paper-100">Kunjungan &amp; Lainnya</span>
+                  <span class="font-mono text-xs text-brand-400 font-bold">30%</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-500/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 30%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-5 text-white">
+          <div class="absolute inset-0 pattern-zigzag opacity-10"></div>
+          <div class="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-brand-500/30 blur-2xl"></div>
+
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full glass-darkroom text-[10px] font-mono tracking-widest uppercase text-orange-100 w-fit">FOTOGRAFER</span>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-4xl md:text-5xl chapter-num mt-6 text-white">08</p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-orange-200 mt-2">FOTOGRAFER AKTIF</p>
+              <div class="mt-4 flex -space-x-3">
+                <div class="w-8 h-8 rounded-full border-2 border-brand-700 overflow-hidden">
+                  <img src="https://picsum.photos/seed/ph1/100/100" class="w-full h-full object-cover" alt="">
+                </div>
+                <div class="w-8 h-8 rounded-full border-2 border-brand-700 overflow-hidden">
+                  <img src="https://picsum.photos/seed/ph2/100/100" class="w-full h-full object-cover" alt="">
+                </div>
+                <div class="w-8 h-8 rounded-full border-2 border-brand-700 overflow-hidden">
+                  <img src="https://picsum.photos/seed/ph3/100/100" class="w-full h-full object-cover" alt="">
+                </div>
+                <div class="w-8 h-8 rounded-full border-2 border-brand-700 bg-brand-900 flex items-center justify-center text-[9px] font-bold">+5</div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-2xl bg-[#1A0A05] border border-brand-500/20 p-5">
+          <div class="absolute bottom-0 right-0 w-32 h-32 pattern-dots opacity-30 rounded-tl-full"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/25 font-mono text-[10px] tracking-widest uppercase text-brand-400 w-fit">PERIODE ARSIP</span>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-4xl md:text-5xl text-paper-100 chapter-num mt-6">05</p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mt-2">TAHUN TERDOKUMENTASI</p>
+              <p class="text-xs text-paper-100/60 mt-3 font-book">Periode 2020 hingga 2025 dengan foto bulanan.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-2xl darkroom-grad border border-brand-500/25 p-5">
+          <div class="absolute inset-0 pattern-dots opacity-10"></div>
+          <div class="absolute -top-16 -right-16 w-40 h-40 red-glow rounded-full opacity-60"></div>
+
+          <div class="relative h-full flex flex-col">
+            <svg class="w-7 h-7 text-brand-400 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+
+            <div class="mt-auto">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">RATA-RATA / BULAN</p>
+              <p class="font-display font-black text-4xl chapter-num mt-2 text-paper-100">11</p>
+              <p class="text-xs text-paper-100/60 mt-2 font-book">Foto per bulan</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BEHIND THE SCENES ===================== -->
+  <section class="relative py-20 md:py-28 bg-[#1A0A05] overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-[0.06] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex items-center gap-3 mb-10 reveal">
+        <span class="w-10 h-px bg-brand-500"></span>
+        <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-500">ROLL 05 · DI BALIK LAYAR</span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center reveal">
+
+        <div class="lg:col-span-5">
+          <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">05</p>
+          <h2 class="mt-5 font-display text-2xl md:text-4xl font-black tracking-tight text-paper-100 leading-tight">
+            Setiap Foto Punya <span class="italic text-gradient">Cerita</span>
+          </h2>
+          <p class="mt-4 text-paper-100/70 leading-relaxed font-book text-sm md:text-base">
+            Di balik setiap foto yang Anda lihat, ada tim dokumentasi yang bekerja dengan sabar. Mereka bukan hanya memotret momen, tapi juga menangkap suasana, emosi, dan cerita yang tak terkatakan.
+          </p>
+          <p class="mt-3 text-paper-100/60 leading-relaxed font-book text-sm">
+            Tim kami terdiri dari 8 fotografer internal yang siap sedia di setiap kegiatan pimpinan — dari apel pagi hingga kunjungan kerja ke pelosok kecamatan.
+          </p>
+
+          <div class="mt-7 space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-500/15 border border-brand-500/30 flex items-center justify-center text-brand-400 shrink-0 mt-0.5">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m5 12 5 5L20 7"/></svg>
+              </span>
+              <p class="text-sm text-paper-100/75 font-book leading-relaxed">Setiap foto diverifikasi keasliannya sebelum diarsipkan.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-500/15 border border-brand-500/30 flex items-center justify-center text-brand-400 shrink-0 mt-0.5">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m5 12 5 5L20 7"/></svg>
+              </span>
+              <p class="text-sm text-paper-100/75 font-book leading-relaxed">Metadata lengkap dicatat untuk setiap dokumentasi.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-brand-500/15 border border-brand-500/30 flex items-center justify-center text-brand-400 shrink-0 mt-0.5">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m5 12 5 5L20 7"/></svg>
+              </span>
+              <p class="text-sm text-paper-100/75 font-book leading-relaxed">Arsip tersimpan dengan sistem backup ganda (cloud &amp; fisik).</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="grid grid-cols-3 gap-3 md:gap-4">
+            <div class="photo-frame rounded-sm overflow-hidden aspect-square">
+              <img src="https://picsum.photos/seed/team1/500/500" class="w-full h-full object-cover" alt="">
+            </div>
+            <div class="photo-frame rounded-sm overflow-hidden aspect-square">
+              <img src="https://picsum.photos/seed/team2/500/500" class="w-full h-full object-cover" alt="">
+            </div>
+            <div class="photo-frame rounded-sm overflow-hidden aspect-square">
+              <img src="https://picsum.photos/seed/team3/500/500" class="w-full h-full object-cover" alt="">
+            </div>
+            <div class="photo-frame rounded-sm overflow-hidden aspect-square col-span-2">
+              <img src="https://picsum.photos/seed/team4/1000/500" class="w-full h-full object-cover" alt="">
+            </div>
+            <div class="photo-frame rounded-sm overflow-hidden aspect-square">
+              <img src="https://picsum.photos/seed/team5/500/500" class="w-full h-full object-cover" alt="">
+            </div>
+          </div>
+
+          <div class="mt-6 glass-darkroom rounded-2xl p-5 border border-brand-500/25">
+            <p class="font-book italic text-paper-100/85 leading-relaxed text-sm">
+              "Kami bukan hanya merekam, kami merawat kenangan. Karena suatu hari nanti, foto-foto inilah yang akan bercerita kepada generasi berikutnya."
+            </p>
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mt-3">— BAGAS WICAKSONO · KETUA TIM DOKUMENTASI</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="relative overflow-hidden">
+    <div class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 py-14 md:py-16 relative">
+      <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+      <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-900/40 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 relative flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-white text-center md:text-left">
+          <p class="font-mono text-[10px] tracking-widest uppercase text-orange-100/90">Suara Anda Berarti</p>
+          <h3 class="mt-2 font-display text-2xl md:text-3xl font-black leading-tight">
+            Punya kritik atau saran?
+          </h3>
+          <p class="mt-2 text-white/80 max-w-lg text-sm">Setiap masukan Anda akan kami tindak lanjuti untuk pelayanan yang lebih baik.</p>
+        </div>
+        <a href="index.html#kritik" class="group shrink-0 inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white text-brand-700 font-black text-sm shadow-2xl hover:bg-brand-50 hover:scale-105 active:scale-95 transition-all">
+          Kirim Sekarang
+          <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center group-hover:rotate-[-45deg] transition-transform duration-300">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== LIGHTBOX ===================== -->
+<div id="lightbox" class="lightbox items-center justify-center p-4 md:p-10">
+  <button onclick="closeLightbox()" class="absolute top-6 right-6 md:top-8 md:right-8 w-11 h-11 rounded-full glass-darkroom border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-white transition flex items-center justify-center z-20">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+
+  <button onclick="navLightbox(-1)" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-darkroom border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-white transition flex items-center justify-center z-20">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+
+  <button onclick="navLightbox(1)" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-darkroom border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-white transition flex items-center justify-center z-20">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+
+  <div class="relative max-w-6xl w-full scale-in">
+    <img id="lightboxImage" class="lightbox-image w-full mx-auto" src="" alt="">
+
+    <div class="mt-5 glass-darkroom rounded-2xl p-5 md:p-6 border border-brand-500/25">
+      <div class="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+        <div class="flex-1">
+          <p id="lightboxCategory" class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mb-2">KATEGORI</p>
+          <h3 id="lightboxTitle" class="font-display font-black text-base md:text-xl text-paper-100 leading-tight">Judul Foto</h3>
+          <p id="lightboxLocation" class="text-sm text-paper-100/60 mt-2 flex items-center gap-2">
+            <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Lokasi</span>
+          </p>
+        </div>
+
+        <div class="flex-1 grid grid-cols-4 gap-3">
+          <div class="exif-item">
+            <span class="exif-label">Shutter</span>
+            <span id="exifShutter" class="exif-value">1/250s</span>
+          </div>
+          <div class="exif-item">
+            <span class="exif-label">Aperture</span>
+            <span id="exifAperture" class="exif-value">f/2.8</span>
+          </div>
+          <div class="exif-item">
+            <span class="exif-label">ISO</span>
+            <span id="exifIso" class="exif-value">400</span>
+          </div>
+          <div class="exif-item">
+            <span class="exif-label">Focal</span>
+            <span id="exifFocal" class="exif-value">50mm</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 pt-5 border-t border-brand-500/15 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">
+          <span id="lightboxCounter">01 / 12</span>
+          <span class="mx-2">·</span>
+          <span id="lightboxDate">12 Maret 2025</span>
+        </p>
+        <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">
+          PHOTOGRAPHER · <span id="lightboxPhotographer" class="text-brand-400 font-bold">TIM DOKUMENTASI</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#0D0806] text-white/70 pt-14 pb-8 relative overflow-hidden border-t border-brand-500/15">
+  <div class="absolute inset-0 pattern-dots opacity-[0.15]"></div>
+  <div class="absolute -top-40 left-1/3 w-96 h-96 rounded-full bg-brand-700/20 blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center ring-2 ring-white/10">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-extrabold text-white tracking-tight text-sm">KESBANGPOL</p>
+            <p class="text-[11px] text-brand-400 font-medium">Kota Nusantara</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed">
+          Badan Kesatuan Bangsa dan Politik berkomitmen menjaga stabilitas, kerukunan, dan persatuan dalam bingkai NKRI.
+        </p>
+        <div class="mt-5 flex gap-2">
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1a4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.3a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.5-1.3 2.1-2.1Z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.5 31 31 0 0 0-.5-4.5ZM9.8 15.4V8.6l6 3.4-6 3.4Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Tautan Cepat</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="hover:text-brand-400 transition">Beranda</a></li>
+          <li><a href="profil.html" class="hover:text-brand-400 transition">Profil Pimpinan</a></li>
+          <li><a href="sejarah.html" class="hover:text-brand-400 transition">Sejarah</a></li>
+          <li><a href="struktur.html" class="hover:text-brand-400 transition">Struktur Organisasi</a></li>
+          <li><a href="visi.html" class="hover:text-brand-400 transition">Visi &amp; Misi</a></li>
+          <li><a href="tugas.html" class="hover:text-brand-400 transition">Tugas &amp; Fungsi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Layanan</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="program.html" class="hover:text-brand-400 transition">Program</a></li>
+          <li><a href="agenda.html" class="hover:text-brand-400 transition">Agenda Pimpinan</a></li>
+          <li><a href="berita.html" class="hover:text-brand-400 transition">Berita</a></li>
+          <li><a href="galeri.html" class="hover:text-brand-400 transition">Galeri Foto</a></li>
+          <li><a href="index.html#kritik" class="hover:text-brand-400 transition">Kritik &amp; Saran</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Lokasi &amp; Kontak</h4>
+        <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521!2d106.8195!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMTAuMiJF!5e0!3m2!1sen!2sid!4v1700000000000"
+            class="w-full h-32 border-0"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Jl. Merdeka No. 123, Kota Nusantara</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span>(021) 123-4567</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <span>info@kesbangpol.go.id</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+      <p>© 2025 Badan Kesatuan Bangsa dan Politik. Seluruh hak cipta dilindungi.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-brand-400 transition">Kebijakan Privasi</a>
+        <a href="#" class="hover:text-brand-400 transition">Syarat &amp; Ketentuan</a>
+        <a href="#" class="hover:text-brand-400 transition">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  const drawer = document.getElementById('drawer');
+  const drawerBg = document.getElementById('drawerBg');
+  const drawerPanel = document.getElementById('drawerPanel');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeDrawer = document.getElementById('closeDrawer');
+
+  function openDrawer() {
+    drawer.classList.remove('pointer-events-none');
+    requestAnimationFrame(() => {
+      drawerBg.classList.replace('opacity-0', 'opacity-100');
+      drawerPanel.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  function closeDrawerFn() {
+    drawerBg.classList.replace('opacity-100', 'opacity-0');
+    drawerPanel.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+    setTimeout(() => drawer.classList.add('pointer-events-none'), 500);
+  }
+  menuBtn.addEventListener('click', openDrawer);
+  closeDrawer.addEventListener('click', closeDrawerFn);
+  drawerBg.addEventListener('click', closeDrawerFn);
+  document.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeDrawerFn));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('#navbar > div');
+    if (window.scrollY > 40) {
+      nav.style.paddingTop = '6px';
+      nav.style.paddingBottom = '6px';
+    } else {
+      nav.style.paddingTop = '';
+      nav.style.paddingBottom = '';
+    }
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+  });
+
+  const albumChips = document.querySelectorAll('.album-chip');
+  const photoItems = document.querySelectorAll('#photoGrid .photo-item');
+  const photoEmpty = document.getElementById('photoEmpty');
+
+  albumChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      albumChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      const album = chip.dataset.album;
+      let visible = 0;
+
+      photoItems.forEach(item => {
+        const itemAlbum = item.dataset.album;
+        const show = album === 'all' || itemAlbum === album;
+        if (show) {
+          item.style.display = '';
+          item.style.opacity = '0';
+          item.style.transform = 'scale(0.94)';
+          requestAnimationFrame(() => {
+            item.style.transition = 'opacity 400ms ease, transform 400ms ease';
+            item.style.opacity = '1';
+            item.style.transform = 'scale(1)';
+          });
+          visible++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      if (photoEmpty) photoEmpty.classList.toggle('hidden', visible > 0);
+    });
+  });
+
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const grid = document.getElementById('photoGrid');
+      if (btn.dataset.view === 'sheet') {
+        grid.classList.remove('grid-cols-2', 'md:grid-cols-3', 'lg:grid-cols-4', 'gap-3', 'md:gap-4', 'auto-rows-[180px]', 'md:auto-rows-[220px]');
+        grid.classList.add('grid-cols-3', 'md:grid-cols-5', 'lg:grid-cols-6', 'gap-1', 'auto-rows-[100px]', 'md:auto-rows-[130px]');
+      } else {
+        grid.classList.remove('grid-cols-3', 'md:grid-cols-5', 'lg:grid-cols-6', 'gap-1', 'auto-rows-[100px]', 'md:auto-rows-[130px]');
+        grid.classList.add('grid-cols-2', 'md:grid-cols-3', 'lg:grid-cols-4', 'gap-3', 'md:gap-4', 'auto-rows-[180px]', 'md:auto-rows-[220px]');
+      }
+    });
+  });
+
+  const PHOTOS = [
+    { src: 'https://picsum.photos/seed/gal-1/1600/1200', cat: 'RAPAT KOORDINASI', title: 'Rapat Koordinasi Forkopimda Bulan Maret 2025', loc: 'Aula Pemkot Nusantara', date: '12 Maret 2025', shutter: '1/250s', aperture: 'f/2.8', iso: '400', focal: '50mm', photographer: 'BAGAS WICAKSONO' },
+    { src: 'https://picsum.photos/seed/gal-2/1600/1200', cat: 'DIALOG', title: 'Dialog Lintas Iman FKUB Kota Nusantara', loc: 'Aula Kesbangpol', date: '10 Maret 2025', shutter: '1/160s', aperture: 'f/2.2', iso: '800', focal: '35mm', photographer: 'RINA KUSUMAWARDHANI' },
+    { src: 'https://picsum.photos/seed/gal-3/1600/1200', cat: 'SOSIAL', title: 'Bakti Sosial Ramadan Bersama Warga', loc: 'Kelurahan Merdeka', date: '08 Maret 2025', shutter: '1/200s', aperture: 'f/2.8', iso: '400', focal: '50mm', photographer: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/gal-4/1600/1200', cat: 'KUNJUNGAN', title: 'Kunjungan Kerja ke Kantor Kesbangpol Provinsi', loc: 'Ibu Kota Provinsi', date: '05 Maret 2025', shutter: '1/320s', aperture: 'f/4', iso: '400', focal: '24mm', photographer: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/gal-5/1600/1200', cat: 'UPACARA', title: 'Apel Kesadaran Nasional & Pembinaan ASN', loc: 'Lapangan Utama Kota', date: '03 Maret 2025', shutter: '1/500s', aperture: 'f/4', iso: '200', focal: '70mm', photographer: 'BAGAS WICAKSONO' },
+    { src: 'https://picsum.photos/seed/gal-6/1600/1200', cat: 'RAPAT', title: 'Rapat Penyusunan Program Kerja 2025', loc: 'Aula Kesbangpol', date: '28 Februari 2025', shutter: '1/125s', aperture: 'f/2.8', iso: '800', focal: '35mm', photographer: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/gal-7/2000/1000', cat: 'DIALOG', title: 'Suasana Dialog Lintas Iman — Panorama', loc: 'Aula Kesbangpol', date: '10 Maret 2025', shutter: '1/250s', aperture: 'f/3.5', iso: '400', focal: '24mm', photographer: 'RINA KUSUMAWARDHANI' },
+    { src: 'https://picsum.photos/seed/gal-8/1600/1200', cat: 'SOSIAL', title: 'Donor Darah Lintas Iman', loc: 'RSUD Kota Nusantara', date: '22 Februari 2025', shutter: '1/160s', aperture: 'f/2.5', iso: '640', focal: '50mm', photographer: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/gal-9/1600/1200', cat: 'KUNJUNGAN', title: 'Kunjungan Kerja Kecamatan Nusantara Selatan', loc: 'Kec. Nusantara Selatan', date: '20 Februari 2025', shutter: '1/320s', aperture: 'f/4', iso: '400', focal: '24mm', photographer: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/gal-10/1600/1200', cat: 'UPACARA', title: 'Apel Pagi Rutin & Pembinaan Pegawai', loc: 'Halaman Kantor Kesbangpol', date: '10 Februari 2025', shutter: '1/400s', aperture: 'f/4', iso: '200', focal: '70mm', photographer: 'BAGAS WICAKSONO' },
+    { src: 'https://picsum.photos/seed/gal-11/1600/1200', cat: 'RAPAT', title: 'Rapat Evaluasi Triwulan I', loc: 'Ruang Rapat Utama', date: '15 Februari 2025', shutter: '1/200s', aperture: 'f/2.8', iso: '400', focal: '35mm', photographer: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/gal-12/1600/1200', cat: 'DIALOG', title: 'Dialog Pancasila Bulanan', loc: 'Aula Kesbangpol', date: '02 Maret 2025', shutter: '1/250s', aperture: 'f/2.8', iso: '400', focal: '50mm', photographer: 'RINA KUSUMAWARDHANI' }
+  ];
+
+  let currentPhotoIdx = 0;
+  const lightbox = document.getElementById('lightbox');
+
+  function openLightbox(i) {
+    currentPhotoIdx = i;
+    updateLightbox();
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function navLightbox(dir) {
+    currentPhotoIdx = (currentPhotoIdx + dir + PHOTOS.length) % PHOTOS.length;
+    updateLightbox();
+  }
+
+  function updateLightbox() {
+    const p = PHOTOS[currentPhotoIdx];
+    document.getElementById('lightboxImage').src = p.src;
+    document.getElementById('lightboxCategory').textContent = p.cat;
+    document.getElementById('lightboxTitle').textContent = p.title;
+    document.getElementById('lightboxLocation').querySelector('span').textContent = p.loc;
+    document.getElementById('lightboxCounter').textContent = String(currentPhotoIdx + 1).padStart(2, '0') + ' / ' + String(PHOTOS.length).padStart(2, '0');
+    document.getElementById('lightboxDate').textContent = p.date;
+    document.getElementById('lightboxPhotographer').textContent = p.photographer;
+    document.getElementById('exifShutter').textContent = p.shutter;
+    document.getElementById('exifAperture').textContent = p.aperture;
+    document.getElementById('exifIso').textContent = p.iso;
+    document.getElementById('exifFocal').textContent = p.focal;
+  }
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navLightbox(-1);
+    if (e.key === 'ArrowRight') navLightbox(1);
+  });
+
+  const filmStrip = document.getElementById('filmStrip');
+  const filmProgress = document.getElementById('filmProgress');
+  const filmPrev = document.getElementById('filmPrev');
+  const filmNext = document.getElementById('filmNext');
+
+  function updateFilmProgress() {
+    if (!filmStrip) return;
+    const max = filmStrip.scrollWidth - filmStrip.clientWidth;
+    const pct = max > 0 ? (filmStrip.scrollLeft / max) * 100 : 0;
+    if (filmProgress) filmProgress.style.width = pct + '%';
+  }
+  if (filmStrip) {
+    filmPrev?.addEventListener('click', () => filmStrip.scrollBy({ left: -440, behavior: 'smooth' }));
+    filmNext?.addEventListener('click', () => filmStrip.scrollBy({ left: 440, behavior: 'smooth' }));
+    filmStrip.addEventListener('scroll', updateFilmProgress);
+    updateFilmProgress();
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href.length > 1 && document.querySelector(href)) {
+        e.preventDefault();
+        const el = document.querySelector(href);
+        window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

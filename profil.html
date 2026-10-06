@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Profil Pimpinan — Kesbangpol Kota Nusantara</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          display: ['"Playfair Display"', 'serif'],
+          script: ['"Caveat"', 'cursive'],
+        },
+        colors: {
+          brand: {
+            50:'#FEF2F3',100:'#FDE0E3',200:'#FBC2C7',300:'#F59AA3',
+            400:'#EA6774',500:'#CF1F30',600:'#B81625',700:'#99111E',
+            800:'#7E101B',900:'#681119',
+          }
+        },
+        boxShadow: {
+          glass: '0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
+          soft:  '0 10px 40px -12px rgba(207,31,48,0.4)',
+          glow:  '0 0 0 4px rgba(207,31,48,0.18), 0 8px 24px -6px rgba(207,31,48,0.55)',
+          glowHover: '0 0 0 6px rgba(207,31,48,0.25), 0 12px 28px -6px rgba(207,31,48,0.65)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html, body { font-family: 'Inter', sans-serif; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #FEF2F3; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(#CF1F30, #99111E); border-radius: 8px; }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                inset 0 -1px 0 rgba(255,255,255,0.25);
+  }
+  .glass-dark {
+    background: rgba(30, 20, 22, 0.45);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #CF1F30 0%, #99111E 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .text-gradient-light {
+    background: linear-gradient(135deg, #F59AA3 0%, #CF1F30 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(rgba(207,31,48,0.18) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+  .pattern-grid {
+    background-image:
+      linear-gradient(rgba(207,31,48,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(207,31,48,0.07) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+  .pattern-diag {
+    background-image: repeating-linear-gradient(
+      45deg, rgba(207,31,48,0.10) 0 1px, transparent 1px 14px
+    );
+  }
+  .pattern-zigzag {
+    background-image:
+      linear-gradient(135deg, rgba(207,31,48,0.14) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(207,31,48,0.14) 25%, transparent 25%);
+    background-size: 20px 20px;
+  }
+  .pattern-dots-light {
+    background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+  .ornament-kawung {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23CF1F30' stroke-width='1.2' opacity='0.35'><circle cx='30' cy='30' r='14'/><circle cx='90' cy='30' r='14'/><circle cx='30' cy='90' r='14'/><circle cx='90' cy='90' r='14'/><circle cx='60' cy='60' r='10'/></g></svg>");
+    background-size: 180px 180px;
+  }
+
+  @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+  .bob { animation: bob 6s ease-in-out infinite; }
+  @keyframes spinSlow { to { transform: rotate(360deg) } }
+  .spin-slow { animation: spinSlow 40s linear infinite; }
+  @keyframes spinSlowRev { to { transform: rotate(-360deg) } }
+  .spin-slow-rev { animation: spinSlowRev 30s linear infinite; }
+  @keyframes floatY { 0%,100% { transform: translateY(0) rotate(-2deg) } 50% { transform: translateY(-8px) rotate(2deg) } }
+  .float-y { animation: floatY 8s ease-in-out infinite; }
+  @keyframes pulseSoft { 0%,100% { opacity: 0.6; transform: scale(1) } 50% { opacity: 0.15; transform: scale(1.5) } }
+  .pulse-soft { animation: pulseSoft 2.5s ease-out infinite; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms ease, transform 800ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  #scrollProgress {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+    background: linear-gradient(to right, #CF1F30, #99111E);
+    width: 0%; transition: width 100ms linear;
+    box-shadow: 0 0 12px rgba(207,31,48,0.7);
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .signature-path {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    animation: draw 3s ease forwards;
+  }
+  @keyframes draw { to { stroke-dashoffset: 0 } }
+
+  .editorial-num {
+    font-feature-settings: "tnum";
+    letter-spacing: -0.06em;
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ===== JOURNEY TIMELINE ===== */
+  .journey-card {
+    position: relative;
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 12px 32px -20px rgba(80,20,30,0.20);
+    transition: all 500ms cubic-bezier(0.32, 0.72, 0, 1);
+    overflow: hidden;
+    border: 1px solid rgba(207,31,48,0.08);
+  }
+  .journey-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -20px rgba(207,31,48,0.35);
+    border-color: rgba(207,31,48,0.30);
+  }
+  .journey-card-current {
+    background: linear-gradient(135deg, #CF1F30 0%, #99111E 100%);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 24px 60px -12px rgba(207,31,48,0.5), 0 8px 24px -8px rgba(0,0,0,0.2);
+  }
+  .journey-card-current:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 32px 72px -12px rgba(207,31,48,0.65), 0 8px 24px -8px rgba(0,0,0,0.2);
+  }
+
+  .journey-node {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow:
+      0 0 0 2px #CF1F30,
+      0 0 0 8px rgba(207,31,48,0.10),
+      0 8px 20px -6px rgba(207,31,48,0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 400ms ease;
+  }
+  .journey-node-current {
+    width: 52px;
+    height: 52px;
+    box-shadow:
+      0 0 0 3px #CF1F30,
+      0 0 0 10px rgba(207,31,48,0.15),
+      0 12px 28px -6px rgba(207,31,48,0.5);
+  }
+  .journey-node:hover {
+    transform: scale(1.08);
+  }
+
+  .year-pill {
+    background: #fff;
+    border: 1px solid rgba(207,31,48,0.20);
+    color: #99111E;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 3px 10px;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px -4px rgba(207,31,48,0.25);
+    white-space: nowrap;
+  }
+  .year-pill-current {
+    background: linear-gradient(135deg, #CF1F30, #99111E);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 6px 16px -4px rgba(207,31,48,0.55);
+  }
+
+  /* Animasi ping custom untuk node current */
+  .ping-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(207,31,48,0.4);
+    animation: pingRing 2s cubic-bezier(0,0,0.2,1) infinite;
+  }
+  @keyframes pingRing {
+    0% { transform: scale(1); opacity: 0.55; }
+    80%, 100% { transform: scale(1.9); opacity: 0; }
+  }
+
+  /* Start / End markers */
+  .journey-pin {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #fff;
+    border: 1px solid rgba(207,31,48,0.25);
+    box-shadow: 0 8px 20px -8px rgba(207,31,48,0.25);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #99111E;
+  }
+</style>
+</head>
+
+<body class="bg-[#FFF9FA] text-gray-800 antialiased selection:bg-brand-500/20 overflow-x-hidden">
+
+<div id="scrollProgress"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+  <div class="glass rounded-full px-3 md:px-5 py-2 relative flex items-center gap-3">
+
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 pl-1 z-10">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft ring-2 ring-white/70">
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="leading-tight hidden sm:block">
+        <p class="font-extrabold text-[15px] tracking-tight text-gray-900">KESBANGPOL</p>
+        <p class="text-[10px] font-medium text-brand-600/90 tracking-wide">KOTA NUSANTARA</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
+      <li><a href="index.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Beranda</a></li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-brand-600 bg-brand-50/80 transition">
+          Profil
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-56 shadow-2xl">
+            <a href="profil.html" class="block px-3 py-2 rounded-xl text-[13px] font-semibold text-brand-700 bg-brand-50">Profil Pimpinan</a>
+            <a href="sejarah.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="struktur.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="program.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Program</a></li>
+      <li><a href="agenda.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Agenda Pimpinan</a></li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Publikasi
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="berita.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Galeri
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="foto.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Galeri Foto</a>
+            <a href="videokegiatan.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Video Kegiatan</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <a href="index.html#kritik" class="hidden lg:inline-flex ml-auto shrink-0 items-center gap-2 px-5 py-2.5 rounded-full text-white text-[13px] font-bold bg-gradient-to-r from-brand-500 to-brand-600 shadow-glow hover:shadow-glowHover hover:from-brand-600 hover:to-brand-700 active:scale-95 transition-all duration-300">
+      <span class="relative flex w-1.5 h-1.5">
+        <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+        <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-white"></span>
+      </span>
+      Kritik &amp; Saran
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+
+    <button id="menuBtn" class="lg:hidden ml-auto w-11 h-11 rounded-full flex items-center justify-center glass text-gray-800 active:scale-95 transition z-10">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== MOBILE DRAWER ===================== -->
+<div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none">
+  <div id="drawerBg" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+  <aside id="drawerPanel" class="absolute right-0 top-0 h-full w-[88%] max-w-[380px] bg-white/95 backdrop-blur-2xl shadow-[-20px_0_60px_-20px_rgba(0,0,0,0.4)] translate-x-full transition-transform duration-500 flex flex-col" style="transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);">
+
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100/80">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-extrabold text-[15px] tracking-tight text-gray-900">KESBANGPOL</p>
+          <p class="text-[10px] font-medium text-brand-600 tracking-wide">KOTA NUSANTARA</p>
+        </div>
+      </div>
+      <button id="closeDrawer" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 active:scale-95 transition">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-3 py-4 space-y-1 no-scrollbar">
+      <a href="index.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">01</span>
+        Beranda
+      </a>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-brand-600 bg-brand-50 transition" data-target="acc-profil">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xs font-bold">02</span>
+            Profil
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-brand-400 open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-profil" class="acc-body open">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="profil.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-semibold text-brand-700 bg-brand-50">Profil Pimpinan</a>
+            <a href="sejarah.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="struktur.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="program.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">03</span>
+        Program
+      </a>
+      <a href="agenda.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">04</span>
+        Agenda Pimpinan
+      </a>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition" data-target="acc-publikasi">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">05</span>
+            Publikasi
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-publikasi" class="acc-body">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="berita.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition" data-target="acc-galeri">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">06</span>
+            Galeri
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-galeri" class="acc-body">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="foto.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Galeri Foto</a>
+            <a href="videokegiatan.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Video Kegiatan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4 border-t border-gray-100">
+      <a href="index.html#kritik" data-close class="flex items-center justify-center gap-2 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-700 text-white font-bold shadow-soft active:scale-[0.98] transition">
+        <span class="relative flex w-2 h-2">
+          <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+          <span class="relative inline-flex w-2 h-2 rounded-full bg-white"></span>
+        </span>
+        Kirim Kritik &amp; Saran
+      </a>
+    </div>
+  </aside>
+</div>
+
+<!-- ============================================================= -->
+<!-- =====================        PAGE        =================== -->
+<!-- ============================================================= -->
+<main>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#1A0D10] via-brand-800 to-brand-700">
+
+    <div class="absolute inset-0 pattern-dots-light opacity-[0.12] pointer-events-none"></div>
+    <div class="absolute -top-40 -right-40 w-[620px] h-[620px] rounded-full bg-brand-500/20 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-900/60 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-24 right-0 w-[460px] h-[460px] rounded-full border border-white/10 spin-slow pointer-events-none hidden md:block"></div>
+    <div class="absolute top-40 right-20 w-[240px] h-[240px] rounded-full border-2 border-dashed border-brand-400/40 spin-slow-rev pointer-events-none hidden md:block"></div>
+
+    <div class="absolute top-[26%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"></div>
+    <div class="absolute bottom-[18%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent pointer-events-none"></div>
+
+    <div class="hidden lg:block absolute left-10 top-1/2 -translate-y-1/2 vertical-text text-white/25 text-[11px] font-bold tracking-[0.5em] uppercase">
+      Profil · Pimpinan · Kesbangpol · 2025
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 pt-40 md:pt-44 pb-24 md:pb-32">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+        <div class="lg:col-span-7 text-white reveal">
+          <div class="flex items-center gap-3 mb-8">
+            <span class="w-12 h-px bg-brand-400"></span>
+            <span class="text-[11px] font-bold tracking-[0.3em] uppercase text-brand-300">Profil Pimpinan</span>
+            <span class="px-2.5 py-1 rounded-full glass-dark text-[10px] font-bold tracking-widest uppercase text-orange-100">Terpilih 2022</span>
+          </div>
+
+          <h1 class="font-display font-black text-[36px] sm:text-[46px] md:text-[58px] lg:text-[72px] leading-[0.9] tracking-[-0.03em]">
+            <span class="block">Drs. H.</span>
+            <span class="block">Ahmad</span>
+            <span class="block italic text-gradient-light">Suryadi</span>
+            <span class="block text-[42%] not-italic font-semibold text-white/60 mt-3 tracking-wider">M.Si.</span>
+          </h1>
+
+          <div class="mt-10 flex items-center gap-4 text-white/85 flex-wrap">
+            <span class="text-xs font-bold tracking-[0.25em] uppercase">Kepala Badan</span>
+            <span class="w-8 h-px bg-brand-400"></span>
+            <span class="text-xs font-bold tracking-[0.25em] uppercase">Kesbangpol Kota Nusantara</span>
+          </div>
+
+          <p class="mt-8 text-white/70 text-base md:text-lg leading-relaxed max-w-xl font-light italic">
+            "Melayani dengan hati, membangun dengan integritas — merawat kebangsaan sebagai amanah negeri."
+          </p>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a href="#biografi" class="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 font-semibold text-white shadow-soft hover:from-brand-600 hover:to-brand-700 transition">
+              Kenali Lebih Dekat
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full glass-dark font-semibold text-white hover:bg-white/10 transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+              Unduh CV
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative reveal">
+          <div class="absolute -inset-4 md:-inset-6 bg-gradient-to-br from-brand-500/40 via-brand-700/30 to-transparent rounded-[3rem] rotate-3 blur-sm"></div>
+
+          <div class="absolute -top-8 -left-8 w-32 h-32 rounded-full border-2 border-dashed border-brand-400/60 pointer-events-none hidden md:block"></div>
+
+          <div class="absolute -top-2 -left-2 w-10 h-10 border-t-2 border-l-2 border-brand-300 pointer-events-none"></div>
+          <div class="absolute -top-2 -right-2 w-10 h-10 border-t-2 border-r-2 border-brand-300 pointer-events-none"></div>
+          <div class="absolute -bottom-2 -left-2 w-10 h-10 border-b-2 border-l-2 border-brand-300 pointer-events-none"></div>
+          <div class="absolute -bottom-2 -right-2 w-10 h-10 border-b-2 border-r-2 border-brand-300 pointer-events-none"></div>
+
+          <div class="relative rounded-[2.5rem] overflow-hidden ring-1 ring-white/20 shadow-2xl">
+            <img src="https://picsum.photos/seed/pimpinan/900/1200" alt="Kepala Badan" class="w-full h-[520px] md:h-[640px] object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+            <div class="absolute inset-x-0 bottom-0 p-6 flex items-end justify-between gap-4">
+              <div>
+                <p class="text-[10px] font-bold tracking-[0.25em] uppercase text-brand-300">Kepala Badan</p>
+                <p class="text-white font-display font-black text-lg mt-1 leading-tight">Drs. H. Ahmad Suryadi, M.Si.</p>
+              </div>
+              <div class="shrink-0 w-12 h-12 rounded-full glass flex items-center justify-center text-white">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute -bottom-6 -left-6 md:-left-10 bg-white rounded-3xl px-5 py-3 shadow-2xl ring-1 ring-gray-100 bob hidden md:block">
+            <p class="text-[10px] font-bold tracking-widest uppercase text-gray-400">Tanda Tangan</p>
+            <svg viewBox="0 0 220 46" class="w-40 mt-1">
+              <path class="signature-path" d="M8 32 C 24 4, 40 4, 50 30 S 76 40, 88 20 S 110 4, 126 30 S 152 40, 168 22 S 190 8, 210 26"
+                    fill="none" stroke="#99111E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <div class="absolute -top-4 -right-4 md:-right-8 bg-gradient-to-br from-brand-500 to-brand-700 text-white rounded-3xl px-5 py-4 shadow-2xl float-y hidden md:block">
+            <p class="text-[10px] font-bold tracking-widest uppercase text-orange-100">Sejak</p>
+            <p class="font-display font-black text-2xl leading-none mt-1">1990</p>
+            <p class="text-[10px] font-medium text-orange-100 mt-1">Mengabdi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 text-[10px] font-bold tracking-widest uppercase">
+      <span>Scroll</span>
+      <span class="w-px h-8 bg-gradient-to-b from-white/50 to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- ===================== QUICK FACTS STRIP ===================== -->
+  <section class="relative -mt-14 md:-mt-16 z-20 px-6 md:px-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="glass rounded-[2rem] shadow-2xl p-6 md:p-8 ring-1 ring-white/40">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+
+          <div class="md:px-4">
+            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-brand-600">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Nama Lengkap
+            </div>
+            <p class="mt-2 font-display font-bold text-gray-900 text-base leading-tight">Drs. H. Ahmad Suryadi, M.Si.</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-brand-600">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+              NIP
+            </div>
+            <p class="mt-2 font-mono font-semibold text-gray-900 text-sm tracking-tight">19680512 199003 1 008</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-brand-600">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+              Pangkat / Gol.
+            </div>
+            <p class="mt-2 font-bold text-gray-900 text-sm">Pembina Utama Muda (IV/c)</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase text-brand-600">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Masa Jabatan
+            </div>
+            <p class="mt-2 font-bold text-gray-900 text-sm">2022 — 2027</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BIOGRAFI ===================== -->
+  <section id="biografi" class="relative py-24 md:py-32 bg-[#FFF9FA] overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-40 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-72 h-72 pattern-dots opacity-50 pointer-events-none"></div>
+
+    <div class="absolute top-16 left-8 md:left-20 text-[160px] md:text-[240px] font-display font-black text-brand-100/60 leading-none select-none pointer-events-none">"</div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+
+        <div class="lg:col-span-3 reveal">
+          <div class="sticky top-32">
+            <div class="flex items-center gap-3">
+              <span class="editorial-num font-display text-5xl font-black text-gradient leading-none">01</span>
+              <div>
+                <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Section</p>
+                <p class="font-bold text-gray-900">Biografi</p>
+              </div>
+            </div>
+            <p class="mt-6 text-sm text-gray-500 leading-relaxed">
+              Perjalanan hidup, latar belakang, dan nilai-nilai yang membentuk kepemimpinan beliau.
+            </p>
+            <div class="mt-8 h-px bg-gradient-to-r from-brand-300 to-transparent"></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-9 reveal">
+          <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 text-brand-700 text-[11px] font-bold tracking-widest uppercase ring-1 ring-brand-200">
+            Kenali Beliau
+          </span>
+          <h2 class="mt-5 font-display text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-gray-900 leading-[1.1]">
+            Sosok di Balik<br>
+            <span class="text-gradient italic">Dedikasi Kebangsaan</span>
+          </h2>
+
+          <div class="mt-8 grid md:grid-cols-5 gap-8 items-start">
+            <div class="md:col-span-3 space-y-5 text-gray-600 leading-relaxed text-[15.5px]">
+              <p class="first-letter:font-display first-letter:text-5xl first-letter:font-black first-letter:text-brand-600 first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none">
+                Lahir di Kota Nusantara pada 12 Mei 1968, Drs. H. Ahmad Suryadi, M.Si. tumbuh dalam keluarga yang menjunjung tinggi nilai kejujuran dan pengabdian. Sejak muda, beliau telah aktif dalam berbagai kegiatan sosial kemasyarakatan dan organisasi kepemudaan.
+              </p>
+              <p>
+                Kariernya di dunia birokrasi dimulai pada tahun 1990 sebagai staf di Badan Kesatuan Bangsa dan Perlindungan Masyarakat. Dengan ketekunan dan integritas, beliau meniti karier melalui berbagai posisi strategis, mulai dari tingkat kecamatan hingga menjadi Sekretaris Daerah sebelum akhirnya dipercaya memimpin Badan Kesbangpol pada tahun 2022.
+              </p>
+              <p>
+                Di bawah kepemimpinannya, Kesbangpol Kota Nusantara terus berinovasi dalam pelayanan publik, memperkuat wawasan kebangsaan, dan menjadi garda terdepan dalam menjaga kerukunan antar elemen masyarakat.
+              </p>
+            </div>
+
+            <div class="md:col-span-2 relative">
+              <div class="bg-gradient-to-br from-brand-500 to-brand-700 rounded-[2rem] p-6 md:p-7 text-white shadow-2xl relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-white/10 blur-2xl"></div>
+                <div class="absolute bottom-4 right-4 text-white/20 text-7xl font-display font-black leading-none select-none">"</div>
+                <svg class="w-8 h-8 text-white/70 mb-4" viewBox="0 0 24 24" fill="currentColor"><path d="M9.5 8.5H5c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1h3v3l3-3V9c0-.3-.3-.5-.5-.5Zm10 0H15c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1h3v3l3-3V9c0-.3-.3-.5-.5-.5Z"/></svg>
+                <p class="relative font-display italic text-base md:text-lg leading-snug">
+                  Kebangsaan bukan sekadar kata — ia adalah amanah yang harus dirawat setiap hari.
+                </p>
+                <div class="relative mt-6 pt-4 border-t border-white/20 flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-white/15 ring-1 ring-white/30 overflow-hidden">
+                    <img src="https://picsum.photos/seed/pimpinan/100/100" class="w-full h-full object-cover" alt="">
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold">Ahmad Suryadi</p>
+                    <p class="text-[10px] text-white/70">Kepala Badan</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PENDIDIKAN ===================== -->
+  <section class="relative py-24 md:py-28 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-grid opacity-60 pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 rounded-full bg-brand-100/60 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 reveal">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="editorial-num font-display text-5xl font-black text-gradient leading-none">02</span>
+            <div>
+              <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Section</p>
+              <p class="font-bold text-gray-900">Pendidikan</p>
+            </div>
+          </div>
+          <h2 class="mt-6 font-display text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-gray-900">
+            Riwayat <span class="text-gradient italic">Pendidikan</span>
+          </h2>
+          <p class="mt-3 text-gray-500 max-w-xl text-sm md:text-base">Latar belakang akademik yang membentuk fondasi keilmuan dan kepemimpinan.</p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 reveal">
+
+        <article class="group relative bg-white rounded-[2rem] p-7 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 pattern-diag opacity-60 rounded-bl-full pointer-events-none"></div>
+          <div class="absolute top-5 right-5 font-display text-4xl font-black text-brand-100 leading-none select-none editorial-num">01</div>
+
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white shadow-soft">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg>
+          </div>
+
+          <p class="mt-6 text-[10px] font-bold tracking-widest uppercase text-brand-600">S1 · Sarjana</p>
+          <h3 class="mt-2 font-display font-black text-lg text-gray-900 leading-snug">Ilmu Pemerintahan</h3>
+          <p class="mt-1 text-sm text-gray-500">Universitas Indonesia</p>
+
+          <div class="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between text-xs">
+            <span class="font-bold text-gray-400 tracking-widest">1990</span>
+            <span class="px-3 py-1 rounded-full bg-brand-50 text-brand-700 font-bold">IPK 3.62</span>
+          </div>
+        </article>
+
+        <article class="group relative bg-white rounded-[2rem] p-7 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 pattern-diag opacity-60 rounded-bl-full pointer-events-none"></div>
+          <div class="absolute top-5 right-5 font-display text-4xl font-black text-brand-100 leading-none select-none editorial-num">02</div>
+
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white shadow-soft">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/><path d="M8 4v16M4 19.5h16"/></svg>
+          </div>
+
+          <p class="mt-6 text-[10px] font-bold tracking-widest uppercase text-brand-600">S2 · Magister</p>
+          <h3 class="mt-2 font-display font-black text-lg text-gray-900 leading-snug">Administrasi Publik</h3>
+          <p class="mt-1 text-sm text-gray-500">Universitas Gadjah Mada</p>
+
+          <div class="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between text-xs">
+            <span class="font-bold text-gray-400 tracking-widest">2000</span>
+            <span class="px-3 py-1 rounded-full bg-brand-50 text-brand-700 font-bold">Cum Laude</span>
+          </div>
+        </article>
+
+        <article class="group relative bg-white rounded-[2rem] p-7 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 pattern-diag opacity-60 rounded-bl-full pointer-events-none"></div>
+          <div class="absolute top-5 right-5 font-display text-4xl font-black text-brand-100 leading-none select-none editorial-num">03</div>
+
+          <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white shadow-soft">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </div>
+
+          <p class="mt-6 text-[10px] font-bold tracking-widest uppercase text-brand-600">Diklat · PIM</p>
+          <h3 class="mt-2 font-display font-black text-lg text-gray-900 leading-snug">Diklatpim Tingkat II</h3>
+          <p class="mt-1 text-sm text-gray-500">LAN RI — Bandung</p>
+
+          <div class="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between text-xs">
+            <span class="font-bold text-gray-400 tracking-widest">2015</span>
+            <span class="px-3 py-1 rounded-full bg-brand-50 text-brand-700 font-bold">Lulus</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RIWAYAT JABATAN — JOURNEY TIMELINE (BARU) ===================== -->
+  <section class="relative py-24 md:py-32 bg-gradient-to-b from-brand-50/40 via-white to-white overflow-hidden">
+    <div class="absolute top-20 right-0 w-64 h-64 pattern-dots opacity-40 pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-80 h-80 ornament-kawung opacity-25 pointer-events-none"></div>
+    <div class="absolute top-1/3 -left-40 w-96 h-96 rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 md:px-10 relative">
+
+      <!-- Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16 md:mb-20 reveal">
+        <div class="inline-flex items-center gap-3">
+          <span class="editorial-num font-display text-5xl font-black text-gradient leading-none">03</span>
+        </div>
+        <p class="mt-2 text-[10px] font-bold tracking-widest uppercase text-brand-600">Section</p>
+        <h2 class="mt-4 font-display text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-gray-900">
+          Riwayat <span class="text-gradient italic">Jabatan</span>
+        </h2>
+        <p class="mt-3 text-gray-500 text-sm md:text-base">Jejak pengabdian dari staf hingga pimpinan.</p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+
+        <!-- Vertical spine -->
+        <div class="absolute left-6 md:left-1/2 md:-translate-x-px top-4 bottom-4 w-[2px] bg-gradient-to-b from-brand-200 via-brand-500 to-brand-800 rounded-full pointer-events-none"></div>
+
+        <!-- START marker -->
+        <div class="relative text-center mb-10 md:mb-14 reveal">
+          <span class="journey-pin">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+            Awal Perjalanan
+          </span>
+        </div>
+
+        <!-- ===== ITEM 01 — 1990 (kiri) ===== -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-16 mb-10 md:mb-14 reveal">
+          <div class="md:text-right pl-16 md:pl-0 md:pr-10">
+            <div class="journey-card p-6 md:p-7 group">
+              <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full pointer-events-none"></div>
+              <div class="relative">
+                <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Chapter 01 · Awal Karier</p>
+                <h3 class="mt-2 font-display font-black text-lg md:text-xl text-gray-900 leading-snug">Staf Bidang Politik</h3>
+                <p class="text-sm text-brand-700 font-semibold mt-1">Bakesbanglinmas Kota Nusantara</p>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">Memulai pengabdian sebagai staf yang menangani administrasi dan monitoring kegiatan politik daerah.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 md:top-8 z-10">
+            <div class="relative">
+              <span class="journey-node group">
+                <span class="w-7 h-7 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                </span>
+              </span>
+              <span class="year-pill absolute left-1/2 -translate-x-1/2 -bottom-8">1990</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ITEM 02 — 1995 (kanan) ===== -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-16 mb-10 md:mb-14 reveal">
+          <div class="hidden md:block"></div>
+          <div class="pl-16 md:pl-10">
+            <div class="journey-card p-6 md:p-7">
+              <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full pointer-events-none"></div>
+              <div class="relative">
+                <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Chapter 02 · Kepala Sub Bidang</p>
+                <h3 class="mt-2 font-display font-black text-lg md:text-xl text-gray-900 leading-snug">Kepala Sub Bidang Politik</h3>
+                <p class="text-sm text-brand-700 font-semibold mt-1">Kantor Kesbangpol Kota Nusantara</p>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">Bertanggung jawab atas pembinaan organisasi politik dan pemantauan dinamika politik lokal.</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 md:top-8 z-10">
+            <div class="relative">
+              <span class="journey-node">
+                <span class="w-7 h-7 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="7" width="18" height="13" rx="2"/>
+                    <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/>
+                  </svg>
+                </span>
+              </span>
+              <span class="year-pill absolute left-1/2 -translate-x-1/2 -bottom-8">1995</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ITEM 03 — 2005 (kiri) ===== -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-16 mb-10 md:mb-14 reveal">
+          <div class="md:text-right pl-16 md:pl-0 md:pr-10">
+            <div class="journey-card p-6 md:p-7">
+              <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full pointer-events-none"></div>
+              <div class="relative">
+                <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Chapter 03 · Kepala Bidang</p>
+                <h3 class="mt-2 font-display font-black text-lg md:text-xl text-gray-900 leading-snug">Kepala Bidang Kesatuan Bangsa</h3>
+                <p class="text-sm text-brand-700 font-semibold mt-1">Badan Kesbangpol Kota Nusantara</p>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">Memimpin program penguatan wawasan kebangsaan dan kerukunan umat beragama.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 md:top-8 z-10">
+            <div class="relative">
+              <span class="journey-node">
+                <span class="w-7 h-7 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+                  </svg>
+                </span>
+              </span>
+              <span class="year-pill absolute left-1/2 -translate-x-1/2 -bottom-8">2005</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ITEM 04 — 2012 (kanan) ===== -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-16 mb-10 md:mb-14 reveal">
+          <div class="hidden md:block"></div>
+          <div class="pl-16 md:pl-10">
+            <div class="journey-card p-6 md:p-7">
+              <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full pointer-events-none"></div>
+              <div class="relative">
+                <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Chapter 04 · Sekretaris</p>
+                <h3 class="mt-2 font-display font-black text-lg md:text-xl text-gray-900 leading-snug">Sekretaris Badan Kesbangpol</h3>
+                <p class="text-sm text-brand-700 font-semibold mt-1">Badan Kesbangpol Kota Nusantara</p>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">Mengelola kesekretariatan, perencanaan, dan pelaporan program badan.</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 md:top-8 z-10">
+            <div class="relative">
+              <span class="journey-node">
+                <span class="w-7 h-7 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 19.5V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14"/>
+                    <path d="M8 4v16M4 19.5h16"/>
+                  </svg>
+                </span>
+              </span>
+              <span class="year-pill absolute left-1/2 -translate-x-1/2 -bottom-8">2012</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ITEM 05 — 2018 (kiri) ===== -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-16 mb-10 md:mb-14 reveal">
+          <div class="md:text-right pl-16 md:pl-0 md:pr-10">
+            <div class="journey-card p-6 md:p-7">
+              <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full pointer-events-none"></div>
+              <div class="relative">
+                <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Chapter 05 · Sekretaris Daerah</p>
+                <h3 class="mt-2 font-display font-black text-lg md:text-xl text-gray-900 leading-snug">Sekretaris Daerah Kota Nusantara</h3>
+                <p class="text-sm text-brand-700 font-semibold mt-1">Pemerintah Kota Nusantara</p>
+                <p class="mt-3 text-sm text-gray-600 leading-relaxed">Menjadi koordinator birokrasi dan pelayanan publik tingkat kota.</p>
+              </div>
+            </div>
+          </div>
+          <div class="hidden md:block"></div>
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 md:top-8 z-10">
+            <div class="relative">
+              <span class="journey-node">
+                <span class="w-7 h-7 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/>
+                  </svg>
+                </span>
+              </span>
+              <span class="year-pill absolute left-1/2 -translate-x-1/2 -bottom-8">2018</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== ITEM 06 — 2022 (kanan) — CURRENT ===== -->
+        <div class="relative md:grid md:grid-cols-2 md:gap-16 mb-10 md:mb-14 reveal">
+          <div class="hidden md:block"></div>
+          <div class="pl-16 md:pl-10">
+            <div class="journey-card journey-card-current p-6 md:p-7 relative overflow-hidden">
+              <div class="absolute inset-0 pattern-dots-light opacity-[0.10] pointer-events-none"></div>
+              <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full border border-white/15 spin-slow pointer-events-none"></div>
+              <div class="absolute bottom-4 right-4 text-white/10 text-7xl font-display font-black leading-none select-none">★</div>
+
+              <div class="relative">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/15 backdrop-blur border border-white/25">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                    <p class="text-[9px] font-bold tracking-widest uppercase text-white">Saat Ini</p>
+                  </span>
+                  <p class="text-[10px] font-bold tracking-widest uppercase text-orange-100">Chapter 06</p>
+                </div>
+                <h3 class="mt-2 font-display font-black text-lg md:text-xl leading-snug">Kepala Badan Kesbangpol</h3>
+                <p class="text-sm text-white/85 font-semibold mt-1">Badan Kesatuan Bangsa dan Politik Kota Nusantara</p>
+                <p class="mt-3 text-sm text-white/75 leading-relaxed">Memimpin transformasi pelayanan, penguatan wawasan kebangsaan, dan kerukunan masyarakat.</p>
+              </div>
+            </div>
+          </div>
+          <div class="absolute left-6 md:left-1/2 -translate-x-1/2 top-6 md:top-8 z-10">
+            <div class="relative">
+              <span class="journey-node journey-node-current">
+                <span class="ping-ring"></span>
+                <span class="relative w-8 h-8 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center">
+                  <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/>
+                  </svg>
+                </span>
+              </span>
+              <span class="year-pill year-pill-current absolute left-1/2 -translate-x-1/2 -bottom-8">2022</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- END marker -->
+        <div class="relative text-center mt-12 md:mt-16 reveal">
+          <span class="journey-pin">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span>
+            Terus Berlanjut
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PENGHARGAAN ===================== -->
+  <section class="relative py-24 md:py-28 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-grid opacity-50 pointer-events-none"></div>
+    <div class="absolute top-0 -left-40 w-96 h-96 rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 reveal">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="editorial-num font-display text-5xl font-black text-gradient leading-none">04</span>
+            <div>
+              <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Section</p>
+              <p class="font-bold text-gray-900">Penghargaan</p>
+            </div>
+          </div>
+          <h2 class="mt-6 font-display text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-gray-900">
+            Tanda <span class="text-gradient italic">Kehormatan</span>
+          </h2>
+          <p class="mt-3 text-gray-500 max-w-xl text-sm md:text-base">Penghargaan dan tanda jasa atas dedikasi pengabdian kepada bangsa dan negara.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-5 md:h-[520px] reveal">
+
+        <article class="md:col-span-7 md:row-span-2 group relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 p-8 text-white shadow-2xl">
+          <div class="absolute inset-0 pattern-dots-light opacity-20"></div>
+          <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-white/20 spin-slow pointer-events-none"></div>
+          <div class="absolute bottom-8 right-8 text-white/10 text-[180px] font-display font-black leading-none select-none">★</div>
+
+          <div class="relative h-full flex flex-col">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1.5 rounded-full glass-dark text-[10px] font-bold tracking-widest uppercase text-orange-100">Tanda Jasa Utama</span>
+              <div class="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur ring-1 ring-white/30 flex items-center justify-center">
+                <svg class="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <p class="text-[10px] font-bold tracking-[0.3em] uppercase text-brand-300">Tahun 2018</p>
+              <h3 class="mt-3 font-display font-black text-2xl md:text-3xl lg:text-4xl leading-[1.1] tracking-tight">
+                Satyalancana<br><span class="italic text-brand-300">Karya Satya</span><br>30 Tahun
+              </h3>
+              <p class="mt-5 text-white/75 text-sm max-w-md leading-relaxed">
+                Penghargaan dari Presiden Republik Indonesia atas pengabdian 30 tahun sebagai Aparatur Sipil Negara dengan penuh kesetiaan dan dedikasi.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-5 md:row-span-1 group relative overflow-hidden rounded-[2rem] p-6 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl transition bg-white">
+          <div class="absolute top-0 right-0 w-32 h-32 pattern-diag opacity-50 rounded-bl-full"></div>
+          <div class="relative flex items-start justify-between">
+            <div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+            </div>
+            <span class="text-[10px] font-bold tracking-widest uppercase text-gray-400">2013</span>
+          </div>
+          <h3 class="mt-5 font-display font-black text-base md:text-lg text-gray-900 leading-snug">Satyalancana Karya Satya 20 Tahun</h3>
+          <p class="mt-2 text-sm text-gray-500 line-clamp-2">Dianugerahkan atas pengabdian 20 tahun dengan prestasi dan dedikasi tinggi.</p>
+        </article>
+
+        <article class="md:col-span-2 md:row-span-1 group relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-500 to-brand-600 p-5 text-white shadow-lg hover:shadow-2xl transition">
+          <div class="absolute inset-0 pattern-zigzag opacity-10"></div>
+          <div class="relative">
+            <svg class="w-8 h-8 text-white/80 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/></svg>
+            <p class="text-[10px] font-bold tracking-widest uppercase text-orange-100">2016</p>
+            <h3 class="mt-2 font-display font-black text-sm md:text-base leading-snug">Bintang Bhayangkara Nararya</h3>
+          </div>
+        </article>
+
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-[2rem] p-6 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl transition bg-white">
+          <div class="absolute top-0 right-0 w-24 h-24 pattern-dots opacity-60 rounded-bl-full"></div>
+          <div class="relative">
+            <div class="w-11 h-11 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <p class="mt-4 text-[10px] font-bold tracking-widest uppercase text-gray-400">2021</p>
+            <h3 class="mt-1 font-display font-black text-base text-gray-900 leading-snug">ASN Teladan Tingkat Kota</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NILAI & KOMITMEN ===================== -->
+  <section class="relative py-24 md:py-28 bg-[#FFF9FA] overflow-hidden">
+    <div class="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-brand-100/60 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-10 left-10 w-64 h-64 pattern-dots opacity-50 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <div class="inline-flex items-center gap-3">
+          <span class="editorial-num font-display text-5xl font-black text-gradient leading-none">05</span>
+        </div>
+        <p class="mt-2 text-[10px] font-bold tracking-widest uppercase text-brand-600">Section</p>
+        <h2 class="mt-4 font-display text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-gray-900">
+          Nilai &amp; <span class="text-gradient italic">Komitmen</span>
+        </h2>
+        <p class="mt-3 text-gray-500 text-sm md:text-base">Prinsip-prinsip yang menjadi pegangan dalam setiap langkah pengabdian.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+
+        <article class="group relative bg-white rounded-[2rem] p-7 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-brand-100 group-hover:bg-brand-200 transition-colors"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 text-white flex items-center justify-center shadow-soft">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <p class="mt-6 text-[10px] font-bold tracking-widest uppercase text-brand-600">Nilai 01</p>
+            <h3 class="mt-1 font-display font-black text-lg text-gray-900">Integritas</h3>
+            <p class="mt-2 text-sm text-gray-500 leading-relaxed">Menjunjung tinggi kejujuran, transparansi, dan akuntabilitas dalam setiap tindakan.</p>
+          </div>
+        </article>
+
+        <article class="group relative bg-white rounded-[2rem] p-7 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-brand-100 group-hover:bg-brand-200 transition-colors"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 text-white flex items-center justify-center shadow-soft">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 4 9 8 10 4-1 8-5 8-10V6l-8-4Z"/></svg>
+            </div>
+            <p class="mt-6 text-[10px] font-bold tracking-widest uppercase text-brand-600">Nilai 02</p>
+            <h3 class="mt-1 font-display font-black text-lg text-gray-900">Profesional</h3>
+            <p class="mt-2 text-sm text-gray-500 leading-relaxed">Bekerja dengan kompeten, disiplin, dan berorientasi pada hasil terbaik.</p>
+          </div>
+        </article>
+
+        <article class="group relative bg-white rounded-[2rem] p-7 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-brand-100 group-hover:bg-brand-200 transition-colors"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 text-white flex items-center justify-center shadow-soft">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <p class="mt-6 text-[10px] font-bold tracking-widest uppercase text-brand-600">Nilai 03</p>
+            <h3 class="mt-1 font-display font-black text-lg text-gray-900">Inovatif</h3>
+            <p class="mt-2 text-sm text-gray-500 leading-relaxed">Selalu mencari cara baru dan lebih baik untuk meningkatkan kualitas pelayanan.</p>
+          </div>
+        </article>
+
+        <article class="group relative bg-white rounded-[2rem] p-7 ring-1 ring-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-brand-100 group-hover:bg-brand-200 transition-colors"></div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 text-white flex items-center justify-center shadow-soft">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <p class="mt-6 text-[10px] font-bold tracking-widest uppercase text-brand-600">Nilai 04</p>
+            <h3 class="mt-1 font-display font-black text-lg text-gray-900">Kolaboratif</h3>
+            <p class="mt-2 text-sm text-gray-500 leading-relaxed">Membangun sinergi dengan semua pihak untuk mencapai tujuan bersama.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALERI ===================== -->
+  <section class="relative py-24 md:py-28 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-dots opacity-40 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 reveal">
+        <div>
+          <div class="flex items-center gap-3">
+            <span class="editorial-num font-display text-5xl font-black text-gradient leading-none">06</span>
+            <div>
+              <p class="text-[10px] font-bold tracking-widest uppercase text-brand-600">Section</p>
+              <p class="font-bold text-gray-900">Galeri</p>
+            </div>
+          </div>
+          <h2 class="mt-6 font-display text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-gray-900">
+            Momen <span class="text-gradient italic">Kegiatan</span>
+          </h2>
+          <p class="mt-3 text-gray-500 max-w-xl text-sm md:text-base">Dokumentasi kegiatan pimpinan dalam berbagai forum dan acara.</p>
+        </div>
+        <a href="index.html#dokumentasi" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-gray-200 font-semibold text-gray-700 hover:border-brand-400 hover:text-brand-600 transition shrink-0 bg-white text-sm">
+          Buka Galeri Lengkap
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-12 gap-5 md:gap-6 reveal">
+        <a href="#" class="col-span-12 md:col-span-5 md:row-start-1 group relative overflow-hidden rounded-[2rem] h-[340px] md:h-[460px] ring-1 ring-gray-100 shadow-sm hover:shadow-2xl transition">
+          <img src="https://picsum.photos/seed/pim-aktivitas1/900/1100" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1200ms]" alt="">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+          <div class="absolute top-5 left-5 px-3 py-1.5 rounded-full glass-dark text-[10px] font-bold tracking-widest uppercase text-orange-100">Utama</div>
+          <div class="absolute inset-x-0 bottom-0 p-6 text-white">
+            <h3 class="font-display font-black text-lg leading-tight">Dialog Kebangsaan dengan Tokoh Masyarakat</h3>
+            <p class="text-xs text-white/70 mt-2">12 Maret 2025</p>
+          </div>
+        </a>
+
+        <a href="#" class="col-span-6 md:col-span-4 md:col-start-6 md:mt-12 group relative overflow-hidden rounded-[2rem] h-[200px] md:h-[300px] ring-1 ring-gray-100 shadow-sm hover:shadow-2xl transition">
+          <img src="https://picsum.photos/seed/pim-aktivitas2/800/800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1200ms]" alt="">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+          <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full glass-dark text-[10px] font-bold tracking-widest uppercase text-orange-100">FOTO</div>
+          <div class="absolute inset-x-0 bottom-0 p-5 text-white">
+            <h3 class="font-bold text-sm leading-snug">Kunjungan Kerja Daerah</h3>
+            <p class="text-[11px] text-white/70 mt-1">08 Maret 2025</p>
+          </div>
+        </a>
+
+        <a href="#" class="col-span-6 md:col-span-3 md:col-start-10 md:mt-0 group relative overflow-hidden rounded-[2rem] h-[200px] md:h-[240px] ring-1 ring-gray-100 shadow-sm hover:shadow-2xl transition">
+          <img src="https://picsum.photos/seed/pim-aktivitas3/700/600" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[1200ms]" alt="">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:scale-110 transition">
+              <svg class="w-6 h-6 text-white ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="absolute top-4 left-4 px-3 py-1.5 rounded-full glass-dark text-[10px] font-bold tracking-widest uppercase text-orange-100">VIDEO</div>
+          <div class="absolute inset-x-0 bottom-0 p-4 text-white">
+            <h3 class="font-bold text-sm leading-snug line-clamp-2">Sambutan Peringatan Hari Kesbangpol</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="relative overflow-hidden">
+    <div class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 py-14 md:py-16 relative">
+      <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+      <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-900/40 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 relative flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-white text-center md:text-left">
+          <p class="text-[11px] font-bold tracking-widest uppercase text-orange-100/90">Suara Anda Berarti</p>
+          <h3 class="mt-2 font-display text-2xl md:text-3xl lg:text-4xl font-black leading-tight">
+            Punya kritik atau saran?
+          </h3>
+          <p class="mt-2 text-white/80 max-w-lg text-sm md:text-base">Setiap masukan Anda akan kami tindak lanjuti untuk pelayanan yang lebih baik.</p>
+        </div>
+        <a href="index.html#kritik" class="group shrink-0 inline-flex items-center gap-3 px-7 py-4 rounded-full bg-white text-brand-700 font-black shadow-2xl hover:bg-brand-50 hover:scale-105 active:scale-95 transition-all">
+          Kirim Sekarang
+          <span class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center group-hover:rotate-[-45deg] transition-transform duration-300">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#1A0D10] text-white/70 pt-16 pb-8 relative overflow-hidden">
+  <div class="absolute inset-0 pattern-dots opacity-[0.15]"></div>
+  <div class="absolute -top-40 left-1/3 w-96 h-96 rounded-full bg-brand-700/30 blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center ring-2 ring-white/10">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-extrabold text-white tracking-tight">KESBANGPOL</p>
+            <p class="text-[11px] text-brand-400 font-medium">Kota Nusantara</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed">
+          Badan Kesatuan Bangsa dan Politik berkomitmen menjaga stabilitas, kerukunan, dan persatuan dalam bingkai NKRI.
+        </p>
+        <div class="mt-5 flex gap-2">
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1a4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.3a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.5-1.3 2.1-2.1Z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.5 31 31 0 0 0-.5-4.5ZM9.8 15.4V8.6l6 3.4-6 3.4Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Tautan Cepat</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="hover:text-brand-400 transition">Beranda</a></li>
+          <li><a href="profil.html" class="hover:text-brand-400 transition">Profil Pimpinan</a></li>
+          <li><a href="visi.html" class="hover:text-brand-400 transition">Visi &amp; Misi</a></li>
+          <li><a href="struktur.html" class="hover:text-brand-400 transition">Struktur Organisasi</a></li>
+          <li><a href="program.html" class="hover:text-brand-400 transition">Program</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Layanan</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="berita.html" class="hover:text-brand-400 transition">Berita</a></li>
+          <li><a href="agenda.html" class="hover:text-brand-400 transition">Agenda Pimpinan</a></li>
+          <li><a href="foto.html" class="hover:text-brand-400 transition">Galeri Foto</a></li>
+          <li><a href="videokegiatan.html" class="hover:text-brand-400 transition">Video Kegiatan</a></li>
+          <li><a href="index.html#kritik" class="hover:text-brand-400 transition">Kritik &amp; Saran</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Lokasi &amp; Kontak</h4>
+        <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521!2d106.8195!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMTAuMiJF!5e0!3m2!1sen!2sid!4v1700000000000"
+            class="w-full h-36 border-0"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Jl. Merdeka No. 123, Kota Nusantara</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span>(021) 123-4567</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <span>info@kesbangpol.go.id</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+      <p>© 2025 Badan Kesatuan Bangsa dan Politik. Seluruh hak cipta dilindungi.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-brand-400 transition">Kebijakan Privasi</a>
+        <a href="#" class="hover:text-brand-400 transition">Syarat &amp; Ketentuan</a>
+        <a href="#" class="hover:text-brand-400 transition">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  const drawer = document.getElementById('drawer');
+  const drawerBg = document.getElementById('drawerBg');
+  const drawerPanel = document.getElementById('drawerPanel');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeDrawer = document.getElementById('closeDrawer');
+
+  function openDrawer() {
+    drawer.classList.remove('pointer-events-none');
+    requestAnimationFrame(() => {
+      drawerBg.classList.replace('opacity-0', 'opacity-100');
+      drawerPanel.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  function closeDrawerFn() {
+    drawerBg.classList.replace('opacity-100', 'opacity-0');
+    drawerPanel.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+    setTimeout(() => drawer.classList.add('pointer-events-none'), 500);
+  }
+  menuBtn.addEventListener('click', openDrawer);
+  closeDrawer.addEventListener('click', closeDrawerFn);
+  drawerBg.addEventListener('click', closeDrawerFn);
+  document.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeDrawerFn));
+
+  document.querySelectorAll('.acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const target = document.getElementById(targetId);
+      const chevron = btn.querySelector('.acc-chevron');
+      const isOpen = target.classList.contains('open');
+
+      document.querySelectorAll('.acc-body.open').forEach(b => {
+        if (b !== target) {
+          b.classList.remove('open');
+          const otherChevron = b.previousElementSibling.querySelector('.acc-chevron');
+          if (otherChevron) otherChevron.classList.remove('open');
+        }
+      });
+
+      if (isOpen) {
+        target.classList.remove('open');
+        chevron.classList.remove('open');
+      } else {
+        target.classList.add('open');
+        chevron.classList.add('open');
+      }
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('#navbar > div');
+    if (window.scrollY > 40) {
+      nav.style.paddingTop = '6px';
+      nav.style.paddingBottom = '6px';
+    } else {
+      nav.style.paddingTop = '';
+      nav.style.paddingBottom = '';
+    }
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = (scrollTop / docHeight) * 100;
+    progressBar.style.width = pct + '%';
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href.length > 1 && document.querySelector(href)) {
+        e.preventDefault();
+        const el = document.querySelector(href);
+        window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

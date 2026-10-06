@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tugas & Fungsi — Kesbangpol Kota Nusantara</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Special+Elite&family=JetBrains+Mono:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          display: ['"Playfair Display"', 'serif'],
+          typewriter: ['"Special Elite"', 'monospace'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+          book: ['Lora', 'serif'],
+        },
+        colors: {
+          /* ===== DEEP CRIMSON ===== */
+          brand: {
+            50:'#FEF2F3',100:'#FDE0E3',200:'#FBC2C7',300:'#F59AA3',
+            400:'#EA6774',500:'#CF1F30',600:'#B81625',700:'#99111E',
+            800:'#7E101B',900:'#681119',
+          },
+          paper: {
+            50:'#FFFCF6', 100:'#FAF4E8', 200:'#F0E6CF', 300:'#E5D4AE',
+          },
+          ink: '#2B211B'
+        },
+        boxShadow: {
+          glass: '0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
+          soft:  '0 10px 40px -12px rgba(207,31,48,0.4)',
+          glow:  '0 0 0 4px rgba(207,31,48,0.18), 0 8px 24px -6px rgba(207,31,48,0.55)',
+          glowHover: '0 0 0 6px rgba(207,31,48,0.25), 0 12px 28px -6px rgba(207,31,48,0.65)',
+          book: '0 20px 40px -20px rgba(80,20,30,0.35), 0 4px 12px -4px rgba(80,20,30,0.15)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html, body { font-family: 'Inter', sans-serif; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #FEF2F3; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(#CF1F30, #99111E); border-radius: 8px; }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                inset 0 -1px 0 rgba(255,255,255,0.25);
+  }
+  .glass-dark {
+    background: rgba(30, 20, 22, 0.45);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #CF1F30 0%, #99111E 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .text-gradient-light {
+    background: linear-gradient(135deg, #F59AA3 0%, #CF1F30 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .paper-texture {
+    background-color: #FAF4E8;
+    background-image:
+      radial-gradient(rgba(120,90,50,0.06) 1px, transparent 1.5px),
+      radial-gradient(rgba(120,90,50,0.04) 1px, transparent 1.5px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 1px;
+  }
+  .paper-lines {
+    background-color: #FFFCF6;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 34px,
+      rgba(120,90,50,0.08) 34px 35px
+    );
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(rgba(207,31,48,0.18) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+  .pattern-diag {
+    background-image: repeating-linear-gradient(
+      45deg, rgba(207,31,48,0.10) 0 1px, transparent 1px 14px
+    );
+  }
+  .pattern-dots-light {
+    background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+  .ornament-kawung {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23CF1F30' stroke-width='1.2' opacity='0.35'><circle cx='30' cy='30' r='14'/><circle cx='90' cy='30' r='14'/><circle cx='30' cy='90' r='14'/><circle cx='90' cy='90' r='14'/><circle cx='60' cy='60' r='10'/></g></svg>");
+    background-size: 180px 180px;
+  }
+
+  .spiral-row {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    padding: 10px 0 6px;
+    position: relative;
+  }
+  .spiral-hole {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #CF1F30, #681119);
+    box-shadow:
+      inset 0 2px 4px rgba(0,0,0,0.4),
+      inset 0 -1px 2px rgba(255,255,255,0.3),
+      0 2px 3px rgba(0,0,0,0.15);
+    position: relative;
+  }
+  .spiral-hole::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 12px;
+    background: linear-gradient(to top, #681119, rgba(104,17,25,0.1));
+    border-radius: 2px;
+  }
+
+  .punch-hole {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #C9B183, #8B7553 60%, #5C4A32);
+    box-shadow:
+      inset 0 3px 6px rgba(0,0,0,0.5),
+      inset 0 -1px 2px rgba(255,255,255,0.15),
+      0 1px 2px rgba(255,255,255,0.6);
+    border: 1px solid rgba(90,70,40,0.3);
+  }
+
+  @keyframes spinSlow { to { transform: rotate(360deg) } }
+  .spin-slow { animation: spinSlow 40s linear infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+  .bob { animation: bob 6s ease-in-out infinite; }
+  @keyframes floatY { 0%,100% { transform: translateY(0) rotate(-2deg) } 50% { transform: translateY(-8px) rotate(2deg) } }
+  .float-y { animation: floatY 8s ease-in-out infinite; }
+  @keyframes ribbon { 0%,100% { transform: rotate(-2deg) } 50% { transform: rotate(2deg) } }
+  .ribbon-sway { animation: ribbon 5s ease-in-out infinite; transform-origin: top center; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms ease, transform 800ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 900ms ease, transform 900ms ease; }
+  .reveal-left.in { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 900ms ease, transform 900ms ease; }
+  .reveal-right.in { opacity: 1; transform: translateX(0); }
+
+  #scrollProgress {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+    background: linear-gradient(to right, #CF1F30, #99111E);
+    width: 0%; transition: width 100ms linear;
+    box-shadow: 0 0 12px rgba(207,31,48,0.7);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .text-outline {
+    -webkit-text-stroke: 1.5px rgba(207,31,48,0.35);
+    color: transparent;
+  }
+
+  .wax-seal {
+    background: radial-gradient(circle at 32% 28%, #CF1F30, #7E101B 65%, #681119 100%);
+    box-shadow:
+      inset 0 3px 8px rgba(255,255,255,0.25),
+      inset 0 -6px 12px rgba(0,0,0,0.35),
+      0 8px 20px -6px rgba(126,16,27,0.55);
+  }
+
+  .stamp {
+    border: 3px double #99111E;
+    color: #99111E;
+    font-family: 'Special Elite', monospace;
+    transform: rotate(-8deg);
+    opacity: 0.85;
+  }
+
+  .chapter-num {
+    font-feature-settings: "tnum";
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .page-fold {
+    position: relative;
+  }
+  .page-fold::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, transparent 50%, #E5D4AE 50%, #C9B183 100%);
+    border-top-left-radius: 6px;
+    box-shadow: -2px -2px 4px rgba(0,0,0,0.08);
+  }
+
+  .index-card {
+    background: #FFFCF6;
+    border: 1px solid rgba(120,90,50,0.15);
+    border-top: 4px solid #CF1F30;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04), 0 8px 24px -12px rgba(80,50,20,0.25);
+    position: relative;
+  }
+  .index-card::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(120,90,50,0.08);
+  }
+
+  .chapter-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: rgba(120,90,50,0.4);
+  }
+  .chapter-divider::before,
+  .chapter-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(120,90,50,0.25), transparent);
+  }
+
+  /* ===== FUNGSI CARD — kompak & modern ===== */
+  .fungsi-card {
+    position: relative;
+    background: #FFFCF6;
+    border: 1px solid rgba(120,90,50,0.12);
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03), 0 8px 24px -18px rgba(80,20,30,0.20);
+    transition: all 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .fungsi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #CF1F30, #99111E);
+    transition: width 400ms ease;
+  }
+  .fungsi-card:hover::before { width: 6px; }
+  .fungsi-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 44px -18px rgba(207,31,48,0.28);
+    border-color: rgba(207,31,48,0.28);
+  }
+
+  /* Letter badge (kompak) */
+  .fungsi-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #CF1F30, #99111E);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 1;
+    box-shadow: 0 6px 16px -4px rgba(207,31,48,0.45), inset 0 -2px 4px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    position: relative;
+  }
+  .fungsi-badge::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 17px;
+    border: 1px dashed rgba(207,31,48,0.35);
+    pointer-events: none;
+  }
+  .fungsi-badge-current {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 16px -4px rgba(0,0,0,0.4), inset 0 -2px 4px rgba(0,0,0,0.2);
+    color: #fff;
+  }
+  .fungsi-badge-current::after {
+    border-color: rgba(255,255,255,0.35);
+  }
+
+  .fungsi-card-highlight {
+    background: linear-gradient(135deg, #CF1F30, #99111E);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 20px 44px -18px rgba(207,31,48,0.5), 0 8px 20px -8px rgba(0,0,0,0.15);
+  }
+  .fungsi-card-highlight:hover {
+    box-shadow: 0 28px 56px -18px rgba(207,31,48,0.65), 0 8px 20px -8px rgba(0,0,0,0.15);
+  }
+  .fungsi-card-highlight::before { background: rgba(255,255,255,0.35); }
+</style>
+</head>
+
+<body class="bg-paper-100 text-ink antialiased selection:bg-brand-500/20 overflow-x-hidden">
+
+<div id="scrollProgress"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+  <div class="glass rounded-full px-3 md:px-5 py-2 relative flex items-center gap-3">
+
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 pl-1 z-10">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft ring-2 ring-white/70">
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="leading-tight hidden sm:block">
+        <p class="font-extrabold text-[15px] tracking-tight text-gray-900">KESBANGPOL</p>
+        <p class="text-[10px] font-medium text-brand-600/90 tracking-wide">KOTA NUSANTARA</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
+      <li><a href="index.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Beranda</a></li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-brand-600 bg-brand-50/80 transition">
+          Profil
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-56 shadow-2xl">
+            <a href="profil.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Profil Pimpinan</a>
+            <a href="sejarah.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="struktur.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" class="block px-3 py-2 rounded-xl text-[13px] font-semibold text-brand-700 bg-brand-50">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="program.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Program</a></li>
+      <li><a href="agenda.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Agenda Pimpinan</a></li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Publikasi
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="berita.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Galeri
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="foto.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Galeri Foto</a>
+            <a href="videokegiatan.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Video Kegiatan</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <a href="index.html#kritik" class="hidden lg:inline-flex ml-auto shrink-0 items-center gap-2 px-5 py-2.5 rounded-full text-white text-[13px] font-bold bg-gradient-to-r from-brand-500 to-brand-600 shadow-glow hover:shadow-glowHover hover:from-brand-600 hover:to-brand-700 active:scale-95 transition-all duration-300">
+      <span class="relative flex w-1.5 h-1.5">
+        <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+        <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-white"></span>
+      </span>
+      Kritik &amp; Saran
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+
+    <button id="menuBtn" class="lg:hidden ml-auto w-11 h-11 rounded-full flex items-center justify-center glass text-gray-800 active:scale-95 transition z-10">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== MOBILE DRAWER ===================== -->
+<div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none">
+  <div id="drawerBg" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+  <aside id="drawerPanel" class="absolute right-0 top-0 h-full w-[88%] max-w-[380px] bg-white/95 backdrop-blur-2xl shadow-[-20px_0_60px_-20px_rgba(0,0,0,0.4)] translate-x-full transition-transform duration-500 flex flex-col" style="transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);">
+
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100/80">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-extrabold text-[15px] tracking-tight text-gray-900">KESBANGPOL</p>
+          <p class="text-[10px] font-medium text-brand-600 tracking-wide">KOTA NUSANTARA</p>
+        </div>
+      </div>
+      <button id="closeDrawer" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 active:scale-95 transition">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-3 py-4 space-y-1 no-scrollbar">
+      <a href="index.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">01</span>
+        Beranda
+      </a>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-brand-600 bg-brand-50 transition" data-target="acc-profil">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xs font-bold">02</span>
+            Profil
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-brand-400 open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-profil" class="acc-body open">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="profil.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Profil Pimpinan</a>
+            <a href="sejarah.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="struktur.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-semibold text-brand-700 bg-brand-50">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="program.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">03</span>
+        Program
+      </a>
+      <a href="agenda.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">04</span>
+        Agenda Pimpinan
+      </a>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition" data-target="acc-publikasi">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">05</span>
+            Publikasi
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-publikasi" class="acc-body">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="berita.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition" data-target="acc-galeri">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">06</span>
+            Galeri
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-galeri" class="acc-body">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="foto.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Galeri Foto</a>
+            <a href="videokegiatan.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Video Kegiatan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4 border-t border-gray-100">
+      <a href="index.html#kritik" data-close class="flex items-center justify-center gap-2 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-700 text-white font-bold shadow-soft active:scale-[0.98] transition">
+        <span class="relative flex w-2 h-2">
+          <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+          <span class="relative inline-flex w-2 h-2 rounded-full bg-white"></span>
+        </span>
+        Kirim Kritik &amp; Saran
+      </a>
+    </div>
+  </aside>
+</div>
+
+<!-- ============================================================= -->
+<!-- =====================        PAGE        =================== -->
+<!-- ============================================================= -->
+<main>
+
+  <!-- ===================== HERO — COVER BUKU MANUAL ===================== -->
+  <section class="relative min-h-screen overflow-hidden paper-texture">
+
+    <div class="hidden md:flex absolute left-8 top-32 bottom-32 flex-col justify-between z-20">
+      <div class="punch-hole"></div>
+      <div class="punch-hole"></div>
+      <div class="punch-hole"></div>
+      <div class="punch-hole"></div>
+    </div>
+
+    <div class="hidden md:block absolute top-0 left-1/2 -translate-x-1/2 z-30 ribbon-sway">
+      <div class="w-10 h-32 bg-gradient-to-b from-brand-600 via-brand-700 to-brand-800 shadow-xl" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 88%, 0 100%);"></div>
+    </div>
+
+    <div class="absolute inset-0 pattern-dots opacity-20 pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-500 via-brand-700 to-brand-500"></div>
+
+    <div class="hidden md:block absolute top-40 right-10 w-[420px] h-[420px] spin-slow pointer-events-none opacity-[0.06]">
+      <svg viewBox="0 0 200 200" class="w-full h-full">
+        <circle cx="100" cy="100" r="96" fill="none" stroke="#7E101B" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#7E101B" stroke-width="1"/>
+        <circle cx="100" cy="100" r="64" fill="none" stroke="#7E101B" stroke-width="0.8" stroke-dasharray="3 4"/>
+        <text x="100" y="88" text-anchor="middle" font-family="Playfair Display" font-size="22" font-weight="900" fill="#7E101B">MANUAL</text>
+        <text x="100" y="122" text-anchor="middle" font-family="Playfair Display" font-size="14" font-weight="700" fill="#7E101B">KERJA</text>
+      </svg>
+    </div>
+
+    <div class="hidden lg:block absolute right-8 top-1/2 -translate-y-1/2 vertical-text font-mono text-[10px] tracking-[0.5em] uppercase text-ink/30">
+      Manual Kerja · Kesbangpol · Kota Nusantara · Edisi 2025
+    </div>
+
+    <div class="relative pt-32 md:pt-36">
+      <div class="max-w-7xl mx-auto px-6 md:px-20">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-mono tracking-widest text-ink/60 uppercase">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-600"></span>
+            Manual No. MK-KBP/2025-02
+          </span>
+          <span class="hidden sm:inline text-ink/30">|</span>
+          <span>Edisi Revisi 03</span>
+          <span class="hidden sm:inline text-ink/30">|</span>
+          <span>Efektif 01 Feb 2025</span>
+        </div>
+        <div class="mt-4 h-px bg-gradient-to-r from-ink/20 via-ink/10 to-transparent"></div>
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-20 pt-10 md:pt-16 pb-24 md:pb-28">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+
+        <div class="lg:col-span-8 reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-12 h-px bg-brand-600"></span>
+            <span class="font-typewriter text-[11px] tracking-[0.3em] uppercase text-brand-700">Buku Manual Kerja · Kesbangpol</span>
+          </div>
+
+          <h1 class="font-display font-black text-[36px] sm:text-[46px] md:text-[58px] lg:text-[72px] leading-[0.9] tracking-[-0.03em] text-ink">
+            <span class="block">Tugas</span>
+            <span class="block italic text-gradient">&amp; Fungsi</span>
+            <span class="block">Kami.</span>
+          </h1>
+
+          <div class="mt-8 flex items-center gap-4 max-w-md">
+            <span class="w-12 h-px bg-brand-600"></span>
+            <p class="font-typewriter text-[10px] tracking-widest uppercase text-ink/50">Peraturan Wali Kota No. 22/2023</p>
+            <span class="flex-1 h-px bg-brand-500/30"></span>
+          </div>
+
+          <p class="mt-8 text-ink/70 text-base md:text-lg leading-relaxed max-w-2xl font-book">
+            Setiap tindakan yang kami lakukan memiliki dasar. Setiap dasar memiliki tujuan. Buku manual ini adalah <span class="italic text-brand-700">kompas kerja kami</span> — agar pengabdian tetap pada jalurnya.
+          </p>
+
+          <div class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
+            <div class="border-t-2 border-brand-500 pt-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">BAB 01</p>
+              <p class="font-display font-black text-sm text-ink mt-1">Tugas Pokok</p>
+            </div>
+            <div class="border-t-2 border-brand-500 pt-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">BAB 02</p>
+              <p class="font-display font-black text-sm text-ink mt-1">Fungsi Utama</p>
+            </div>
+            <div class="border-t-2 border-brand-500 pt-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">BAB 03</p>
+              <p class="font-display font-black text-sm text-ink mt-1">Tugas Per Unit</p>
+            </div>
+            <div class="border-t-2 border-brand-500 pt-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">BAB 04</p>
+              <p class="font-display font-black text-sm text-ink mt-1">Layanan</p>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a href="#tugas-pokok" class="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 font-semibold text-white shadow-soft hover:from-brand-600 hover:to-brand-700 transition">
+              Mulai Membaca
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-paper-50 border border-ink/10 font-semibold text-ink hover:border-brand-400 hover:text-brand-700 transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+              Unduh Manual PDF
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 relative reveal">
+          <div class="relative">
+            <div class="absolute -top-6 left-1/2 -translate-x-1/2 z-20">
+              <div class="spiral-row">
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+                <div class="spiral-hole"></div>
+              </div>
+            </div>
+
+            <div class="relative bg-gradient-to-br from-brand-700 via-brand-800 to-brand-900 rounded-2xl shadow-2xl overflow-hidden border border-brand-500/30 rotate-[1.5deg]">
+              <div class="absolute inset-0 pattern-dots-light opacity-10"></div>
+              <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full border border-white/15 spin-slow pointer-events-none"></div>
+
+              <div class="relative p-7 md:p-8 text-white">
+                <div class="flex items-center justify-between mb-10">
+                  <div class="w-12 h-12 rounded-full bg-white/10 backdrop-blur ring-1 ring-white/25 flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+                      <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                  </div>
+                  <p class="font-mono text-[9px] tracking-widest uppercase text-white/60">EDISI REV. 03</p>
+                </div>
+
+                <p class="font-typewriter text-[10px] tracking-[0.3em] uppercase text-brand-300">BUKU MANUAL KERJA</p>
+                <h3 class="mt-3 font-display font-black text-2xl md:text-3xl leading-tight">
+                  Tugas &amp; Fungsi<br>
+                  <span class="italic text-brand-300">Badan Kesbangpol</span>
+                </h3>
+
+                <div class="mt-8 pt-6 border-t border-white/15 grid grid-cols-2 gap-4">
+                  <div>
+                    <p class="font-mono text-[9px] tracking-widest text-white/50 uppercase">Tahun</p>
+                    <p class="font-display font-black text-lg mt-1">2025</p>
+                  </div>
+                  <div>
+                    <p class="font-mono text-[9px] tracking-widest text-white/50 uppercase">Halaman</p>
+                    <p class="font-display font-black text-lg mt-1">48</p>
+                  </div>
+                </div>
+
+                <div class="mt-8 flex items-center justify-between">
+                  <div class="font-mono text-[9px] tracking-widest text-white/50 uppercase">
+                    Kota Nusantara
+                  </div>
+                  <div class="w-14 h-14 rounded-full wax-seal flex items-center justify-center text-white rotate-[-10deg]">
+                    <div class="text-center">
+                      <svg class="w-5 h-5 mx-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+                        <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+                        <path d="m9 12 2 2 4-4"/>
+                      </svg>
+                      <p class="font-display font-black text-[7px] tracking-widest mt-0.5">SAH</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-6 -left-6 stamp rounded-lg px-4 py-2 text-[10px] tracking-[0.2em] uppercase hidden md:block">
+              <p class="font-black text-sm">DOKUMEN RESMI</p>
+              <p class="text-[9px]">KESBANGPOL · 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ink/40 text-[10px] font-typewriter tracking-widest uppercase">
+      <span>Gulir Halaman</span>
+      <span class="w-px h-8 bg-gradient-to-b from-ink/40 to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- ===================== QUICK FACTS STRIP ===================== -->
+  <section class="relative -mt-14 md:-mt-16 z-20 px-6 md:px-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-paper-50 rounded-[2rem] shadow-book p-6 md:p-8 border border-ink/15 relative">
+        <div class="absolute left-3 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-6">
+          <div class="w-3 h-3 rounded-full bg-gradient-to-br from-brand-300 to-brand-500 shadow-inner"></div>
+          <div class="w-3 h-3 rounded-full bg-gradient-to-br from-brand-300 to-brand-500 shadow-inner"></div>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-ink/10">
+
+          <div class="md:px-4">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">BAB</p>
+            <p class="mt-2 font-display font-black text-base md:text-lg text-ink leading-tight">04 Bab Utama</p>
+            <p class="text-xs text-ink/50 mt-1">Struktur manual kerja</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">PASAL</p>
+            <p class="mt-2 font-display font-black text-base md:text-lg text-ink leading-tight">18 Pasal</p>
+            <p class="text-xs text-ink/50 mt-1">Klausul tugas &amp; fungsi</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">FUNGSI</p>
+            <p class="mt-2 font-display font-black text-base md:text-lg text-ink leading-tight">05 Fungsi</p>
+            <p class="text-xs text-ink/50 mt-1">Pelaksanaan tugas pokok</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">LAYANAN</p>
+            <p class="mt-2 font-display font-black text-base md:text-lg text-ink leading-tight">12 Layanan</p>
+            <p class="text-xs text-ink/50 mt-1">Siap melayani warga</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAB 01 — TUGAS POKOK ===================== -->
+  <section id="tugas-pokok" class="relative py-24 md:py-32 paper-lines overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-25 pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-72 h-72 pattern-dots opacity-40 pointer-events-none"></div>
+
+    <div class="hidden lg:flex absolute left-6 top-1/2 -translate-y-1/2 flex-col items-center gap-4 text-ink/30 font-mono text-[10px]">
+      <span class="w-px h-16 bg-ink/20"></span>
+      <span class="vertical-text tracking-[0.4em]">BAB I · TUGAS POKOK</span>
+      <span class="w-px h-16 bg-ink/20"></span>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-14 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB I</span>
+        <span class="font-display text-lg font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">TUGAS POKOK</span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16">
+
+        <div class="lg:col-span-3 reveal">
+          <div class="sticky top-32">
+            <div class="flex items-baseline gap-3">
+              <span class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num">01</span>
+            </div>
+            <p class="mt-4 font-typewriter text-[10px] tracking-widest uppercase text-brand-700">BAB PERTAMA</p>
+            <p class="font-display font-black text-base text-ink mt-1">Tugas Pokok</p>
+            <div class="mt-6 h-px bg-gradient-to-r from-brand-400 to-transparent"></div>
+            <div class="mt-6 space-y-3 font-mono text-[10px] tracking-widest text-ink/50">
+              <p>PASAL: 01</p>
+              <p>KLAUSUL: 3 AYAT</p>
+              <p class="text-brand-700 font-bold">DASAR: PERWALI 22/2023</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-9 reveal">
+
+          <div class="mb-10">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-3">PASAL 1</p>
+            <p class="font-display font-black text-xl md:text-2xl text-ink">
+              Tentang Tugas Pokok
+            </p>
+          </div>
+
+          <div class="relative bg-paper-50 rounded-2xl p-6 md:p-8 border-l-4 border-brand-600 shadow-book">
+            <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-brand-600 text-white font-display font-black text-sm flex items-center justify-center shadow-lg">1</span>
+            <p class="font-book text-base md:text-lg lg:text-xl leading-relaxed text-ink/85">
+              Badan Kesatuan Bangsa dan Politik Kota Nusantara mempunyai tugas pokok <span class="italic text-brand-700 font-semibold">membantu Wali Kota dalam melaksanakan urusan pemerintahan bidang Kesatuan Bangsa dan Politik</span> yang menjadi kewenangan daerah, serta tugas pembantuan yang diberikan oleh pemerintah pusat dan/atau pemerintah provinsi.
+            </p>
+          </div>
+
+          <div class="mt-6 grid md:grid-cols-2 gap-5">
+            <div class="relative bg-paper-50 rounded-2xl p-6 border border-ink/10 shadow-sm">
+              <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-ink text-paper-50 font-display font-black text-sm flex items-center justify-center shadow-lg">2</span>
+              <p class="font-book text-ink/75 leading-relaxed">
+                Dalam melaksanakan tugas pokok sebagaimana dimaksud pada ayat (1), Badan Kesbangpol menyelenggarakan fungsi-fungsi sesuai ketentuan peraturan perundang-undangan.
+              </p>
+            </div>
+            <div class="relative bg-paper-50 rounded-2xl p-6 border border-ink/10 shadow-sm">
+              <span class="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-ink text-paper-50 font-display font-black text-sm flex items-center justify-center shadow-lg">3</span>
+              <p class="font-book text-ink/75 leading-relaxed">
+                Tugas pokok dan fungsi sebagaimana dimaksud dijabarkan lebih lanjut ke dalam uraian tugas masing-masing jabatan struktural dan fungsional.
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-10 pt-6 border-t border-dashed border-ink/20 flex flex-wrap items-end justify-between gap-6">
+            <div class="font-mono text-[10px] tracking-widest uppercase text-ink/40">
+              <p>DITETAPKAN OLEH:</p>
+              <p class="mt-1 text-brand-700 font-bold">WALI KOTA NUSANTARA</p>
+            </div>
+            <svg viewBox="0 0 200 44" class="w-32 h-auto opacity-70">
+              <path d="M8 30 C 22 6, 40 6, 50 28 S 74 38, 86 20 S 108 4, 124 28 S 148 38, 162 22 S 184 8, 198 24"
+                    fill="none" stroke="#99111E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAB 02 — FUNGSI UTAMA (KOMPAK) ===================== -->
+  <section id="fungsi" class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-dots opacity-25 pointer-events-none"></div>
+    <div class="absolute top-1/3 -left-40 w-[420px] h-[420px] rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-20 right-0 w-80 h-80 ornament-kawung opacity-20 pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-10 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB II</span>
+        <span class="font-display text-lg font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">FUNGSI UTAMA</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-10 reveal">
+        <div>
+          <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">02</p>
+          <h2 class="mt-4 font-display text-xl md:text-2xl lg:text-3xl font-black tracking-tight text-ink leading-tight">
+            Lima <span class="italic text-gradient">Fungsi</span> Utama
+          </h2>
+          <p class="mt-3 text-ink/60 max-w-xl font-book text-sm md:text-base">
+            Sebagaimana diamanatkan dalam Pasal 2 Peraturan Wali Kota, dalam melaksanakan tugas pokok, Badan Kesbangpol menyelenggarakan lima fungsi berikut.
+          </p>
+        </div>
+        <p class="font-mono text-[10px] tracking-widest text-ink/40 shrink-0">
+          PASAL 2 — 5 AYAT
+        </p>
+      </div>
+
+      <!-- Fungsi list — layout KOMPAK 2-kolom (grid) -->
+      <div class="grid md:grid-cols-2 gap-4 md:gap-5">
+
+        <!-- FUNGSI A -->
+        <article class="fungsi-card p-5 md:p-6 pl-7 md:pl-8 reveal-left">
+          <div class="flex items-start gap-4">
+            <div class="fungsi-badge">A</div>
+            <div class="flex-1 min-w-0">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700">AYAT 1 · PERENCANAAN</p>
+              <h3 class="mt-1.5 font-display font-black text-sm md:text-base text-ink leading-snug">
+                Penyusunan &amp; pelaksanaan <span class="italic text-brand-700">kebijakan teknis</span> di bidang kesatuan bangsa dan politik.
+              </h3>
+              <p class="mt-2 text-xs md:text-[13px] text-ink/65 leading-relaxed font-book">
+                Merumuskan kebijakan operasional, menyusun rencana kerja, dan melaksanakan program-program di bidang kesatuan bangsa, politik dalam negeri, ketahanan ekonomi-sosial-budaya, serta ideologi dan wawasan kebangsaan.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">KEBIJAKAN</span>
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">RENCANA KERJA</span>
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">PROGRAM</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- FUNGSI B -->
+        <article class="fungsi-card p-5 md:p-6 pl-7 md:pl-8 reveal-right">
+          <div class="flex items-start gap-4">
+            <div class="fungsi-badge">B</div>
+            <div class="flex-1 min-w-0">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700">AYAT 2 · PELAYANAN</p>
+              <h3 class="mt-1.5 font-display font-black text-sm md:text-base text-ink leading-snug">
+                Pelaksanaan <span class="italic text-brand-700">pelayanan publik</span> di bidang kesatuan bangsa dan politik.
+              </h3>
+              <p class="mt-2 text-xs md:text-[13px] text-ink/65 leading-relaxed font-book">
+                Menyelenggarakan pelayanan perizinan, rekomendasi, fasilitasi, dan administrasi lainnya kepada masyarakat, ormas, dan lembaga sesuai ketentuan yang berlaku.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">REKOMENDASI</span>
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">FASILITASI</span>
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">PERIZINAN</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- FUNGSI C -->
+        <article class="fungsi-card p-5 md:p-6 pl-7 md:pl-8 reveal-left">
+          <div class="flex items-start gap-4">
+            <div class="fungsi-badge">C</div>
+            <div class="flex-1 min-w-0">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700">AYAT 3 · PEMBINAAN</p>
+              <h3 class="mt-1.5 font-display font-black text-sm md:text-base text-ink leading-snug">
+                Pembinaan &amp; <span class="italic text-brand-700">pengembangan kehidupan</span> kesatuan bangsa dan politik.
+              </h3>
+              <p class="mt-2 text-xs md:text-[13px] text-ink/65 leading-relaxed font-book">
+                Pembinaan ideologi Pancasila, wawasan kebangsaan, kerukunan umat beragama, pendidikan politik masyarakat, serta pembinaan ormas dan partai politik.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">IDEOLOGI</span>
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">KERUKUNAN</span>
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">PARPOL</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- FUNGSI D -->
+        <article class="fungsi-card p-5 md:p-6 pl-7 md:pl-8 reveal-right">
+          <div class="flex items-start gap-4">
+            <div class="fungsi-badge">D</div>
+            <div class="flex-1 min-w-0">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700">AYAT 4 · KOORDINASI</p>
+              <h3 class="mt-1.5 font-display font-black text-sm md:text-base text-ink leading-snug">
+                Koordinasi &amp; <span class="italic text-brand-700">kewaspadaan dini</span> terhadap potensi konflik sosial.
+              </h3>
+              <p class="mt-2 text-xs md:text-[13px] text-ink/65 leading-relaxed font-book">
+                Mengoordinasikan upaya pencegahan, deteksi dini, dan penanganan potensi konflik sosial, serta membangun sinergi dengan instansi vertikal, TNI, Polri, dan komponen masyarakat.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">DETEKSI DINI</span>
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">PENCEGAHAN</span>
+                <span class="px-2 py-1 rounded-full bg-white border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">SINERGI</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- FUNGSI E — full width highlight -->
+        <article class="fungsi-card fungsi-card-highlight p-5 md:p-6 pl-7 md:pl-8 md:col-span-2 relative overflow-hidden reveal-left">
+          <div class="absolute inset-0 pattern-dots-light opacity-15"></div>
+          <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full border border-white/20 spin-slow pointer-events-none"></div>
+
+          <div class="relative flex items-start gap-4">
+            <div class="fungsi-badge fungsi-badge-current">E</div>
+            <div class="flex-1 min-w-0">
+              <p class="font-mono text-[9px] tracking-widest uppercase text-orange-200">AYAT 5 · PENGAWASAN</p>
+              <h3 class="mt-1.5 font-display font-black text-sm md:text-base leading-snug">
+                Pengawasan &amp; <span class="italic text-brand-300">pengendalian</span> pelaksanaan tugas di lingkungan badan.
+              </h3>
+              <p class="mt-2 text-xs md:text-[13px] text-white/80 leading-relaxed font-book">
+                Melakukan pengawasan internal, evaluasi kinerja, dan pengendalian pelaksanaan tugas serta fungsi setiap unit kerja untuk memastikan tercapainya target kinerja yang telah ditetapkan.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-1.5">
+                <span class="px-2 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-orange-100 font-mono text-[9px] tracking-widest uppercase">MONITORING</span>
+                <span class="px-2 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-orange-100 font-mono text-[9px] tracking-widest uppercase">EVALUASI</span>
+                <span class="px-2 py-1 rounded-full bg-white/10 backdrop-blur border border-white/20 text-orange-100 font-mono text-[9px] tracking-widest uppercase">PELAPORAN</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAB 03 — TUGAS PER UNIT ===================== -->
+  <section id="per-unit" class="relative py-24 md:py-32 paper-texture overflow-hidden border-t border-ink/10">
+    <div class="absolute inset-0 pattern-dots opacity-20 pointer-events-none"></div>
+    <div class="absolute bottom-20 -left-40 w-[420px] h-[420px] rounded-full bg-brand-100/60 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-14 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB III</span>
+        <span class="font-display text-lg font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">TUGAS PER UNIT</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 reveal">
+        <div>
+          <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">03</p>
+          <h2 class="mt-4 font-display text-xl md:text-2xl lg:text-3xl font-black tracking-tight text-ink leading-tight">
+            Uraian <span class="italic text-gradient">Tugas</span> Per Unit
+          </h2>
+          <p class="mt-3 text-ink/60 max-w-xl font-book text-sm md:text-base">
+            Penjabaran tugas pokok ke dalam uraian tugas masing-masing unit kerja sesuai dengan struktur organisasi.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 reveal">
+
+        <aside class="lg:col-span-4">
+          <div class="lg:sticky lg:top-32 bg-paper-50 rounded-2xl border border-ink/15 shadow-book overflow-hidden">
+            <div class="p-5 border-b border-ink/10">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">DAFTAR UNIT</p>
+              <p class="font-display font-black text-base text-ink mt-1">5 Unit Kerja</p>
+            </div>
+            <nav class="p-2">
+              <button data-unit="sec" class="unit-tab w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 transition-all mb-1">
+                <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0">SEC</span>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm text-ink">Sekretariat</p>
+                  <p class="font-mono text-[10px] text-ink/50">SEC-01</p>
+                </div>
+              </button>
+              <button data-unit="bid1" class="unit-tab w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 transition-all mb-1">
+                <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0">01</span>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm text-ink">Kesatuan Bangsa</p>
+                  <p class="font-mono text-[10px] text-ink/50">BID-01</p>
+                </div>
+              </button>
+              <button data-unit="bid2" class="unit-tab w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 transition-all mb-1">
+                <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0">02</span>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm text-ink">Politik Dalam Negeri</p>
+                  <p class="font-mono text-[10px] text-ink/50">BID-02</p>
+                </div>
+              </button>
+              <button data-unit="bid3" class="unit-tab w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 transition-all mb-1">
+                <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0">03</span>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm text-ink">Ketahanan Ekonomi</p>
+                  <p class="font-mono text-[10px] text-ink/50">BID-03</p>
+                </div>
+              </button>
+              <button data-unit="bid4" class="unit-tab w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 transition-all mb-1">
+                <span class="w-9 h-9 rounded-lg bg-brand-100 text-brand-700 flex items-center justify-center font-mono text-[10px] font-bold shrink-0">04</span>
+                <div class="flex-1">
+                  <p class="font-semibold text-sm text-ink">Ideologi &amp; Wawasan</p>
+                  <p class="font-mono text-[10px] text-ink/50">BID-04</p>
+                </div>
+              </button>
+            </nav>
+          </div>
+        </aside>
+
+        <div class="lg:col-span-8">
+          <div class="relative bg-paper-50 rounded-2xl border border-ink/15 shadow-book overflow-hidden page-fold">
+
+            <div data-panel="sec" class="unit-panel">
+              <div class="p-6 md:p-10">
+                <div class="flex items-start justify-between gap-6 mb-8">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">PASAL 3</p>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mt-1">SEC-01</p>
+                    <h3 class="mt-3 font-display font-black text-lg md:text-xl lg:text-2xl text-ink leading-tight">Sekretariat</h3>
+                  </div>
+                  <div class="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 7h18v13H3z"/><path d="M3 7l9 6 9-6M8 3h8"/></svg>
+                  </div>
+                </div>
+
+                <div class="space-y-6 font-book">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (1) · TUGAS</p>
+                    <p class="text-ink/75 leading-relaxed text-sm md:text-base">
+                      Sekretariat mempunyai tugas melaksanakan pelayanan administratif, kepegawaian, keuangan, perencanaan, dan pelaporan di lingkungan Badan Kesbangpol.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (2) · URAIAN TUGAS</p>
+                    <ol class="space-y-3">
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">a.</span><p class="text-ink/75 leading-relaxed text-sm">Menyusun rencana kerja dan anggaran badan;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">b.</span><p class="text-ink/75 leading-relaxed text-sm">Mengelola administrasi keuangan dan pelaporan keuangan;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">c.</span><p class="text-ink/75 leading-relaxed text-sm">Mengelola administrasi kepegawaian dan pengembangan SDM;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">d.</span><p class="text-ink/75 leading-relaxed text-sm">Mengelola urusan tata usaha, rumah tangga, dan perlengkapan;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">e.</span><p class="text-ink/75 leading-relaxed text-sm">Menyusun laporan kinerja dan akuntabilitas badan; serta</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">f.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan tugas lain yang diberikan oleh Kepala Badan.</p></li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-dashed border-ink/20">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mb-4">SUB UNIT</p>
+                  <div class="grid sm:grid-cols-3 gap-3">
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-01.1</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Umum &amp; Kepegawaian</p>
+                    </div>
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-01.2</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Perencanaan &amp; Keuangan</p>
+                    </div>
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-01.3</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Program &amp; Pelaporan</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-panel="bid1" class="unit-panel hidden">
+              <div class="p-6 md:p-10">
+                <div class="flex items-start justify-between gap-6 mb-8">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">PASAL 4</p>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mt-1">BID-01</p>
+                    <h3 class="mt-3 font-display font-black text-lg md:text-xl lg:text-2xl text-ink leading-tight">Bidang Kesatuan Bangsa</h3>
+                  </div>
+                  <div class="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </div>
+                </div>
+
+                <div class="space-y-6 font-book">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (1) · TUGAS</p>
+                    <p class="text-ink/75 leading-relaxed text-sm md:text-base">
+                      Bidang Kesatuan Bangsa mempunyai tugas melaksanakan pembinaan ideologi, wawasan kebangsaan, kerukunan umat beragama, serta kewaspadaan dini terhadap potensi konflik sosial.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (2) · URAIAN TUGAS</p>
+                    <ol class="space-y-3">
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">a.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan pembinaan ideologi Pancasila dan wawasan kebangsaan;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">b.</span><p class="text-ink/75 leading-relaxed text-sm">Memfasilitasi kerukunan umat beragama dan pembinaan FKUB;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">c.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan deteksi dini dan kewaspadaan dini konflik sosial;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">d.</span><p class="text-ink/75 leading-relaxed text-sm">Membina karakter bangsa di lingkungan masyarakat;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">e.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan tugas lain yang diberikan oleh Kepala Badan.</p></li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-dashed border-ink/20">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mb-4">SUB UNIT</p>
+                  <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-02.1</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Ideologi &amp; Wawasan Kebangsaan</p>
+                    </div>
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-02.2</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Kerukunan &amp; Kewaspadaan</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-panel="bid2" class="unit-panel hidden">
+              <div class="p-6 md:p-10">
+                <div class="flex items-start justify-between gap-6 mb-8">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">PASAL 5</p>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mt-1">BID-02</p>
+                    <h3 class="mt-3 font-display font-black text-lg md:text-xl lg:text-2xl text-ink leading-tight">Bidang Politik Dalam Negeri</h3>
+                  </div>
+                  <div class="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+                  </div>
+                </div>
+
+                <div class="space-y-6 font-book">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (1) · TUGAS</p>
+                    <p class="text-ink/75 leading-relaxed text-sm md:text-base">
+                      Bidang Politik Dalam Negeri mempunyai tugas melaksanakan pembinaan dan pengembangan kehidupan politik dalam negeri, pendidikan politik, serta fasilitasi partai politik dan pemilu.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (2) · URAIAN TUGAS</p>
+                    <ol class="space-y-3">
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">a.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan pendidikan politik bagi masyarakat;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">b.</span><p class="text-ink/75 leading-relaxed text-sm">Memfasilitasi partai politik dan pemilu;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">c.</span><p class="text-ink/75 leading-relaxed text-sm">Memantau dinamika politik lokal dan kebijakan publik;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">d.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan tugas lain yang diberikan oleh Kepala Badan.</p></li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-dashed border-ink/20">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mb-4">SUB UNIT</p>
+                  <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-03.1</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Pendidikan Politik &amp; Parpol</p>
+                    </div>
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-03.2</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Pemilu &amp; Kewilayahan</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-panel="bid3" class="unit-panel hidden">
+              <div class="p-6 md:p-10">
+                <div class="flex items-start justify-between gap-6 mb-8">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">PASAL 6</p>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mt-1">BID-03</p>
+                    <h3 class="mt-3 font-display font-black text-lg md:text-xl lg:text-2xl text-ink leading-tight">Bidang Ketahanan Ekonomi, Sosial Budaya &amp; Ormas</h3>
+                  </div>
+                  <div class="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                  </div>
+                </div>
+
+                <div class="space-y-6 font-book">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (1) · TUGAS</p>
+                    <p class="text-ink/75 leading-relaxed text-sm md:text-base">
+                      Bidang Ketahanan Ekonomi, Sosial Budaya dan Ormas mempunyai tugas melaksanakan pembinaan ketahanan ekonomi, sosial budaya, serta fasilitasi organisasi kemasyarakatan dan lembaga sosial.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (2) · URAIAN TUGAS</p>
+                    <ol class="space-y-3">
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">a.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan pembinaan ketahanan ekonomi masyarakat;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">b.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan pembinaan sosial budaya dan kearifan lokal;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">c.</span><p class="text-ink/75 leading-relaxed text-sm">Memfasilitasi organisasi kemasyarakatan (Ormas);</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">d.</span><p class="text-ink/75 leading-relaxed text-sm">Memfasilitasi lembaga sosial dan keagamaan;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">e.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan tugas lain yang diberikan oleh Kepala Badan.</p></li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-dashed border-ink/20">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mb-4">SUB UNIT</p>
+                  <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-04.1</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Ketahanan Ekonomi &amp; Sosbud</p>
+                    </div>
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-04.2</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Fasilitasi Ormas</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div data-panel="bid4" class="unit-panel hidden">
+              <div class="p-6 md:p-10">
+                <div class="flex items-start justify-between gap-6 mb-8">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">PASAL 7</p>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mt-1">BID-04</p>
+                    <h3 class="mt-3 font-display font-black text-lg md:text-xl lg:text-2xl text-ink leading-tight">Bidang Ideologi, Wawasan Kebangsaan &amp; Karakter Bangsa</h3>
+                  </div>
+                  <div class="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                  </div>
+                </div>
+
+                <div class="space-y-6 font-book">
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (1) · TUGAS</p>
+                    <p class="text-ink/75 leading-relaxed text-sm md:text-base">
+                      Bidang Ideologi, Wawasan Kebangsaan dan Karakter Bangsa mempunyai tugas melaksanakan pembinaan ideologi negara, wawasan kebangsaan, karakter bangsa, bela negara, serta perlindungan masyarakat.
+                    </p>
+                  </div>
+
+                  <div>
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700 mb-2">AYAT (2) · URAIAN TUGAS</p>
+                    <ol class="space-y-3">
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">a.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan pembinaan ideologi Pancasila dan karakter bangsa;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">b.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan penguatan wawasan kebangsaan di sekolah dan masyarakat;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">c.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan pembinaan kesadaran bela negara dan Linmas;</p></li>
+                      <li class="flex gap-3"><span class="font-display font-black text-brand-600 shrink-0">d.</span><p class="text-ink/75 leading-relaxed text-sm">Melaksanakan tugas lain yang diberikan oleh Kepala Badan.</p></li>
+                    </ol>
+                  </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-dashed border-ink/20">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mb-4">SUB UNIT</p>
+                  <div class="grid sm:grid-cols-2 gap-3">
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-05.1</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Ideologi &amp; Karakter Bangsa</p>
+                    </div>
+                    <div class="index-card rounded-xl p-4">
+                      <p class="font-mono text-[9px] tracking-widest text-brand-700">SB-05.2</p>
+                      <p class="font-semibold text-xs text-ink mt-1 leading-snug">Bela Negara &amp; Linmas</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-6 md:px-10 py-4 border-t border-dashed border-ink/20 flex items-center justify-between text-[10px] font-mono tracking-widest text-ink/40 uppercase">
+              <span>Manual Kerja KBP · 2025</span>
+              <span class="page-number">Hal. 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BAB 04 — LAYANAN ===================== -->
+  <section id="layanan" class="relative py-24 md:py-32 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+    <div class="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-14 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB IV</span>
+        <span class="font-display text-lg font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">LAYANAN</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 reveal">
+        <div>
+          <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">04</p>
+          <h2 class="mt-4 font-display text-xl md:text-2xl lg:text-3xl font-black tracking-tight text-ink leading-tight">
+            Katalog <span class="italic text-gradient">Layanan</span>
+          </h2>
+          <p class="mt-3 text-ink/60 max-w-xl font-book text-sm md:text-base">
+            Daftar layanan yang kami sediakan bagi masyarakat, organisasi kemasyarakatan, partai politik, dan lembaga mitra.
+          </p>
+        </div>
+        <p class="font-mono text-[10px] tracking-widest text-ink/40 shrink-0">
+          KATALOG A — L
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 reveal">
+
+        <article class="index-card rounded-2xl p-6 group hover:-translate-y-2 transition-all duration-300">
+          <div class="flex items-start justify-between mb-4">
+            <span class="font-display text-3xl font-black text-brand-600 leading-none chapter-num">A</span>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-mono text-[9px] tracking-widest uppercase border border-brand-200">GRATIS</span>
+          </div>
+          <h3 class="font-display font-black text-base text-ink leading-snug">Rekomendasi Kegiatan Ormas</h3>
+          <p class="mt-2 text-xs text-ink/60 leading-relaxed">Rekomendasi untuk kegiatan yang diselenggarakan oleh organisasi kemasyarakatan.</p>
+          <div class="mt-4 pt-4 border-t border-dashed border-ink/15 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest text-ink/50">3 HARI KERJA</span>
+            <svg class="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <article class="index-card rounded-2xl p-6 group hover:-translate-y-2 transition-all duration-300">
+          <div class="flex items-start justify-between mb-4">
+            <span class="font-display text-3xl font-black text-brand-600 leading-none chapter-num">B</span>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-mono text-[9px] tracking-widest uppercase border border-brand-200">GRATIS</span>
+          </div>
+          <h3 class="font-display font-black text-base text-ink leading-snug">Rekomendasi PKL / Penelitian</h3>
+          <p class="mt-2 text-xs text-ink/60 leading-relaxed">Surat rekomendasi untuk pelaksanaan PKL, magang, atau penelitian di wilayah kota.</p>
+          <div class="mt-4 pt-4 border-t border-dashed border-ink/15 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest text-ink/50">2 HARI KERJA</span>
+            <svg class="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <article class="index-card rounded-2xl p-6 group hover:-translate-y-2 transition-all duration-300">
+          <div class="flex items-start justify-between mb-4">
+            <span class="font-display text-3xl font-black text-brand-600 leading-none chapter-num">C</span>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-mono text-[9px] tracking-widest uppercase border border-brand-200">GRATIS</span>
+          </div>
+          <h3 class="font-display font-black text-base text-ink leading-snug">Rekomendasi Pendirian Ormas</h3>
+          <p class="mt-2 text-xs text-ink/60 leading-relaxed">Rekomendasi untuk pendaftaran dan pendirian organisasi kemasyarakatan baru.</p>
+          <div class="mt-4 pt-4 border-t border-dashed border-ink/15 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest text-ink/50">5 HARI KERJA</span>
+            <svg class="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <article class="index-card rounded-2xl p-6 group hover:-translate-y-2 transition-all duration-300">
+          <div class="flex items-start justify-between mb-4">
+            <span class="font-display text-3xl font-black text-brand-600 leading-none chapter-num">D</span>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-mono text-[9px] tracking-widest uppercase border border-brand-200">GRATIS</span>
+          </div>
+          <h3 class="font-display font-black text-base text-ink leading-snug">Fasilitasi Dialog Lintas Iman</h3>
+          <p class="mt-2 text-xs text-ink/60 leading-relaxed">Fasilitasi pertemuan, dialog, dan kegiatan lintas iman untuk kerukunan umat.</p>
+          <div class="mt-4 pt-4 border-t border-dashed border-ink/15 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest text-ink/50">SESUAI JADWAL</span>
+            <svg class="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <article class="index-card rounded-2xl p-6 group hover:-translate-y-2 transition-all duration-300">
+          <div class="flex items-start justify-between mb-4">
+            <span class="font-display text-3xl font-black text-brand-600 leading-none chapter-num">E</span>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-mono text-[9px] tracking-widest uppercase border border-brand-200">GRATIS</span>
+          </div>
+          <h3 class="font-display font-black text-base text-ink leading-snug">Sosialisasi &amp; Pelatihan Politik</h3>
+          <p class="mt-2 text-xs text-ink/60 leading-relaxed">Program sosialisasi wawasan kebangsaan dan pendidikan politik bagi masyarakat.</p>
+          <div class="mt-4 pt-4 border-t border-dashed border-ink/15 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest text-ink/50">SESUAI JADWAL</span>
+            <svg class="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <article class="index-card rounded-2xl p-6 group hover:-translate-y-2 transition-all duration-300">
+          <div class="flex items-start justify-between mb-4">
+            <span class="font-display text-3xl font-black text-brand-600 leading-none chapter-num">F</span>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-700 font-mono text-[9px] tracking-widest uppercase border border-brand-200">GRATIS</span>
+          </div>
+          <h3 class="font-display font-black text-base text-ink leading-snug">Data &amp; Informasi Publik</h3>
+          <p class="mt-2 text-xs text-ink/60 leading-relaxed">Permohonan data dan informasi publik sesuai UU Keterbukaan Informasi.</p>
+          <div class="mt-4 pt-4 border-t border-dashed border-ink/15 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest text-ink/50">7 HARI KERJA</span>
+            <svg class="w-4 h-4 text-brand-600 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </article>
+
+        <article class="rounded-2xl p-6 bg-gradient-to-br from-brand-600 via-brand-700 to-brand-800 text-white shadow-2xl relative overflow-hidden group hover:-translate-y-2 transition-all duration-300">
+          <div class="absolute inset-0 pattern-dots-light opacity-15"></div>
+          <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full border border-white/15 spin-slow"></div>
+          <div class="relative">
+            <div class="flex items-start justify-between mb-4">
+              <span class="font-display text-3xl font-black text-brand-300 leading-none chapter-num">✓</span>
+              <span class="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur border border-white/25 font-mono text-[9px] tracking-widest uppercase">ONLINE</span>
+            </div>
+            <h3 class="font-display font-black text-base leading-snug">Portal Layanan Digital</h3>
+            <p class="mt-2 text-xs text-white/80 leading-relaxed">Akses semua layanan secara online melalui portal resmi Kesbangpol Kota Nusantara.</p>
+            <a href="#" class="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-brand-300 hover:gap-2.5 transition-all">
+              Kunjungi Portal
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <p class="mt-10 text-center font-mono text-[10px] tracking-widest text-ink/40 uppercase reveal">
+        — Seluruh layanan tidak dipungut biaya (gratis) sesuai regulasi —
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="relative overflow-hidden">
+    <div class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 py-14 md:py-16 relative">
+      <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+      <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-900/40 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 relative flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-white text-center md:text-left">
+          <p class="font-mono text-[11px] tracking-widest uppercase text-orange-100/90">Suara Anda Berarti</p>
+          <h3 class="mt-2 font-display text-2xl md:text-3xl lg:text-4xl font-black leading-tight">
+            Punya kritik atau saran?
+          </h3>
+          <p class="mt-2 text-white/80 max-w-lg text-sm md:text-base">Setiap masukan Anda akan kami tindak lanjuti untuk pelayanan yang lebih baik.</p>
+        </div>
+        <a href="index.html#kritik" class="group shrink-0 inline-flex items-center gap-3 px-7 py-4 rounded-full bg-white text-brand-700 font-black shadow-2xl hover:bg-brand-50 hover:scale-105 active:scale-95 transition-all">
+          Kirim Sekarang
+          <span class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center group-hover:rotate-[-45deg] transition-transform duration-300">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#1A0D10] text-white/70 pt-16 pb-8 relative overflow-hidden">
+  <div class="absolute inset-0 pattern-dots opacity-[0.15]"></div>
+  <div class="absolute -top-40 left-1/3 w-96 h-96 rounded-full bg-brand-700/30 blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center ring-2 ring-white/10">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-extrabold text-white tracking-tight">KESBANGPOL</p>
+            <p class="text-[11px] text-brand-400 font-medium">Kota Nusantara</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed">
+          Badan Kesatuan Bangsa dan Politik berkomitmen menjaga stabilitas, kerukunan, dan persatuan dalam bingkai NKRI.
+        </p>
+        <div class="mt-5 flex gap-2">
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1a4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.3a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.5-1.3 2.1-2.1Z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.5 31 31 0 0 0-.5-4.5ZM9.8 15.4V8.6l6 3.4-6 3.4Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Tautan Cepat</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="hover:text-brand-400 transition">Beranda</a></li>
+          <li><a href="profil.html" class="hover:text-brand-400 transition">Profil Pimpinan</a></li>
+          <li><a href="sejarah.html" class="hover:text-brand-400 transition">Sejarah</a></li>
+          <li><a href="struktur.html" class="hover:text-brand-400 transition">Struktur Organisasi</a></li>
+          <li><a href="visi.html" class="hover:text-brand-400 transition">Visi &amp; Misi</a></li>
+          <li><a href="tugas.html" class="hover:text-brand-400 transition">Tugas &amp; Fungsi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Layanan</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="berita.html" class="hover:text-brand-400 transition">Berita</a></li>
+          <li><a href="agenda.html" class="hover:text-brand-400 transition">Agenda Pimpinan</a></li>
+          <li><a href="foto.html" class="hover:text-brand-400 transition">Galeri Foto</a></li>
+          <li><a href="videokegiatan.html" class="hover:text-brand-400 transition">Video Kegiatan</a></li>
+          <li><a href="index.html#kritik" class="hover:text-brand-400 transition">Kritik &amp; Saran</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Lokasi &amp; Kontak</h4>
+        <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521!2d106.8195!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMTAuMiJF!5e0!3m2!1sen!2sid!4v1700000000000"
+            class="w-full h-36 border-0"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Jl. Merdeka No. 123, Kota Nusantara</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span>(021) 123-4567</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <span>info@kesbangpol.go.id</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+      <p>© 2025 Badan Kesatuan Bangsa dan Politik. Seluruh hak cipta dilindungi.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-brand-400 transition">Kebijakan Privasi</a>
+        <a href="#" class="hover:text-brand-400 transition">Syarat &amp; Ketentuan</a>
+        <a href="#" class="hover:text-brand-400 transition">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  const drawer = document.getElementById('drawer');
+  const drawerBg = document.getElementById('drawerBg');
+  const drawerPanel = document.getElementById('drawerPanel');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeDrawer = document.getElementById('closeDrawer');
+
+  function openDrawer() {
+    drawer.classList.remove('pointer-events-none');
+    requestAnimationFrame(() => {
+      drawerBg.classList.replace('opacity-0', 'opacity-100');
+      drawerPanel.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  function closeDrawerFn() {
+    drawerBg.classList.replace('opacity-100', 'opacity-0');
+    drawerPanel.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+    setTimeout(() => drawer.classList.add('pointer-events-none'), 500);
+  }
+  menuBtn.addEventListener('click', openDrawer);
+  closeDrawer.addEventListener('click', closeDrawerFn);
+  drawerBg.addEventListener('click', closeDrawerFn);
+  document.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeDrawerFn));
+
+  document.querySelectorAll('.acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      const chevron = btn.querySelector('.acc-chevron');
+      const isOpen = target.classList.contains('open');
+
+      document.querySelectorAll('.acc-body.open').forEach(b => {
+        if (b !== target) {
+          b.classList.remove('open');
+          const oc = b.previousElementSibling.querySelector('.acc-chevron');
+          if (oc) oc.classList.remove('open');
+        }
+      });
+
+      if (isOpen) {
+        target.classList.remove('open');
+        chevron.classList.remove('open');
+      } else {
+        target.classList.add('open');
+        chevron.classList.add('open');
+      }
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('#navbar > div');
+    if (window.scrollY > 40) {
+      nav.style.paddingTop = '6px';
+      nav.style.paddingBottom = '6px';
+    } else {
+      nav.style.paddingTop = '';
+      nav.style.paddingBottom = '';
+    }
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (st / dh) * 100 + '%';
+  });
+
+  const unitTabs = document.querySelectorAll('.unit-tab');
+  const unitPanels = document.querySelectorAll('.unit-panel');
+  const pageNumberEl = document.querySelector('.page-number');
+
+  const pageNumbers = { 'sec': 3, 'bid1': 8, 'bid2': 13, 'bid3': 18, 'bid4': 23 };
+
+  function activateUnit(unitId) {
+    unitTabs.forEach(t => {
+      const isActive = t.dataset.unit === unitId;
+      if (isActive) {
+        t.classList.add('bg-gradient-to-r', 'from-brand-500', 'to-brand-600', 'text-white', 'shadow-soft');
+        t.classList.remove('bg-white', 'text-ink');
+        t.querySelector('p:first-child').classList.remove('text-ink');
+        t.querySelector('p:first-child').classList.add('text-white');
+        t.querySelector('p:last-child').classList.remove('text-ink/50');
+        t.querySelector('p:last-child').classList.add('text-white/70');
+        t.querySelector('span:first-child').classList.remove('bg-brand-100', 'text-brand-700');
+        t.querySelector('span:first-child').classList.add('bg-white/20', 'text-white');
+      } else {
+        t.classList.remove('bg-gradient-to-r', 'from-brand-500', 'to-brand-600', 'text-white', 'shadow-soft');
+        t.classList.add('bg-white', 'text-ink');
+        t.querySelector('p:first-child').classList.add('text-ink');
+        t.querySelector('p:first-child').classList.remove('text-white');
+        t.querySelector('p:last-child').classList.add('text-ink/50');
+        t.querySelector('p:last-child').classList.remove('text-white/70');
+        t.querySelector('span:first-child').classList.add('bg-brand-100', 'text-brand-700');
+        t.querySelector('span:first-child').classList.remove('bg-white/20', 'text-white');
+      }
+    });
+
+    unitPanels.forEach(p => {
+      if (p.dataset.panel === unitId) p.classList.remove('hidden');
+      else p.classList.add('hidden');
+    });
+
+    if (pageNumberEl && pageNumbers[unitId]) {
+      pageNumberEl.textContent = 'Hal. ' + pageNumbers[unitId];
+    }
+  }
+
+  activateUnit('sec');
+
+  unitTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      activateUnit(tab.dataset.unit);
+      const panel = document.querySelector(`.unit-panel[data-panel="${tab.dataset.unit}"]`);
+      if (panel && window.innerWidth < 1024) {
+        setTimeout(() => {
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href.length > 1 && document.querySelector(href)) {
+        e.preventDefault();
+        const el = document.querySelector(href);
+        window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

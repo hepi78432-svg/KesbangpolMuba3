@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agenda Pimpinan — Kesbangpol Kota Nusantara</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Special+Elite&family=JetBrains+Mono:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          display: ['"Playfair Display"', 'serif'],
+          typewriter: ['"Special Elite"', 'monospace'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+          book: ['Lora', 'serif'],
+        },
+        colors: {
+          brand: {
+            50:'#FFF5F5',100:'#FFE3E5',200:'#FFC9CD',300:'#FFA0A8',
+            400:'#F9707C',500:'#E84A57',600:'#D32F3E',700:'#B0202E',
+            800:'#8F1A26',900:'#731520',
+          },
+          paper: {
+            50:'#FFFCF6', 100:'#FAF4E8', 200:'#F0E6CF', 300:'#E5D4AE',
+          },
+          ink: '#2B211B'
+        },
+        boxShadow: {
+          glass: '0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
+          soft:  '0 10px 40px -12px rgba(232,74,87,0.35)',
+          glow:  '0 0 0 4px rgba(232,74,87,0.15), 0 8px 24px -6px rgba(232,74,87,0.5)',
+          glowHover: '0 0 0 6px rgba(232,74,87,0.2), 0 12px 28px -6px rgba(232,74,87,0.6)',
+          planner: '0 1px 0 rgba(120,90,50,0.10), 0 12px 32px -12px rgba(80,50,20,0.28)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html, body { font-family: 'Inter', sans-serif; font-size: 15px; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #FAF4E8; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(#E84A57, #B0202E); border-radius: 8px; }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                inset 0 -1px 0 rgba(255,255,255,0.25);
+  }
+  .glass-dark {
+    background: rgba(30, 20, 18, 0.45);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #E84A57 0%, #B0202E 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .paper-texture {
+    background-color: #FAF4E8;
+    background-image:
+      radial-gradient(rgba(120,90,50,0.06) 1px, transparent 1.5px),
+      radial-gradient(rgba(120,90,50,0.04) 1px, transparent 1.5px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 1px;
+  }
+  .paper-lines {
+    background-color: #FFFCF6;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0 34px,
+      rgba(120,90,50,0.08) 34px 35px
+    );
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(rgba(232,74,87,0.18) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+  .pattern-diag {
+    background-image: repeating-linear-gradient(
+      45deg, rgba(232,74,87,0.10) 0 1px, transparent 1px 14px
+    );
+  }
+  .pattern-zigzag {
+    background-image:
+      linear-gradient(135deg, rgba(232,74,87,0.14) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(232,74,87,0.14) 25%, transparent 25%);
+    background-size: 20px 20px;
+  }
+  .pattern-dots-light {
+    background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+  .ornament-kawung {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23E84A57' stroke-width='1.2' opacity='0.35'><circle cx='30' cy='30' r='14'/><circle cx='90' cy='30' r='14'/><circle cx='30' cy='90' r='14'/><circle cx='90' cy='90' r='14'/><circle cx='60' cy='60' r='10'/></g></svg>");
+    background-size: 180px 180px;
+  }
+
+  /* ===== SPIRAL BINDING ===== */
+  .spiral-row {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    padding: 10px 0 6px;
+    position: relative;
+  }
+  .spiral-hole {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #E84A57, #731520);
+    box-shadow:
+      inset 0 2px 4px rgba(0,0,0,0.4),
+      inset 0 -1px 2px rgba(255,255,255,0.3),
+      0 2px 3px rgba(0,0,0,0.15);
+    position: relative;
+  }
+  .spiral-hole::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background: linear-gradient(to top, #731520, rgba(115,21,32,0.1));
+    border-radius: 2px;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes spinSlow { to { transform: rotate(360deg) } }
+  .spin-slow { animation: spinSlow 40s linear infinite; }
+  @keyframes blinkDot { 0%,100% { opacity: 1 } 50% { opacity: 0.3 } }
+  .blink-dot { animation: blinkDot 1.6s ease-in-out infinite; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms ease, transform 800ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  #scrollProgress {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+    background: linear-gradient(to right, #E84A57, #B0202E);
+    width: 0%; transition: width 100ms linear;
+    box-shadow: 0 0 12px rgba(232,74,87,0.7);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .stamp {
+    border: 3px double #B0202E;
+    color: #B0202E;
+    font-family: 'Special Elite', monospace;
+    transform: rotate(-8deg);
+    opacity: 0.85;
+  }
+
+  .chapter-num {
+    font-feature-settings: "tnum";
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  /* ===== CALENDAR GRID ===== */
+  .cal-day {
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #FFFCF6;
+    border: 1px solid rgba(120,90,50,0.10);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #2B211B;
+    position: relative;
+    transition: all 200ms ease;
+    cursor: default;
+  }
+  .cal-day.muted { color: rgba(120,90,50,0.25); background: transparent; border-color: transparent; }
+  .cal-day.today {
+    background: linear-gradient(135deg, #E84A57, #B0202E);
+    color: #fff;
+    font-weight: 700;
+    border-color: transparent;
+  }
+  .cal-day.has-event {
+    background: #FFE3E5;
+    border-color: rgba(232,74,87,0.35);
+    color: #B0202E;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .cal-day.has-event:hover {
+    background: #FFC9CD;
+    transform: scale(1.06);
+  }
+  .cal-day.today.has-event {
+    background: linear-gradient(135deg, #E84A57, #B0202E);
+    color: #fff;
+  }
+
+  /* ===== TIMELINE ===== */
+  .timeline-line {
+    background: linear-gradient(to bottom, transparent, #E84A57, #B0202E, #E84A57, transparent);
+  }
+
+  /* ===== COUNTDOWN ===== */
+  .countdown-box {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 10px 6px;
+    text-align: center;
+  }
+
+  /* ===== CHAPTER DIVIDER ===== */
+  .chapter-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: rgba(120,90,50,0.4);
+  }
+  .chapter-divider::before,
+  .chapter-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(120,90,50,0.25), transparent);
+  }
+
+  /* ===== MONTH TAB ===== */
+  .month-tab {
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: #FFFCF6;
+    border: 1px solid rgba(120,90,50,0.15);
+    color: rgba(120,90,50,0.75);
+    cursor: pointer;
+    transition: all 250ms ease;
+    white-space: nowrap;
+  }
+  .month-tab:hover {
+    border-color: rgba(232,74,87,0.4);
+    color: #B0202E;
+  }
+  .month-tab.active {
+    background: linear-gradient(to right, #E84A57, #D32F3E);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 6px 16px -4px rgba(232,74,87,0.5);
+  }
+
+  /* ============================================ */
+  /* ===== AGENDA — OVAL PILL SIMPLE ELEGANT ===== */
+  /* ============================================ */
+  .agenda-pill-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .agenda-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 16px 7px 7px;
+    border-radius: 999px;
+    background: #FFFCF6;
+    border: 1px solid rgba(120,90,50,0.12);
+    box-shadow: 0 1px 0 rgba(120,90,50,0.05);
+    cursor: pointer;
+    transition: all 350ms cubic-bezier(0.32, 0.72, 0, 1);
+    width: fit-content;
+    max-width: 100%;
+    position: relative;
+  }
+  .agenda-pill:hover {
+    border-color: rgba(232,74,87,0.40);
+    background: linear-gradient(to right, rgba(232,74,87,0.04), #FFFCF6);
+    transform: translateX(4px);
+    box-shadow: 0 10px 24px -12px rgba(232,74,87,0.35);
+  }
+
+  .pill-date {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #E84A57, #B0202E);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+    position: relative;
+  }
+  .pill-date-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: -0.03em;
+  }
+  .pill-date-mo {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    margin-top: 1px;
+    opacity: 0.85;
+  }
+  .agenda-pill.done .pill-date {
+    background: linear-gradient(135deg, #C9B99F, #8B7A5F);
+  }
+
+  .pill-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+    padding-right: 4px;
+  }
+  .pill-cat {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    color: #B0202E;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pill-cat::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 999px;
+    background: #E84A57;
+    flex-shrink: 0;
+  }
+  .agenda-pill.done .pill-cat {
+    color: rgba(120,90,50,0.55);
+  }
+  .agenda-pill.done .pill-cat::before {
+    background: rgba(120,90,50,0.4);
+  }
+
+  .pill-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 13.5px;
+    line-height: 1.25;
+    color: #2B211B;
+    letter-spacing: -0.01em;
+    transition: color 250ms ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 320px;
+  }
+  .agenda-pill:hover .pill-title {
+    color: #B0202E;
+  }
+  .agenda-pill.done .pill-title {
+    color: rgba(43,33,27,0.55);
+  }
+
+  .pill-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.05em;
+    color: rgba(120,90,50,0.55);
+    flex-shrink: 0;
+    padding-left: 10px;
+    border-left: 1px solid rgba(120,90,50,0.15);
+  }
+
+  .pill-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    flex-shrink: 0;
+    margin-right: 2px;
+  }
+  .agenda-pill.upcoming .pill-status-dot {
+    background: #E84A57;
+    animation: statusPulse 2.2s ease-in-out infinite;
+  }
+  .agenda-pill.done .pill-status-dot {
+    background: rgba(120,90,50,0.3);
+  }
+  @keyframes statusPulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(232,74,87,0.18); }
+    50% { box-shadow: 0 0 0 7px rgba(232,74,87,0.05); }
+  }
+
+  @media (max-width: 640px) {
+    .agenda-pill {
+      padding: 6px 14px 6px 6px;
+      gap: 10px;
+    }
+    .pill-date { width: 32px; height: 32px; }
+    .pill-date-num { font-size: 13px; }
+    .pill-title { font-size: 12.5px; max-width: 180px; }
+    .pill-time { display: none; }
+  }
+</style>
+</head>
+
+<body class="bg-paper-100 text-ink antialiased selection:bg-brand-500/20 overflow-x-hidden">
+
+<div id="scrollProgress"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+  <div class="glass rounded-full px-3 md:px-5 py-2 relative flex items-center gap-3">
+
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 pl-1 z-10">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft ring-2 ring-white/70">
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="leading-tight hidden sm:block">
+        <p class="font-extrabold text-[15px] tracking-tight text-gray-900">KESBANGPOL</p>
+        <p class="text-[10px] font-medium text-brand-600/90 tracking-wide">KOTA NUSANTARA</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
+      <li><a href="index.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Beranda</a></li>
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Profil
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-56 shadow-2xl">
+            <a href="profil.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Profil Pimpinan</a>
+            <a href="sejarah.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="struktur.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="program.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Program</a></li>
+      <li><a href="agenda.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-brand-600 bg-brand-50/80 transition">Agenda Pimpinan</a></li>
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Publikasi
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="berita.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </li>
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Galeri
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="foto.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Galeri Foto</a>
+            <a href="videokegiatan.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Video Kegiatan</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <a href="index.html#kritik" class="hidden lg:inline-flex ml-auto shrink-0 items-center gap-2 px-5 py-2.5 rounded-full text-white text-[13px] font-bold bg-gradient-to-r from-brand-500 to-brand-600 shadow-glow hover:shadow-glowHover hover:from-brand-600 hover:to-brand-700 active:scale-95 transition-all duration-300">
+      <span class="relative flex w-1.5 h-1.5">
+        <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+        <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-white"></span>
+      </span>
+      Kritik &amp; Saran
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+
+    <button id="menuBtn" class="lg:hidden ml-auto w-11 h-11 rounded-full flex items-center justify-center glass text-gray-800 active:scale-95 transition z-10">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== MOBILE DRAWER ===================== -->
+<div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none">
+  <div id="drawerBg" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+  <aside id="drawerPanel" class="absolute right-0 top-0 h-full w-[88%] max-w-[380px] bg-white/95 backdrop-blur-2xl shadow-[-20px_0_60px_-20px_rgba(0,0,0,0.4)] translate-x-full transition-transform duration-500 flex flex-col" style="transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100/80">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-extrabold text-[15px] tracking-tight text-gray-900">KESBANGPOL</p>
+          <p class="text-[10px] font-medium text-brand-600 tracking-wide">KOTA NUSANTARA</p>
+        </div>
+      </div>
+      <button id="closeDrawer" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 active:scale-95 transition">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-3 py-4 space-y-1 no-scrollbar">
+      <a href="index.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">01</span>
+        Beranda
+      </a>
+      <a href="program.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">03</span>
+        Program
+      </a>
+      <a href="agenda.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-brand-600 bg-brand-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xs font-bold">04</span>
+        Agenda Pimpinan
+      </a>
+    </div>
+  </aside>
+</div>
+
+<!-- ============================================================= -->
+<main>
+
+  <!-- ===================== HERO — PLANNER EKSEKUTIF ===================== -->
+  <section class="relative min-h-screen overflow-hidden paper-texture">
+    <div class="absolute top-0 left-0 right-0 pt-6 z-20">
+      <div class="spiral-row">
+        <div class="spiral-hole"></div><div class="spiral-hole"></div><div class="spiral-hole"></div>
+        <div class="spiral-hole"></div><div class="spiral-hole"></div><div class="spiral-hole"></div>
+        <div class="spiral-hole"></div><div class="spiral-hole"></div><div class="spiral-hole"></div>
+        <div class="spiral-hole"></div>
+        <div class="spiral-hole hidden md:block"></div><div class="spiral-hole hidden md:block"></div>
+        <div class="spiral-hole hidden lg:block"></div><div class="spiral-hole hidden lg:block"></div>
+      </div>
+    </div>
+
+    <div class="absolute inset-0 pattern-dots opacity-20 pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-500 via-brand-700 to-brand-500"></div>
+
+    <div class="hidden md:block absolute top-40 right-10 w-[440px] h-[440px] spin-slow pointer-events-none opacity-[0.055]">
+      <svg viewBox="0 0 200 200" class="w-full h-full">
+        <circle cx="100" cy="100" r="96" fill="none" stroke="#731520" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#731520" stroke-width="1"/>
+        <circle cx="100" cy="100" r="64" fill="none" stroke="#731520" stroke-width="0.8" stroke-dasharray="3 4"/>
+        <text x="100" y="88" text-anchor="middle" font-family="Playfair Display" font-size="20" font-weight="900" fill="#731520">AGENDA</text>
+        <text x="100" y="122" text-anchor="middle" font-family="Playfair Display" font-size="14" font-weight="700" fill="#731520">PIMPINAN</text>
+      </svg>
+    </div>
+
+    <div class="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 vertical-text font-mono text-[10px] tracking-[0.5em] uppercase text-ink/30">
+      Planner Eksekutif · Kesbangpol · Kota Nusantara · 2025
+    </div>
+
+    <div class="relative pt-28 md:pt-32">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-mono tracking-widest text-ink/60 uppercase">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-600 blink-dot"></span>
+            Planner No. PLN-AGD/2025-05
+          </span>
+          <span class="hidden sm:inline text-ink/30">|</span>
+          <span>Revisi Harian</span>
+          <span class="hidden sm:inline text-ink/30">|</span>
+          <span>Zona Waktu: WIB</span>
+        </div>
+        <div class="mt-4 h-px bg-gradient-to-r from-ink/20 via-ink/10 to-transparent"></div>
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-24 md:pb-28">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+
+        <div class="lg:col-span-7 reveal">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="w-12 h-px bg-brand-600"></span>
+            <span class="font-typewriter text-[11px] tracking-[0.3em] uppercase text-brand-700">Agenda Kegiatan Pimpinan</span>
+          </div>
+
+          <h1 class="font-display font-black text-[40px] sm:text-[52px] md:text-[64px] lg:text-[78px] leading-[0.9] tracking-[-0.035em] text-ink">
+            <span class="block">Jadwal</span>
+            <span class="block italic text-gradient">Pimpinan.</span>
+          </h1>
+
+          <p class="mt-6 text-ink/70 text-base md:text-lg leading-relaxed max-w-2xl font-book">
+            Setiap hari punya cerita. Setiap agenda punya tujuan. Di sini Anda dapat menelusuri <span class="italic text-brand-700">setiap langkah Kepala Badan</span> dalam melayani masyarakat Kota Nusantara.
+          </p>
+
+          <div class="mt-8 grid grid-cols-3 gap-4 max-w-lg">
+            <div class="border-l-2 border-brand-500 pl-4">
+              <p class="font-display font-black text-2xl md:text-3xl text-ink chapter-num">42</p>
+              <p class="font-mono text-[9px] tracking-widest uppercase text-ink/50 mt-1">AGENDA TAHUN</p>
+            </div>
+            <div class="border-l-2 border-brand-500 pl-4">
+              <p class="font-display font-black text-2xl md:text-3xl text-ink chapter-num">12</p>
+              <p class="font-mono text-[9px] tracking-widest uppercase text-ink/50 mt-1">BULAN AKTIF</p>
+            </div>
+            <div class="border-l-2 border-brand-500 pl-4">
+              <p class="font-display font-black text-2xl md:text-3xl text-ink chapter-num">08</p>
+              <p class="font-mono text-[9px] tracking-widest uppercase text-ink/50 mt-1">KECAMATAN</p>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#kalender" class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 font-semibold text-white text-sm shadow-soft hover:from-brand-600 hover:to-brand-700 transition">
+              Buka Kalender
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#arsip" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-paper-50 border border-ink/10 font-semibold text-sm text-ink hover:border-brand-400 hover:text-brand-700 transition">
+              Arsip Agenda Lalu
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Next Agenda card -->
+        <div class="lg:col-span-5 relative reveal">
+          <div class="relative">
+            <div class="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-brand-600 pointer-events-none"></div>
+            <div class="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-brand-600 pointer-events-none"></div>
+            <div class="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-brand-600 pointer-events-none"></div>
+            <div class="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-brand-600 pointer-events-none"></div>
+
+            <div class="relative bg-gradient-to-br from-brand-700 via-brand-800 to-brand-900 rounded-2xl shadow-2xl overflow-hidden text-white">
+              <div class="absolute inset-0 pattern-dots-light opacity-10"></div>
+              <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full border border-white/15 spin-slow pointer-events-none"></div>
+
+              <div class="relative p-6 md:p-7">
+                <div class="flex items-center justify-between mb-5">
+                  <span class="px-3 py-1.5 rounded-full glass-dark text-[10px] font-mono tracking-widest uppercase text-orange-100 flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-orange-300 blink-dot"></span>
+                    Agenda Terdekat
+                  </span>
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-white/50">AGD-018</p>
+                </div>
+
+                <div class="flex items-start gap-4 mb-5">
+                  <div class="shrink-0 bg-white/10 backdrop-blur rounded-xl px-3.5 py-3 text-center ring-1 ring-white/20">
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-orange-200">MAR</p>
+                    <p class="font-display font-black text-3xl leading-none mt-1">18</p>
+                    <p class="font-mono text-[9px] tracking-widest uppercase text-white/60 mt-1.5">SENIN</p>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-mono text-[10px] tracking-widest uppercase text-brand-300">UPACARA · 07.00 WIB</p>
+                    <h3 class="mt-2 font-display font-black text-base md:text-lg leading-tight">
+                      Apel Kesadaran Nasional &amp; Pembinaan ASN
+                    </h3>
+                    <div class="mt-2.5 flex items-center gap-2 text-xs text-white/70">
+                      <svg class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                      Lapangan Utama Kota Nusantara
+                    </div>
+                  </div>
+                </div>
+
+                <div class="pt-5 border-t border-white/15">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-white/50 mb-3">Hitung Mundur</p>
+                  <div id="countdown" class="grid grid-cols-4 gap-2">
+                    <div class="countdown-box">
+                      <p class="font-display font-black text-xl md:text-2xl leading-none" data-cd="d">00</p>
+                      <p class="font-mono text-[8px] tracking-widest uppercase text-white/60 mt-1">HARI</p>
+                    </div>
+                    <div class="countdown-box">
+                      <p class="font-display font-black text-xl md:text-2xl leading-none" data-cd="h">00</p>
+                      <p class="font-mono text-[8px] tracking-widest uppercase text-white/60 mt-1">JAM</p>
+                    </div>
+                    <div class="countdown-box">
+                      <p class="font-display font-black text-xl md:text-2xl leading-none" data-cd="m">00</p>
+                      <p class="font-mono text-[8px] tracking-widest uppercase text-white/60 mt-1">MENIT</p>
+                    </div>
+                    <div class="countdown-box">
+                      <p class="font-display font-black text-xl md:text-2xl leading-none" data-cd="s">00</p>
+                      <p class="font-mono text-[8px] tracking-widest uppercase text-white/60 mt-1">DETIK</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="absolute -bottom-5 -left-5 stamp rounded-lg px-3.5 py-2 text-[10px] tracking-[0.2em] uppercase hidden md:block">
+              <p class="font-black text-xs">AGENDA RESMI</p>
+              <p class="text-[9px]">KESBANGPOL · 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ink/40 text-[10px] font-typewriter tracking-widest uppercase">
+      <span>Telusuri</span>
+      <span class="w-px h-8 bg-gradient-to-b from-ink/40 to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- ===================== QUICK FACTS STRIP ===================== -->
+  <section class="relative -mt-14 md:-mt-16 z-20 px-6 md:px-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-paper-50 rounded-[2rem] shadow-planner p-5 md:p-7 border border-ink/15 relative">
+        <div class="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-brand-600"></div>
+        <div class="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-brand-600"></div>
+        <div class="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-brand-600"></div>
+        <div class="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-brand-600"></div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-ink/10">
+          <div class="md:px-4">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">Agenda Bulan Ini</p>
+            <p class="mt-2 font-display font-black text-base text-ink leading-tight">03 Kegiatan</p>
+            <p class="text-xs text-ink/50 mt-1">Maret 2025</p>
+          </div>
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">Selesai</p>
+            <p class="mt-2 font-display font-black text-base text-ink leading-tight">01 Agenda</p>
+            <p class="text-xs text-ink/50 mt-1">Sudah terlaksana</p>
+          </div>
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">Akan Datang</p>
+            <p class="mt-2 font-display font-black text-base text-ink leading-tight">02 Agenda</p>
+            <p class="text-xs text-ink/50 mt-1">Siap dilaksanakan</p>
+          </div>
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">Tingkat Kehadiran</p>
+            <p class="mt-2 font-display font-black text-base text-ink leading-tight">100%</p>
+            <p class="text-xs text-ink/50 mt-1">Periode Jan–Mar 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KALENDER + DAFTAR AGENDA ===================== -->
+  <section id="kalender" class="relative py-20 md:py-28 paper-lines overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-20 pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-72 h-72 pattern-dots opacity-40 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-12 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB I</span>
+        <span class="font-display text-lg font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">KALENDER &amp; DAFTAR AGENDA</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8 reveal">
+        <div>
+          <p class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num leading-none">01</p>
+          <h2 class="mt-4 font-display text-2xl md:text-4xl font-black tracking-tight text-ink leading-tight">
+            Kalender <span class="italic text-gradient">Agenda</span>
+          </h2>
+          <p class="mt-3 text-ink/60 max-w-xl font-book text-sm md:text-base">
+            Telusuri agenda pimpinan berdasarkan bulan. Klik tanggal bertanda untuk melihat detail kegiatan.
+          </p>
+        </div>
+      </div>
+
+      <!-- Month tabs -->
+      <div class="mb-6 -mx-6 px-6 md:mx-0 md:px-0 overflow-x-auto no-scrollbar reveal">
+        <div class="flex gap-2">
+          <button class="month-tab" data-month="jan">Jan</button>
+          <button class="month-tab" data-month="feb">Feb</button>
+          <button class="month-tab active" data-month="mar">Mar</button>
+          <button class="month-tab" data-month="apr">Apr</button>
+          <button class="month-tab" data-month="may">Mei</button>
+          <button class="month-tab" data-month="jun">Jun</button>
+          <button class="month-tab" data-month="jul">Jul</button>
+          <button class="month-tab" data-month="aug">Agu</button>
+          <button class="month-tab" data-month="sep">Sep</button>
+          <button class="month-tab" data-month="oct">Okt</button>
+          <button class="month-tab" data-month="nov">Nov</button>
+          <button class="month-tab" data-month="dec">Des</button>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6 lg:gap-8 reveal">
+
+        <!-- KALENDER -->
+        <aside class="lg:col-span-5">
+          <div class="sticky top-28 bg-paper-50 rounded-2xl border border-ink/15 shadow-planner overflow-hidden">
+
+            <div class="p-4 border-b border-ink/10 flex items-center justify-between">
+              <div>
+                <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700" id="calMonthLabel">MARET 2025</p>
+                <p class="font-display font-black text-base text-ink mt-0.5" id="calMonthTitle">Maret 2025</p>
+              </div>
+              <div class="flex gap-1">
+                <button id="calPrev" class="w-8 h-8 rounded-full bg-white border border-ink/10 text-ink hover:bg-brand-500 hover:text-white hover:border-brand-500 transition active:scale-95 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button id="calNext" class="w-8 h-8 rounded-full bg-white border border-ink/10 text-ink hover:bg-brand-500 hover:text-white hover:border-brand-500 transition active:scale-95 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-7 gap-1 px-3 pt-3 pb-1 text-center">
+              <div class="font-mono text-[10px] font-bold text-ink/40 tracking-widest">SEN</div>
+              <div class="font-mono text-[10px] font-bold text-ink/40 tracking-widest">SEL</div>
+              <div class="font-mono text-[10px] font-bold text-ink/40 tracking-widest">RAB</div>
+              <div class="font-mono text-[10px] font-bold text-ink/40 tracking-widest">KAM</div>
+              <div class="font-mono text-[10px] font-bold text-ink/40 tracking-widest">JUM</div>
+              <div class="font-mono text-[10px] font-bold text-ink/40 tracking-widest">SAB</div>
+              <div class="font-mono text-[10px] font-bold text-ink/40 tracking-widest">MIN</div>
+            </div>
+
+            <div class="grid grid-cols-7 gap-1 p-3" id="calGrid"></div>
+
+            <div class="px-4 py-3 border-t border-ink/10 bg-white/40 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase text-ink/50">
+              <span class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-gradient-to-br from-brand-500 to-brand-700"></span>
+                Hari ini
+              </span>
+              <span class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-sm bg-brand-100 border border-brand-300"></span>
+                Ada agenda
+              </span>
+            </div>
+          </div>
+        </aside>
+
+        <!-- AGENDA LIST — OVAL PILLS -->
+        <div class="lg:col-span-7">
+          <div class="flex items-center justify-between mb-5 pb-4 border-b border-ink/10">
+            <div>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">AGENDA BULAN INI</p>
+              <p class="font-display font-black text-lg text-ink mt-1" id="listHeader">Maret 2025</p>
+            </div>
+            <p class="font-mono text-[10px] tracking-widest uppercase text-ink/40"><span id="listCount">3</span> KEGIATAN</p>
+          </div>
+
+          <!-- List container -->
+          <div id="agendaList" class="agenda-pill-group">
+            <!-- Items injected by JS -->
+          </div>
+
+          <!-- Empty state -->
+          <div id="agendaEmpty" class="hidden text-center py-16">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-50 text-brand-600 mb-4">
+              <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            </div>
+            <p class="font-display text-lg font-black text-ink">Belum ada agenda</p>
+            <p class="text-sm text-ink/50 mt-2">Untuk bulan yang dipilih.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ARSIP AGENDA ===================== -->
+  <section id="arsip" class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-dots opacity-20 pointer-events-none"></div>
+    <div class="absolute top-1/3 -left-40 w-[420px] h-[420px] rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-12 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB II</span>
+        <span class="font-display text-lg font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">ARSIP AGENDA</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 reveal">
+        <div>
+          <p class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num leading-none">02</p>
+          <h2 class="mt-4 font-display text-2xl md:text-4xl font-black tracking-tight text-ink leading-tight">
+            Arsip <span class="italic text-gradient">Agenda Lalu</span>
+          </h2>
+          <p class="mt-3 text-ink/60 max-w-xl font-book text-sm md:text-base">
+            Rekam jejak kegiatan pimpinan yang telah terlaksana pada periode sebelumnya.
+          </p>
+        </div>
+        <p class="font-mono text-[10px] tracking-widest text-ink/40 shrink-0">PERIODE JAN — FEB 2025</p>
+      </div>
+
+      <div class="relative reveal">
+        <div class="absolute left-6 md:left-1/2 md:-translate-x-px top-2 bottom-2 w-[2px] timeline-line rounded-full opacity-80"></div>
+
+        <!-- Arsip 1 -->
+        <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 mb-8 md:mb-12 reveal">
+          <div class="md:text-right md:pr-4">
+            <div class="inline-flex flex-col items-start md:items-end">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-paper-50 border border-ink/10 font-mono text-[10px] tracking-widest uppercase text-ink/50">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m20 6-11 11-5-5"/></svg>
+                SELESAI
+              </div>
+              <p class="mt-3 font-display text-3xl md:text-4xl font-black text-ink/40 leading-none chapter-num">24</p>
+              <p class="font-mono text-[10px] tracking-widest text-ink/50 mt-1">FEBRUARI 2025</p>
+            </div>
+            <div class="mt-4 bg-paper-50 rounded-2xl p-4 border border-ink/10 md:ml-auto md:max-w-md text-left opacity-90">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">RAPAT</p>
+              <h3 class="mt-2 font-display font-black text-sm text-ink leading-snug">Rapat Koordinasi Forkopimda Bulanan</h3>
+              <p class="mt-2 text-xs text-ink/60 leading-relaxed font-book line-clamp-2">
+                Rapat rutin bersama Forum Koordinasi Pimpinan Daerah membahas situasi keamanan dan ketertiban kota.
+              </p>
+            </div>
+          </div>
+          <div></div>
+          <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-6 md:top-8 w-4 h-4 rounded-full bg-paper-50 border-[3px] border-ink/25 z-10"></div>
+        </div>
+
+        <!-- Arsip 2 -->
+        <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 mb-8 md:mb-12 reveal">
+          <div></div>
+          <div class="md:pl-4">
+            <div class="inline-flex flex-col items-start">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-paper-50 border border-ink/10 font-mono text-[10px] tracking-widest uppercase text-ink/50">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m20 6-11 11-5-5"/></svg>
+                SELESAI
+              </div>
+              <p class="mt-3 font-display text-3xl md:text-4xl font-black text-ink/40 leading-none chapter-num">18</p>
+              <p class="font-mono text-[10px] tracking-widest text-ink/50 mt-1">FEBRUARI 2025</p>
+            </div>
+            <div class="mt-4 bg-paper-50 rounded-2xl p-4 border border-ink/10 md:max-w-md opacity-90">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">SOSIALISASI</p>
+              <h3 class="mt-2 font-display font-black text-sm text-ink leading-snug">Sosialisasi Perda Ormas ke Kecamatan</h3>
+              <p class="mt-2 text-xs text-ink/60 leading-relaxed font-book line-clamp-2">
+                Sosialisasi peraturan daerah tentang organisasi kemasyarakatan kepada camat dan lurah.
+              </p>
+            </div>
+          </div>
+          <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-6 md:top-8 w-4 h-4 rounded-full bg-paper-50 border-[3px] border-ink/25 z-10"></div>
+        </div>
+
+        <!-- Arsip 3 -->
+        <div class="relative pl-16 md:pl-0 md:grid md:grid-cols-2 md:gap-12 reveal">
+          <div class="md:text-right md:pr-4">
+            <div class="inline-flex flex-col items-start md:items-end">
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-paper-50 border border-ink/10 font-mono text-[10px] tracking-widest uppercase text-ink/50">
+                <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m20 6-11 11-5-5"/></svg>
+                SELESAI
+              </div>
+              <p class="mt-3 font-display text-3xl md:text-4xl font-black text-ink/40 leading-none chapter-num">30</p>
+              <p class="font-mono text-[10px] tracking-widest text-ink/50 mt-1">JANUARI 2025</p>
+            </div>
+            <div class="mt-4 bg-paper-50 rounded-2xl p-4 border border-ink/10 md:ml-auto md:max-w-md text-left opacity-90">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">RAPAT</p>
+              <h3 class="mt-2 font-display font-black text-sm text-ink leading-snug">Rapat Penyusunan Program Kerja 2025</h3>
+              <p class="mt-2 text-xs text-ink/60 leading-relaxed font-book line-clamp-2">
+                Penyusunan dan finalisasi program kerja Badan Kesbangpol tahun anggaran 2025.
+              </p>
+            </div>
+          </div>
+          <div></div>
+          <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-6 md:top-8 w-4 h-4 rounded-full bg-paper-50 border-[3px] border-ink/25 z-10"></div>
+        </div>
+      </div>
+
+      <div class="mt-10 text-center reveal">
+        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-paper-50 border border-ink/10 font-semibold text-ink text-sm hover:border-brand-400 hover:text-brand-700 transition">
+          Muat Lebih Banyak
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATISTIK AGENDA ===================== -->
+  <section class="relative py-20 md:py-28 paper-texture overflow-hidden border-y border-ink/10">
+    <div class="absolute inset-0 pattern-dots opacity-20 pointer-events-none"></div>
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-20 pointer-events-none"></div>
+    <div class="absolute bottom-20 -left-40 w-[420px] h-[420px] rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-12 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB III</span>
+        <span class="font-display text-lg font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">STATISTIK</span>
+      </div>
+
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <p class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num leading-none">03</p>
+        <h2 class="mt-4 font-display text-2xl md:text-4xl font-black tracking-tight text-ink leading-tight">
+          Rekam <span class="italic text-gradient">Kinerja</span>
+        </h2>
+        <p class="mt-3 text-ink/60 font-book text-sm md:text-base">
+          Kehadiran pimpinan dalam berbagai agenda adalah wujud nyata komitmen pelayanan.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-5 md:h-[500px] reveal">
+
+        <article class="md:col-span-5 md:row-span-2 group relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 p-6 md:p-8 text-white shadow-2xl border border-brand-500/30">
+          <div class="absolute inset-0 pattern-dots-light opacity-15"></div>
+          <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-white/20 spin-slow pointer-events-none"></div>
+          <div class="absolute bottom-6 right-6 text-white/10 text-[180px] font-display font-black leading-none select-none chapter-num">42</div>
+
+          <div class="relative h-full flex flex-col">
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1.5 rounded-full glass-dark text-[10px] font-mono tracking-widest uppercase text-orange-100">TOTAL AGENDA 2025</span>
+              <div class="w-11 h-11 rounded-xl bg-white/10 backdrop-blur ring-1 ring-white/30 flex items-center justify-center">
+                <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </div>
+            </div>
+            <div class="mt-auto">
+              <p class="font-display font-black text-[100px] md:text-[120px] leading-none chapter-num">42</p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-300 mt-2">KEGIATAN TERJADWAL</p>
+              <p class="mt-4 text-sm text-white/75 leading-relaxed max-w-sm font-book">
+                Agenda pimpinan sepanjang tahun anggaran 2025. Mencakup upacara, rapat, sosialisasi, kunjungan kerja, dan dialog publik.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-3xl bg-paper-50 border border-ink/10 p-5 shadow-sm hover:shadow-2xl transition">
+          <div class="absolute top-0 right-0 w-32 h-32 pattern-diag opacity-50 rounded-bl-full"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 font-mono text-[10px] tracking-widest uppercase border border-brand-200 w-fit">JENIS KEGIATAN</span>
+            <div class="mt-4 space-y-2.5 flex-1">
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-ink">Rapat &amp; Koordinasi</span>
+                  <span class="font-mono text-xs text-brand-700 font-bold">18</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 43%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-ink">Sosialisasi &amp; Dialog</span>
+                  <span class="font-mono text-xs text-brand-700 font-bold">11</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 26%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-ink">Upacara &amp; Apel</span>
+                  <span class="font-mono text-xs text-brand-700 font-bold">7</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 17%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-ink">Kunjungan Kerja</span>
+                  <span class="font-mono text-xs text-brand-700 font-bold">6</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-100 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 14%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-3xl bg-ink text-paper-50 p-5 shadow-2xl">
+          <div class="absolute inset-0 pattern-dots-light opacity-[0.08]"></div>
+          <div class="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-brand-500/25 blur-2xl"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full glass-dark text-[10px] font-mono tracking-widest uppercase text-orange-100 w-fit">KEHADIRAN</span>
+            <div class="mt-auto">
+              <p class="font-display font-black text-4xl md:text-5xl text-brand-400 chapter-num mt-6">100<span class="text-xl">%</span></p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-paper-50/60 mt-2">HADIR TEPAT WAKTU</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-3xl bg-paper-50 border border-ink/10 p-5 shadow-sm hover:shadow-2xl transition">
+          <div class="absolute bottom-0 right-0 w-32 h-32 pattern-dots opacity-50 rounded-tl-full"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 font-mono text-[10px] tracking-widest uppercase border border-brand-200 w-fit">LOKASI TERBANYAK</span>
+            <div class="mt-auto">
+              <p class="font-display font-black text-4xl md:text-5xl text-ink chapter-num mt-6">12</p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mt-2">AGENDA DI AULA KESBANGPOL</p>
+              <p class="text-xs text-ink/60 mt-3 font-book">Lokasi favorit untuk rapat dan sosialisasi internal.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-500 to-brand-600 p-5 text-white shadow-lg hover:shadow-2xl transition">
+          <div class="absolute inset-0 pattern-zigzag opacity-10"></div>
+          <div class="relative h-full flex flex-col">
+            <svg class="w-7 h-7 text-white/80 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <div class="mt-auto">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-orange-100">RATA-RATA</p>
+              <p class="font-display font-black text-4xl chapter-num mt-2">3.5</p>
+              <p class="text-xs text-white/75 mt-2 font-book">Agenda per minggu</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CARA HADIR / UNDANGAN ===================== -->
+  <section class="relative py-20 md:py-28 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+    <div class="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+      <div class="chapter-divider mb-12 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB IV</span>
+        <span class="font-display text-lg font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">UNDANGAN PIMPINAN</span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center reveal">
+        <div class="lg:col-span-6">
+          <p class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num leading-none">04</p>
+          <h2 class="mt-4 font-display text-2xl md:text-4xl font-black tracking-tight text-ink leading-tight">
+            Mengundang <span class="italic text-gradient">Pimpinan?</span>
+          </h2>
+          <p class="mt-3 text-ink/60 max-w-xl font-book text-sm md:text-base">
+            Ingin mengundang Kepala Badan untuk menghadiri kegiatan Anda? Ajukan permohonan undangan melalui prosedur berikut.
+          </p>
+
+          <div class="mt-7 space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-mono font-bold text-sm">01</div>
+              <div>
+                <p class="font-bold text-ink text-sm">Ajukan Surat Permohonan</p>
+                <p class="text-xs text-ink/60 mt-1 font-book leading-relaxed">Kirimkan surat resmi minimal 7 hari kerja sebelum kegiatan.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-mono font-bold text-sm">02</div>
+              <div>
+                <p class="font-bold text-ink text-sm">Lampirkan Detail Kegiatan</p>
+                <p class="text-xs text-ink/60 mt-1 font-book leading-relaxed">Sertakan rundown, lokasi, waktu, dan peran yang diharapkan.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="shrink-0 w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center font-mono font-bold text-sm">03</div>
+              <div>
+                <p class="font-bold text-ink text-sm">Konfirmasi &amp; Penjadwalan</p>
+                <p class="text-xs text-ink/60 mt-1 font-book leading-relaxed">Kami akan mengonfirmasi ketersediaan pimpinan maksimal 3 hari kerja.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-7">
+            <a href="#" class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-semibold text-sm shadow-soft hover:from-brand-600 hover:to-brand-700 transition">
+              Unduh Format Surat
+              <svg class="w-4 h-4 group-hover:translate-y-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6">
+          <div class="relative bg-paper-50 rounded-2xl border border-ink/15 shadow-planner p-6 md:p-7 overflow-hidden">
+            <div class="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-brand-600"></div>
+            <div class="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-brand-600"></div>
+            <div class="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-brand-600"></div>
+            <div class="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-brand-600"></div>
+
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">PIC UNDANGAN</p>
+            <p class="font-display font-black text-lg text-ink mt-1.5">Sekretariat Pimpinan</p>
+
+            <div class="mt-5 space-y-3.5 text-sm">
+              <div class="flex items-start gap-3 pb-3.5 border-b border-dashed border-ink/15">
+                <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+                <div>
+                  <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">TELEPON</p>
+                  <p class="font-bold text-ink mt-1 text-sm">(021) 123-4567</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3 pb-3.5 border-b border-dashed border-ink/15">
+                <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+                <div>
+                  <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">EMAIL</p>
+                  <p class="font-bold text-ink mt-1 text-sm">protokol@kesbangpol.go.id</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-brand-500 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div>
+                  <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">KANTOR</p>
+                  <p class="font-bold text-ink mt-1 text-sm">Jl. Merdeka No. 123, Kota Nusantara</p>
+                  <p class="text-xs text-ink/50 mt-1">Senin — Jumat · 08.00 — 16.00 WIB</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-5 pt-4 border-t border-dashed border-ink/15 flex items-center justify-between">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">Rata-rata respons</p>
+              <p class="font-display font-black text-brand-600 text-base">≤ 3 hari kerja</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="relative overflow-hidden">
+    <div class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 py-14 md:py-16 relative">
+      <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+      <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-900/40 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 relative flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-white text-center md:text-left">
+          <p class="font-mono text-[11px] tracking-widest uppercase text-orange-100/90">Suara Anda Berarti</p>
+          <h3 class="mt-2 font-display text-2xl md:text-3xl font-black leading-tight">
+            Punya kritik atau saran?
+          </h3>
+          <p class="mt-2 text-white/80 max-w-lg text-sm">Setiap masukan Anda akan kami tindak lanjuti untuk pelayanan yang lebih baik.</p>
+        </div>
+        <a href="index.html#kritik" class="group shrink-0 inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white text-brand-700 font-black text-sm shadow-2xl hover:bg-brand-50 hover:scale-105 active:scale-95 transition-all">
+          Kirim Sekarang
+          <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center group-hover:rotate-[-45deg] transition-transform duration-300">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#1A0F0B] text-white/70 pt-14 pb-8 relative overflow-hidden">
+  <div class="absolute inset-0 pattern-dots opacity-[0.15]"></div>
+  <div class="absolute -top-40 left-1/3 w-96 h-96 rounded-full bg-brand-700/30 blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center ring-2 ring-white/10">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-extrabold text-white tracking-tight">KESBANGPOL</p>
+            <p class="text-[11px] text-brand-400 font-medium">Kota Nusantara</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed">
+          Badan Kesatuan Bangsa dan Politik berkomitmen menjaga stabilitas, kerukunan, dan persatuan dalam bingkai NKRI.
+        </p>
+        <div class="mt-5 flex gap-2">
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1a4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.3a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.5-1.3 2.1-2.1Z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.5 31 31 0 0 0-.5-4.5ZM9.8 15.4V8.6l6 3.4-6 3.4Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Tautan Cepat</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="hover:text-brand-400 transition">Beranda</a></li>
+          <li><a href="profil.html" class="hover:text-brand-400 transition">Profil Pimpinan</a></li>
+          <li><a href="sejarah.html" class="hover:text-brand-400 transition">Sejarah</a></li>
+          <li><a href="struktur.html" class="hover:text-brand-400 transition">Struktur Organisasi</a></li>
+          <li><a href="visi.html" class="hover:text-brand-400 transition">Visi &amp; Misi</a></li>
+          <li><a href="tugas.html" class="hover:text-brand-400 transition">Tugas &amp; Fungsi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Layanan</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="program.html" class="hover:text-brand-400 transition">Program</a></li>
+          <li><a href="agenda.html" class="hover:text-brand-400 transition">Agenda Pimpinan</a></li>
+          <li><a href="berita.html" class="hover:text-brand-400 transition">Berita</a></li>
+          <li><a href="foto.html" class="hover:text-brand-400 transition">Galeri</a></li>
+          <li><a href="index.html#kritik" class="hover:text-brand-400 transition">Kritik &amp; Saran</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Lokasi &amp; Kontak</h4>
+        <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521!2d106.8195!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMTAuMiJF!5e0!3m2!1sen!2sid!4v1700000000000"
+            class="w-full h-32 border-0"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Jl. Merdeka No. 123, Kota Nusantara</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span>(021) 123-4567</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <span>info@kesbangpol.go.id</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+      <p>© 2025 Badan Kesatuan Bangsa dan Politik. Seluruh hak cipta dilindungi.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-brand-400 transition">Kebijakan Privasi</a>
+        <a href="#" class="hover:text-brand-400 transition">Syarat &amp; Ketentuan</a>
+        <a href="#" class="hover:text-brand-400 transition">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  /* ============ MOBILE DRAWER ============ */
+  const drawer = document.getElementById('drawer');
+  const drawerBg = document.getElementById('drawerBg');
+  const drawerPanel = document.getElementById('drawerPanel');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeDrawer = document.getElementById('closeDrawer');
+
+  function openDrawer() {
+    drawer.classList.remove('pointer-events-none');
+    requestAnimationFrame(() => {
+      drawerBg.classList.replace('opacity-0', 'opacity-100');
+      drawerPanel.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  function closeDrawerFn() {
+    drawerBg.classList.replace('opacity-100', 'opacity-0');
+    drawerPanel.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+    setTimeout(() => drawer.classList.add('pointer-events-none'), 500);
+  }
+  menuBtn.addEventListener('click', openDrawer);
+  closeDrawer.addEventListener('click', closeDrawerFn);
+  drawerBg.addEventListener('click', closeDrawerFn);
+  document.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeDrawerFn));
+
+  /* ============ NAVBAR SCROLL ============ */
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('#navbar > div');
+    if (window.scrollY > 40) {
+      nav.style.paddingTop = '6px';
+      nav.style.paddingBottom = '6px';
+    } else {
+      nav.style.paddingTop = '';
+      nav.style.paddingBottom = '';
+    }
+  });
+
+  /* ============ REVEAL ============ */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ============ SCROLL PROGRESS ============ */
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (st / dh) * 100 + '%';
+  });
+
+  /* ============ COUNTDOWN TIMER ============ */
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + 3);
+  targetDate.setHours(7, 0, 0, 0);
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    if (diff <= 0) {
+      document.querySelectorAll('[data-cd]').forEach(el => el.textContent = '00');
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    const pad = n => String(n).padStart(2, '0');
+    document.querySelector('[data-cd="d"]').textContent = pad(days);
+    document.querySelector('[data-cd="h"]').textContent = pad(hours);
+    document.querySelector('[data-cd="m"]').textContent = pad(minutes);
+    document.querySelector('[data-cd="s"]').textContent = pad(seconds);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  /* ============ DATA AGENDA — DIKURANGI (maks 3/bulan) ============ */
+  const AGENDAS = {
+    mar: [
+      { d: 18, month: 'MAR', day: 'SEN', time: '07.00 WIB', cat: 'UPACARA',   title: 'Apel Kesadaran Nasional & Pembinaan ASN', loc: 'Lapangan Utama Kota', status: 'upcoming' },
+      { d: 20, month: 'MAR', day: 'KAM', time: '09.00 WIB', cat: 'RAPAT',     title: 'Rapat Koordinasi FKUB dan Ormas',         loc: 'Aula Kesbangpol',     status: 'upcoming' },
+      { d: 12, month: 'MAR', day: 'RAB', time: '09.00 WIB', cat: 'KUNJUNGAN', title: 'Kunjungan Kerja ke Kecamatan Selatan',   loc: 'Kec. Nusantara Selatan', status: 'done' }
+    ],
+    apr: [
+      { d: 3,  month: 'APR', day: 'KAM', time: '09.00 WIB', cat: 'RAPAT',       title: 'Rapat Evaluasi Program Triwulan I',           loc: 'Aula Kesbangpol', status: 'upcoming' },
+      { d: 10, month: 'APR', day: 'KAM', time: '08.00 WIB', cat: 'SOSIALISASI', title: 'Sosialisasi Pendidikan Politik Pemilih Pemula', loc: 'SMAN 1 Nusantara', status: 'upcoming' },
+      { d: 24, month: 'APR', day: 'KAM', time: '09.00 WIB', cat: 'RAPAT',       title: 'Rapat Koordinasi Forkopimda',                loc: 'Aula Pemkot',     status: 'upcoming' }
+    ],
+    feb: [
+      { d: 24, month: 'FEB', day: 'SEN', time: '09.00 WIB', cat: 'RAPAT',       title: 'Rapat Koordinasi Forkopimda Bulanan',  loc: 'Aula Pemkot',          status: 'done' },
+      { d: 18, month: 'FEB', day: 'SEL', time: '13.00 WIB', cat: 'SOSIALISASI', title: 'Sosialisasi Perda Ormas ke Kecamatan', loc: 'Kec. Nusantara Utara', status: 'done' }
+    ],
+    jan: [
+      { d: 30, month: 'JAN', day: 'KAM', time: '08.00 WIB', cat: 'RAPAT',   title: 'Rapat Penyusunan Program Kerja 2025', loc: 'Aula Kesbangpol', status: 'done' },
+      { d: 15, month: 'JAN', day: 'RAB', time: '07.00 WIB', cat: 'UPACARA', title: 'Apel Pagi Awal Tahun 2025',            loc: 'Halaman Kantor',  status: 'done' }
+    ],
+    may: [], jun: [], jul: [], aug: [], sep: [], oct: [], nov: [], dec: []
+  };
+
+  const MONTH_LABEL = {
+    jan: 'JANUARI 2025', feb: 'FEBRUARI 2025', mar: 'MARET 2025', apr: 'APRIL 2025',
+    may: 'MEI 2025', jun: 'JUNI 2025', jul: 'JULI 2025', aug: 'AGUSTUS 2025',
+    sep: 'SEPTEMBER 2025', oct: 'OKTOBER 2025', nov: 'NOVEMBER 2025', dec: 'DESEMBER 2025'
+  };
+  const MONTH_NUM = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
+  const MONTH_TITLE = {
+    jan: 'Januari', feb: 'Februari', mar: 'Maret', apr: 'April',
+    may: 'Mei', jun: 'Juni', jul: 'Juli', aug: 'Agustus',
+    sep: 'September', oct: 'Oktober', nov: 'November', dec: 'Desember'
+  };
+
+  let currentMonth = 'mar';
+
+  /* ============ BUILD CALENDAR ============ */
+  function buildCalendar(monthKey) {
+    const grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+
+    const year = 2025;
+    const monthIdx = MONTH_NUM[monthKey];
+    const firstDay = new Date(year, monthIdx, 1).getDay();
+    const firstDayMon = (firstDay + 6) % 7;
+    const daysInMonth = new Date(year, monthIdx + 1, 0).getDate();
+    const daysInPrev = new Date(year, monthIdx, 0).getDate();
+
+    const today = new Date();
+    const isCurrentMonth = today.getFullYear() === year && today.getMonth() === monthIdx;
+    const todayDate = isCurrentMonth ? today.getDate() : -1;
+
+    const monthAgendas = AGENDAS[monthKey] || [];
+    const eventDays = new Set(monthAgendas.map(a => a.d));
+
+    for (let i = firstDayMon - 1; i >= 0; i--) {
+      const dayNum = daysInPrev - i;
+      const d = document.createElement('div');
+      d.className = 'cal-day muted';
+      d.textContent = dayNum;
+      grid.appendChild(d);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const d = document.createElement('div');
+      d.className = 'cal-day';
+      d.textContent = day;
+      if (day === todayDate) d.classList.add('today');
+      if (eventDays.has(day)) {
+        d.classList.add('has-event');
+        d.setAttribute('data-day', day);
+        d.addEventListener('click', () => scrollToAgendaDay(day));
+      }
+      grid.appendChild(d);
+    }
+
+    const totalCells = firstDayMon + daysInMonth;
+    const remaining = (7 - (totalCells % 7)) % 7;
+    for (let i = 1; i <= remaining; i++) {
+      const d = document.createElement('div');
+      d.className = 'cal-day muted';
+      d.textContent = i;
+      grid.appendChild(d);
+    }
+
+    document.getElementById('calMonthLabel').textContent = MONTH_LABEL[monthKey];
+    document.getElementById('calMonthTitle').textContent = MONTH_TITLE[monthKey] + ' 2025';
+    document.getElementById('listHeader').textContent = MONTH_TITLE[monthKey] + ' 2025';
+  }
+
+  /* ============ BUILD AGENDA LIST — OVAL PILLS ============ */
+  function buildAgendaList(monthKey) {
+    const list = document.getElementById('agendaList');
+    const empty = document.getElementById('agendaEmpty');
+    const countEl = document.getElementById('listCount');
+
+    const items = (AGENDAS[monthKey] || []).slice();
+
+    if (items.length === 0) {
+      list.innerHTML = '';
+      empty.classList.remove('hidden');
+      countEl.textContent = '0';
+      return;
+    }
+    empty.classList.add('hidden');
+    countEl.textContent = items.length;
+
+    list.innerHTML = items.map(a => {
+      const statusClass = a.status === 'done' ? 'done' : 'upcoming';
+      return `
+        <div class="agenda-pill ${statusClass}" data-day="${a.d}">
+          <div class="pill-date">
+            <span class="pill-date-num">${String(a.d).padStart(2,'0')}</span>
+            <span class="pill-date-mo">${a.month}</span>
+          </div>
+          <div class="pill-body">
+            <span class="pill-cat">${a.cat}</span>
+            <span class="pill-title">${a.title}</span>
+          </div>
+          <span class="pill-time">${a.time}</span>
+          <span class="pill-status-dot"></span>
+        </div>
+      `;
+    }).join('');
+
+    document.querySelectorAll('.agenda-pill').forEach(item => {
+      item.addEventListener('click', () => {
+        const day = parseInt(item.dataset.day);
+        scrollToCalendarDay(day);
+      });
+    });
+  }
+
+  function scrollToAgendaDay(day) {
+    const card = document.querySelector(`.agenda-pill[data-day="${day}"]`);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.style.boxShadow = '0 0 0 4px rgba(232,74,87,0.25), 0 12px 28px -8px rgba(232,74,87,0.4)';
+      setTimeout(() => { card.style.boxShadow = ''; }, 1500);
+    }
+  }
+  function scrollToCalendarDay(day) {
+    const cell = document.querySelector(`.cal-day[data-day="${day}"]`);
+    if (cell) {
+      cell.style.transform = 'scale(1.15)';
+      cell.style.boxShadow = '0 0 0 6px rgba(232,74,87,0.25)';
+      setTimeout(() => { cell.style.transform = ''; cell.style.boxShadow = ''; }, 1200);
+    }
+  }
+
+  /* ============ MONTH TABS ============ */
+  const monthTabs = document.querySelectorAll('.month-tab');
+  monthTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      monthTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentMonth = tab.dataset.month;
+      buildCalendar(currentMonth);
+      buildAgendaList(currentMonth);
+    });
+  });
+
+  /* ============ CALENDAR PREV / NEXT ============ */
+  const monthOrder = ['jan','feb','mar','apr','may','jun','jul','aug','sep','oct','nov','dec'];
+  document.getElementById('calPrev').addEventListener('click', () => {
+    const idx = monthOrder.indexOf(currentMonth);
+    currentMonth = monthOrder[(idx - 1 + 12) % 12];
+    monthTabs.forEach(t => t.classList.toggle('active', t.dataset.month === currentMonth));
+    buildCalendar(currentMonth);
+    buildAgendaList(currentMonth);
+  });
+  document.getElementById('calNext').addEventListener('click', () => {
+    const idx = monthOrder.indexOf(currentMonth);
+    currentMonth = monthOrder[(idx + 1) % 12];
+    monthTabs.forEach(t => t.classList.toggle('active', t.dataset.month === currentMonth));
+    buildCalendar(currentMonth);
+    buildAgendaList(currentMonth);
+  });
+
+  /* ============ INIT ============ */
+  buildCalendar('mar');
+  buildAgendaList('mar');
+
+  /* ============ SMOOTH ANCHOR ============ */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href.length > 1 && document.querySelector(href)) {
+        e.preventDefault();
+        const el = document.querySelector(href);
+        window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

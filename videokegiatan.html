@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Video Kegiatan — Kesbangpol Kota Nusantara</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Special+Elite&family=JetBrains+Mono:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          display: ['"Playfair Display"', 'serif'],
+          typewriter: ['"Special Elite"', 'monospace'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+          book: ['Lora', 'serif'],
+          cinema: ['"Bebas Neue"', 'sans-serif'],
+        },
+        colors: {
+          brand: {
+            50:'#FFF5F5',100:'#FFE3E5',200:'#FFC9CD',300:'#FFA0A8',
+            400:'#F9707C',500:'#E84A57',600:'#D32F3E',700:'#B0202E',
+            800:'#8F1A26',900:'#731520',
+          },
+          paper: { 50:'#FFFCF6', 100:'#FAF4E8', 200:'#F0E6CF', 300:'#E5D4AE' },
+          ink: '#2B211B',
+          cinema: '#0A0503',
+          reel: '#1A0F0B'
+        },
+        boxShadow: {
+          glass: '0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
+          soft:  '0 10px 40px -12px rgba(232,74,87,0.35)',
+          glow:  '0 0 0 4px rgba(232,74,87,0.15), 0 8px 24px -6px rgba(232,74,87,0.5)',
+          glowHover: '0 0 0 6px rgba(232,74,87,0.2), 0 12px 28px -6px rgba(232,74,87,0.6)',
+          cinema: '0 24px 60px -12px rgba(232,74,87,0.35), 0 8px 24px -8px rgba(0,0,0,0.6)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html, body { font-family: 'Inter', sans-serif; font-size: 14px; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #0A0503; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(#E84A57, #B0202E); border-radius: 8px; }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                inset 0 -1px 0 rgba(255,255,255,0.25);
+  }
+  .glass-darkroom {
+    background: rgba(10, 5, 3, 0.75);
+    backdrop-filter: blur(24px) saturate(160%);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    border: 1px solid rgba(232, 74, 87, 0.18);
+  }
+  .glass-dark {
+    background: rgba(30, 20, 18, 0.45);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #E84A57 0%, #B0202E 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .paper-texture {
+    background-color: #FAF4E8;
+    background-image:
+      radial-gradient(rgba(120,90,50,0.06) 1px, transparent 1.5px),
+      radial-gradient(rgba(120,90,50,0.04) 1px, transparent 1.5px);
+    background-size: 3px 3px, 7px 7px;
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(rgba(232,74,87,0.18) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+  .pattern-diag {
+    background-image: repeating-linear-gradient(
+      45deg, rgba(232,74,87,0.10) 0 1px, transparent 1px 14px
+    );
+  }
+  .pattern-zigzag {
+    background-image:
+      linear-gradient(135deg, rgba(232,74,87,0.14) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(232,74,87,0.14) 25%, transparent 25%);
+    background-size: 20px 20px;
+  }
+  .pattern-dots-light {
+    background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+  .ornament-kawung {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23E84A57' stroke-width='1.2' opacity='0.35'><circle cx='30' cy='30' r='14'/><circle cx='90' cy='30' r='14'/><circle cx='30' cy='90' r='14'/><circle cx='90' cy='90' r='14'/><circle cx='60' cy='60' r='10'/></g></svg>");
+    background-size: 180px 180px;
+  }
+
+  /* ===== CINEMA ===== */
+  .cinema-grad {
+    background: radial-gradient(ellipse at 50% 0%, #2A1208 0%, #0F0705 45%, #0A0503 100%);
+  }
+  .spotlight {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232,74,87,0.20) 0%, rgba(176,32,46,0.08) 30%, transparent 70%);
+  }
+
+  /* ===== MARQUEE LIGHTS ===== */
+  .marquee-lights {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    padding: 12px 0;
+  }
+  .marquee-bulb {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #FFC9CD, #E84A57 60%, #8F1A26);
+    box-shadow: 0 0 12px rgba(232,74,87,0.9), 0 0 24px rgba(232,74,87,0.5), inset 0 -2px 3px rgba(120,20,10,0.5);
+    animation: marqueePulse 1.8s ease-in-out infinite;
+  }
+  .marquee-bulb:nth-child(2n) { animation-delay: 0.3s; }
+  .marquee-bulb:nth-child(3n) { animation-delay: 0.6s; }
+  .marquee-bulb:nth-child(4n) { animation-delay: 0.9s; }
+  @keyframes marqueePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.85); }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes spinSlow { to { transform: rotate(360deg) } }
+  .spin-slow { animation: spinSlow 40s linear infinite; }
+  @keyframes spinFast { to { transform: rotate(360deg) } }
+  .spin-fast { animation: spinFast 8s linear infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+  .bob { animation: bob 6s ease-in-out infinite; }
+  @keyframes blinkDot { 0%,100% { opacity: 1 } 50% { opacity: 0.25 } }
+  .blink-dot { animation: blinkDot 1.6s ease-in-out infinite; }
+  @keyframes floatY { 0%,100% { transform: translateY(0) rotate(-2deg) } 50% { transform: translateY(-8px) rotate(2deg) } }
+  .float-y { animation: floatY 8s ease-in-out infinite; }
+  @keyframes flicker {
+    0%,100% { opacity: 0.85; }
+    47% { opacity: 0.85; }
+    48% { opacity: 0.4; }
+    49% { opacity: 0.85; }
+    62% { opacity: 0.85; }
+    63% { opacity: 0.3; }
+    64% { opacity: 0.85; }
+  }
+  .flicker { animation: flicker 4s ease-in-out infinite; }
+  @keyframes pulsePlay {
+    0%,100% { box-shadow: 0 0 0 0 rgba(232,74,87,0.5), 0 0 0 0 rgba(232,74,87,0.3); }
+    50% { box-shadow: 0 0 0 14px rgba(232,74,87,0), 0 0 0 28px rgba(232,74,87,0); }
+  }
+  .pulse-play { animation: pulsePlay 2.5s ease-out infinite; }
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  .scan-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 30%;
+    background: linear-gradient(180deg, transparent, rgba(232,74,87,0.08), transparent);
+    animation: scan 4s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .scale-in { animation: scaleIn 400ms cubic-bezier(0.32, 0.72, 0, 1); }
+
+  /* ===== REVEAL ===== */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms ease, transform 800ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 900ms ease, transform 900ms ease; }
+  .reveal-left.in { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 900ms ease, transform 900ms ease; }
+  .reveal-right.in { opacity: 1; transform: translateX(0); }
+
+  #scrollProgress {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+    background: linear-gradient(to right, #E84A57, #B0202E);
+    width: 0%; transition: width 100ms linear;
+    box-shadow: 0 0 12px rgba(232,74,87,0.7);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* ===== WAX SEAL & STAMP ===== */
+  .wax-seal {
+    background: radial-gradient(circle at 32% 28%, #D32F3E, #8F1A26 65%, #6E1A08 100%);
+    box-shadow:
+      inset 0 3px 8px rgba(255,255,255,0.25),
+      inset 0 -6px 12px rgba(0,0,0,0.35),
+      0 8px 20px -6px rgba(120,20,10,0.55);
+  }
+  .stamp {
+    border: 3px double #B0202E;
+    color: #B0202E;
+    font-family: 'Special Elite', monospace;
+    transform: rotate(-8deg);
+    opacity: 0.85;
+  }
+
+  .chapter-num {
+    font-feature-settings: "tnum";
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  /* ============================================ */
+  /* ===== VIDEO CARD — REDESIGN ELEGANT ========= */
+  /* ============================================ */
+  .video-card {
+    position: relative;
+    background: linear-gradient(160deg, #1A0F0B 0%, #0A0503 100%);
+    border: 1px solid rgba(232,74,87,0.18);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 500ms cubic-bezier(0.32, 0.72, 0, 1);
+    box-shadow: 0 4px 12px -4px rgba(0,0,0,0.5), 0 20px 40px -20px rgba(0,0,0,0.5);
+  }
+  .video-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(160deg, rgba(232,74,87,0.4), transparent 40%, transparent 60%, rgba(232,74,87,0.2));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+  .video-card:hover::before { opacity: 1; }
+  .video-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(232,74,87,0.5);
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,0.6), 0 32px 64px -24px rgba(232,74,87,0.45);
+  }
+
+  /* Featured larger card */
+  .video-card.featured {
+    border-radius: 24px;
+  }
+  .video-card.featured:hover {
+    transform: translateY(-10px);
+  }
+
+  .video-thumb {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    background: #000;
+    border-radius: 20px 20px 0 0;
+  }
+  .video-card.featured .video-thumb {
+    border-radius: 24px 24px 0 0;
+  }
+  .video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.05) saturate(0.9) brightness(0.85);
+    transition: all 900ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .video-card:hover .video-thumb img {
+    filter: contrast(1.05) saturate(1.15) brightness(1);
+    transform: scale(1.08);
+  }
+  .video-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,5,3,0.95) 0%, transparent 45%, transparent 70%, rgba(10,5,3,0.5) 100%);
+    pointer-events: none;
+    border-radius: 20px 20px 0 0;
+  }
+  .video-card.featured .video-thumb::after {
+    border-radius: 24px 24px 0 0;
+  }
+
+  /* Play button — modern rounded */
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(232,74,87,0.95), rgba(176,32,46,0.95));
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    z-index: 3;
+    transition: all 500ms cubic-bezier(0.32, 0.72, 0, 1);
+    box-shadow: 0 8px 24px -6px rgba(232,74,87,0.7), inset 0 1px 0 rgba(255,255,255,0.2);
+  }
+  .video-card.featured .play-btn {
+    width: 84px;
+    height: 84px;
+  }
+  .video-card:hover .play-btn {
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 0 0 8px rgba(232,74,87,0.2), 0 0 0 16px rgba(232,74,87,0.08), 0 12px 32px -6px rgba(232,74,87,0.9);
+  }
+  .play-btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(232,74,87,0.4);
+    animation: pulsePlay 2.5s ease-out infinite;
+  }
+
+  /* Duration badge — rounded pill */
+  .duration-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(10,5,3,0.85);
+    backdrop-filter: blur(10px);
+    padding: 5px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(232,74,87,0.4);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #FFA0A8;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .duration-badge::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #E84A57;
+    box-shadow: 0 0 6px rgba(232,74,87,0.9);
+  }
+
+  /* Category tag — rounded pill */
+  .vcat-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    transition: all 300ms ease;
+  }
+  .vcat-tag.brand {
+    background: linear-gradient(135deg, #E84A57, #B0202E);
+    color: #fff;
+    box-shadow: 0 4px 12px -4px rgba(232,74,87,0.6);
+  }
+  .vcat-tag.dark {
+    background: rgba(10,5,3,0.85);
+    backdrop-filter: blur(10px);
+    color: #FFA0A8;
+    border: 1px solid rgba(232,74,87,0.35);
+  }
+
+  /* ===== CLAPPERBOARD ===== */
+  .clapper-top {
+    background:
+      repeating-linear-gradient(115deg,
+        #0A0503 0px, #0A0503 20px,
+        #FFFCF6 20px, #FFFCF6 40px);
+    height: 40px;
+    border-bottom: 3px solid #0A0503;
+    box-shadow: inset 0 -3px 0 rgba(232,74,87,0.3);
+  }
+
+  /* ===== FILM REEL ===== */
+  .film-reel {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, #1A0F0B 0%, #0A0503 70%);
+    border: 3px solid rgba(232,74,87,0.35);
+    box-shadow: 0 8px 24px -8px rgba(0,0,0,0.6), inset 0 0 40px rgba(232,74,87,0.15);
+  }
+  .film-reel::before {
+    content: '';
+    position: absolute;
+    inset: 15px;
+    border-radius: 50%;
+    border: 1px solid rgba(232,74,87,0.25);
+  }
+  .film-reel-holes {
+    position: absolute;
+    inset: 0;
+    animation: spinFast 8s linear infinite;
+  }
+  .film-reel-holes span {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #0A0503 40%, #2A1208 100%);
+    border: 1px solid rgba(232,74,87,0.3);
+    top: 50%;
+    left: 50%;
+  }
+  .film-reel-holes span:nth-child(1) { transform: translate(-50%, -50%) translateY(-34px); }
+  .film-reel-holes span:nth-child(2) { transform: translate(-50%, -50%) translate(30px, 17px); }
+  .film-reel-holes span:nth-child(3) { transform: translate(-50%, -50%) translate(-30px, 17px); }
+  .film-reel-center {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #E84A57, #731520);
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.6);
+  }
+
+  /* ===== FILTER CHIPS ===== */
+  .video-chip {
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid rgba(232,74,87,0.25);
+    color: rgba(255,200,208,0.7);
+    cursor: pointer;
+    transition: all 300ms cubic-bezier(0.32, 0.72, 0, 1);
+    white-space: nowrap;
+  }
+  .video-chip:hover {
+    border-color: rgba(232,74,87,0.6);
+    color: #FFA0A8;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -8px rgba(232,74,87,0.5);
+  }
+  .video-chip.active {
+    background: linear-gradient(135deg, #E84A57, #B0202E);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 8px 20px -6px rgba(232,74,87,0.6);
+  }
+  .video-chip .chip-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: rgba(232,74,87,0.15);
+    color: #E84A57;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 0 5px;
+    margin-left: 6px;
+  }
+  .video-chip.active .chip-count {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+  }
+
+  /* ===== VIDEO MODAL ===== */
+  .video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(10, 5, 3, 0.97);
+    backdrop-filter: blur(24px);
+    display: none;
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+  .video-modal.open {
+    display: flex;
+    opacity: 1;
+  }
+  .video-modal-player {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000;
+    border: 1px solid rgba(232,74,87,0.3);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px -12px rgba(232,74,87,0.4), 0 0 0 1px rgba(232,74,87,0.15);
+    overflow: hidden;
+  }
+
+  /* ===== TICKET ===== */
+  .ticket {
+    position: relative;
+    background: linear-gradient(160deg, #1A0F0B, #0F0705);
+    border: 1px dashed rgba(232,74,87,0.35);
+    border-radius: 20px;
+    transition: all 400ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .ticket:hover {
+    transform: translateY(-6px);
+    border-color: rgba(232,74,87,0.6);
+    box-shadow: 0 20px 40px -16px rgba(232,74,87,0.35);
+  }
+  .ticket::before, .ticket::after {
+    content: '';
+    position: absolute;
+    left: -12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #0A0503;
+    border-right: 1px dashed rgba(232,74,87,0.35);
+  }
+  .ticket::before { top: 30%; }
+  .ticket::after { bottom: 30%; }
+
+  /* ===== STAR RATING ===== */
+  .star-filled { color: #E84A57; }
+  .star-empty { color: rgba(232,74,87,0.25); }
+</style>
+</head>
+
+<body class="bg-cinema text-paper-100 antialiased selection:bg-brand-500/30 overflow-x-hidden">
+
+<div id="scrollProgress"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+  <div class="glass rounded-full px-3 md:px-5 py-2 relative flex items-center gap-3">
+
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 pl-1 z-10">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft ring-2 ring-white/70">
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="leading-tight hidden sm:block">
+        <p class="font-extrabold text-[13.5px] tracking-tight text-gray-900">KESBANGPOL</p>
+        <p class="text-[10px] font-medium text-brand-600/90 tracking-wide">KOTA NUSANTARA</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
+      <li><a href="index.html" class="block px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Beranda</a></li>
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Profil
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-56 shadow-2xl">
+            <a href="profil.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Profil Pimpinan</a>
+            <a href="sejarah.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="struktur.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </li>
+      <li><a href="program.html" class="block px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Program</a></li>
+      <li><a href="agenda.html" class="block px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Agenda Pimpinan</a></li>
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Publikasi
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="berita.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </li>
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[12.5px] font-semibold text-brand-600 bg-brand-50/80 transition">
+          Galeri
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="foto.html" class="block px-3 py-2 rounded-xl text-[12px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Galeri Foto</a>
+            <a href="video.html" class="block px-3 py-2 rounded-xl text-[12px] font-semibold text-brand-700 bg-brand-50">Video Kegiatan</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <a href="index.html#kritik" class="hidden lg:inline-flex ml-auto shrink-0 items-center gap-2 px-5 py-2.5 rounded-full text-white text-[12.5px] font-bold bg-gradient-to-r from-brand-500 to-brand-600 shadow-glow hover:shadow-glowHover hover:from-brand-600 hover:to-brand-700 active:scale-95 transition-all duration-300">
+      <span class="relative flex w-1.5 h-1.5">
+        <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+        <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-white"></span>
+      </span>
+      Kritik &amp; Saran
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+
+    <button id="menuBtn" class="lg:hidden ml-auto w-11 h-11 rounded-full flex items-center justify-center glass text-gray-800 active:scale-95 transition z-10">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== MOBILE DRAWER ===================== -->
+<div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none">
+  <div id="drawerBg" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+  <aside id="drawerPanel" class="absolute right-0 top-0 h-full w-[88%] max-w-[380px] bg-white/95 backdrop-blur-2xl shadow-[-20px_0_60px_-20px_rgba(0,0,0,0.4)] translate-x-full transition-transform duration-500 flex flex-col" style="transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100/80">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-extrabold text-[13.5px] tracking-tight text-gray-900">KESBANGPOL</p>
+          <p class="text-[10px] font-medium text-brand-600 tracking-wide">KOTA NUSANTARA</p>
+        </div>
+      </div>
+      <button id="closeDrawer" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 active:scale-95 transition">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="flex-1 overflow-y-auto px-3 py-4 space-y-1 no-scrollbar">
+      <a href="index.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">01</span>
+        Beranda
+      </a>
+      <a href="program.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">03</span>
+        Program
+      </a>
+      <a href="agenda.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">04</span>
+        Agenda Pimpinan
+      </a>
+      <a href="foto.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">06</span>
+        Galeri Foto
+      </a>
+      <a href="video.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-brand-600 bg-brand-50 transition text-[13.5px]">
+        <span class="w-8 h-8 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xs font-bold">07</span>
+        Video Kegiatan
+      </a>
+    </div>
+    <div class="p-4 border-t border-gray-100">
+      <a href="index.html#kritik" data-close class="flex items-center justify-center gap-2 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-700 text-white font-bold shadow-soft active:scale-[0.98] transition text-[13.5px]">
+        Kirim Kritik &amp; Saran
+      </a>
+    </div>
+  </aside>
+</div>
+
+<!-- ============================================================= -->
+<main>
+
+  <!-- ===================== HERO — BIOSKOP ===================== -->
+  <section class="relative min-h-screen overflow-hidden cinema-grad">
+    <div class="absolute inset-0 spotlight pointer-events-none"></div>
+
+    <div class="absolute top-20 md:top-24 left-0 right-0 z-20">
+      <div class="marquee-lights">
+        <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+        <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+        <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+        <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+        <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+        <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+        <span class="marquee-bulb"></span><span class="marquee-bulb hidden md:block"></span>
+        <span class="marquee-bulb hidden md:block"></span><span class="marquee-bulb hidden md:block"></span>
+      </div>
+    </div>
+
+    <div class="absolute inset-0 pattern-dots opacity-[0.08] pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-500 via-brand-700 to-brand-500"></div>
+
+    <div class="hidden md:block absolute top-40 right-16 film-reel bob pointer-events-none">
+      <div class="film-reel-holes"><span></span><span></span><span></span></div>
+      <div class="film-reel-center"></div>
+    </div>
+
+    <div class="hidden md:block absolute bottom-24 left-16 film-reel spin-slow pointer-events-none" style="animation-duration: 12s;">
+      <div class="film-reel-holes"><span></span><span></span><span></span></div>
+      <div class="film-reel-center"></div>
+    </div>
+
+    <div class="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 vertical-text font-mono text-[10px] tracking-[0.5em] uppercase text-brand-500/40">
+      Now Showing · Kesbangpol · Kota Nusantara · 2025
+    </div>
+
+    <div class="relative pt-44 md:pt-48">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[9.5px] font-mono tracking-widest text-brand-500/60 uppercase justify-center">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-500 blink-dot"></span>
+            Arsip Video · No. VID/2025-07
+          </span>
+          <span class="hidden sm:inline text-brand-500/30">|</span>
+          <span>32 Video Terkurasi</span>
+          <span class="hidden sm:inline text-brand-500/30">|</span>
+          <span>08 Kategori</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 pt-10 md:pt-14 pb-24 md:pb-28">
+      <div class="text-center reveal">
+
+        <p class="font-cinema text-xl md:text-2xl tracking-[0.4em] text-brand-400 mb-5">— NOW SHOWING —</p>
+
+        <h1 class="font-display font-black text-[40px] sm:text-[56px] md:text-[78px] lg:text-[96px] leading-[0.9] tracking-[-0.03em] text-paper-100">
+          <span class="block">Video</span>
+          <span class="block italic text-gradient">Kegiatan.</span>
+        </h1>
+
+        <p class="mt-6 text-paper-100/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto font-book">
+          Setiap momen yang terlewat, kini bisa Anda putar kembali. Koleksi <span class="italic text-brand-400">dokumentasi visual</span> kegiatan Badan Kesbangpol Kota Nusantara.
+        </p>
+
+        <div class="mt-10 grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+          <div class="border-l-2 border-brand-500 pl-4 text-left">
+            <p class="font-display font-black text-2xl md:text-3xl text-paper-100 chapter-num">32</p>
+            <p class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60 mt-1">VIDEO</p>
+          </div>
+          <div class="border-l-2 border-brand-500 pl-4 text-left">
+            <p class="font-display font-black text-2xl md:text-3xl text-paper-100 chapter-num">142K</p>
+            <p class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60 mt-1">TOTAL VIEWS</p>
+          </div>
+          <div class="border-l-2 border-brand-500 pl-4 text-left">
+            <p class="font-display font-black text-2xl md:text-3xl text-paper-100 chapter-num">4.8</p>
+            <p class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60 mt-1">RATING</p>
+          </div>
+        </div>
+
+        <div class="mt-10 flex flex-wrap gap-3 justify-center">
+          <a href="#now-showing" class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 font-bold text-white text-sm shadow-cinema hover:shadow-glowHover transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Tonton Sekarang
+          </a>
+          <a href="#koleksi" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full glass-darkroom border-brand-500/30 font-semibold text-sm text-paper-100 hover:bg-brand-500/10 transition">
+            Semua Video
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+          </a>
+        </div>
+
+        <div class="mt-14 flex justify-center">
+          <div class="marquee-lights opacity-60">
+            <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+            <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+            <span class="marquee-bulb"></span><span class="marquee-bulb"></span><span class="marquee-bulb"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-500/40 text-[10px] font-typewriter tracking-widest uppercase">
+      <span>Gulir</span>
+      <span class="w-px h-8 bg-gradient-to-b from-brand-500/40 to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- ===================== QUICK FACTS STRIP ===================== -->
+  <section class="relative -mt-14 md:-mt-16 z-20 px-6 md:px-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="glass-darkroom rounded-[2rem] p-5 md:p-7 border border-brand-500/25 relative">
+        <div class="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-brand-500"></div>
+        <div class="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-brand-500"></div>
+        <div class="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-brand-500"></div>
+        <div class="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-brand-500"></div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-brand-500/15">
+
+          <div class="md:px-4">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">Total Video</p>
+            <p class="mt-2 font-display font-black text-base text-paper-100 leading-tight">32 Video</p>
+            <p class="text-xs text-paper-100/40 mt-1">Terkurasi &amp; terverifikasi</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">Total Durasi</p>
+            <p class="mt-2 font-display font-black text-base text-paper-100 leading-tight">08:42:16</p>
+            <p class="text-xs text-paper-100/40 mt-1">Jam : Menit : Detik</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">Total Views</p>
+            <p class="mt-2 font-display font-black text-base text-paper-100 leading-tight">142.386</p>
+            <p class="text-xs text-paper-100/40 mt-1">Sejak kanal diluncurkan</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">Periode</p>
+            <p class="mt-2 font-display font-black text-base text-paper-100 leading-tight">2020 — 2025</p>
+            <p class="text-xs text-paper-100/40 mt-1">Lima tahun terakhir</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== NOW SHOWING ===================== -->
+  <section id="now-showing" class="relative py-20 md:py-28 bg-cinema overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-[0.06] pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-72 h-72 pattern-dots opacity-[0.08] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex items-center gap-4 mb-12 reveal justify-center">
+        <span class="w-16 h-px bg-brand-500"></span>
+        <span class="font-cinema text-xl md:text-2xl tracking-[0.4em] text-brand-400">NOW SHOWING</span>
+        <span class="w-16 h-px bg-brand-500"></span>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-10 items-center reveal">
+
+        <div class="lg:col-span-8">
+          <article class="video-card featured" onclick="openVideo(0)">
+            <div class="video-thumb">
+              <img src="https://picsum.photos/seed/vid-hero/1600/900" alt="">
+              <div class="scan-line"></div>
+
+              <div class="absolute top-4 left-4 right-4 flex items-start justify-between z-10">
+                <div class="flex gap-2">
+                  <span class="vcat-tag brand">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white blink-dot"></span>
+                    FEATURED
+                  </span>
+                  <span class="vcat-tag dark">4K ULTRA HD</span>
+                </div>
+                <span class="vcat-tag dark">EPISODE 12</span>
+              </div>
+
+              <div class="play-btn">
+                <svg class="w-8 h-8 ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+
+              <div class="absolute bottom-0 left-0 right-0 p-6 z-3">
+                <div class="flex items-center gap-3 mb-3">
+                  <span class="px-3 py-1 rounded-full bg-brand-600/90 backdrop-blur font-mono text-[9px] tracking-widest uppercase text-white">DOKUMENTER</span>
+                  <span class="font-mono text-[10px] tracking-widest uppercase text-brand-300">12:34 DURASI</span>
+                  <span class="font-mono text-[10px] tracking-widest uppercase text-paper-100/50">·</span>
+                  <span class="font-mono text-[10px] tracking-widest uppercase text-paper-100/50">18.4K VIEWS</span>
+                </div>
+                <h3 class="font-display font-black text-xl md:text-3xl text-paper-100 leading-tight">
+                  Merawat Kerukunan: Setahun Kampung Toleransi
+                </h3>
+                <p class="mt-2.5 text-paper-100/70 text-sm leading-relaxed font-book max-w-2xl line-clamp-2">
+                  Sebuah dokumenter pendek tentang perjalanan program Kampung Toleransi di tiga kelurahan Kota Nusantara — dari ide, pelaksanaan, hingga dampak yang dirasakan warga.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="glass-darkroom rounded-2xl border border-brand-500/25 p-6 relative">
+            <div class="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-brand-500"></div>
+            <div class="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-brand-500"></div>
+            <div class="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-brand-500"></div>
+            <div class="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-brand-500"></div>
+
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mb-2">TENTANG VIDEO</p>
+
+            <h4 class="font-display font-black text-base text-paper-100 leading-tight mb-3">
+              Merawat Kerukunan: Setahun Kampung Toleransi
+            </h4>
+
+            <div class="flex items-center gap-2 mb-4">
+              <div class="flex">
+                <svg class="w-3.5 h-3.5 star-filled" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-3.5 h-3.5 star-filled" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-3.5 h-3.5 star-filled" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-3.5 h-3.5 star-filled" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-3.5 h-3.5 star-empty" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+              </div>
+              <span class="font-mono text-[10px] tracking-widest uppercase text-paper-100/50">4.0 / 5.0</span>
+            </div>
+
+            <div class="space-y-3 pt-4 border-t border-brand-500/15">
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">SUTRADARA</span>
+                <span class="text-xs font-semibold text-paper-100">Bagas Wicaksono</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">PRODUSER</span>
+                <span class="text-xs font-semibold text-paper-100">Tim Dokumentasi</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">RILIS</span>
+                <span class="text-xs font-semibold text-paper-100">28 Feb 2025</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">KATEGORI</span>
+                <span class="text-xs font-semibold text-paper-100">Dokumenter</span>
+              </div>
+            </div>
+
+            <button onclick="openVideo(0)" class="mt-6 w-full flex items-center justify-center gap-2 py-3.5 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold text-sm shadow-glow hover:shadow-glowHover transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              Putar Video
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KOLEKSI VIDEO ===================== -->
+  <section id="koleksi" class="relative py-20 md:py-28 bg-reel overflow-hidden border-y border-brand-500/15">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-[0.06] pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-72 h-72 pattern-dots opacity-[0.08] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 reveal">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-px bg-brand-500"></span>
+            <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-500">REEL 02 · KOLEKSI VIDEO</span>
+          </div>
+          <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">02</p>
+          <h2 class="mt-5 font-display text-2xl md:text-4xl font-black tracking-tight text-paper-100 leading-tight">
+            Semua <span class="italic text-gradient">Video</span>
+          </h2>
+          <p class="mt-3 text-paper-100/60 max-w-xl font-book text-sm md:text-base">
+            Klik pada video untuk memutar. Kategori dapat difilter sesuai kebutuhan Anda.
+          </p>
+        </div>
+        <div class="flex flex-col gap-3 shrink-0">
+          <div class="flex items-center gap-3 text-[10px] font-mono tracking-widest uppercase text-brand-500/50">
+            <span>SORTIR:</span>
+            <select class="bg-transparent border border-brand-500/25 rounded-full px-3 py-1.5 text-[10px] font-mono tracking-widest uppercase text-brand-400 focus:outline-none focus:border-brand-500">
+              <option class="bg-cinema">Terbaru</option>
+              <option class="bg-cinema">Terpopuler</option>
+              <option class="bg-cinema">Terlama</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10 -mx-6 px-6 md:mx-0 md:px-0 overflow-x-auto no-scrollbar reveal">
+        <div class="flex gap-2.5">
+          <button class="video-chip active" data-vcat="all">Semua <span class="chip-count">12</span></button>
+          <button class="video-chip" data-vcat="dokumenter">Dokumenter <span class="chip-count">2</span></button>
+          <button class="video-chip" data-vcat="profil">Profil <span class="chip-count">2</span></button>
+          <button class="video-chip" data-vcat="sosialisasi">Sosialisasi <span class="chip-count">3</span></button>
+          <button class="video-chip" data-vcat="dialog">Dialog <span class="chip-count">3</span></button>
+          <button class="video-chip" data-vcat="liputan">Liputan <span class="chip-count">2</span></button>
+        </div>
+      </div>
+
+      <!-- ============ VIDEO GRID — REDESIGN ============ -->
+      <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 reveal">
+
+        <!-- Video 1 -->
+        <article class="video-item video-card" data-vcat="dokumenter" onclick="openVideo(0)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-1/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">DOKUMENTER</span>
+            </div>
+            <div class="duration-badge">12:34</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Merawat Kerukunan: Setahun Kampung Toleransi</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">28 FEB 2025</span>
+              <span class="text-brand-400 font-bold">18.4K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 2 -->
+        <article class="video-item video-card" data-vcat="profil" onclick="openVideo(1)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-2/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">PROFIL</span>
+            </div>
+            <div class="duration-badge">08:15</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Mengenal Kesbangpol: Tugas, Fungsi, dan Layanan</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">22 FEB 2025</span>
+              <span class="text-brand-400 font-bold">12.8K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 3 -->
+        <article class="video-item video-card" data-vcat="sosialisasi" onclick="openVideo(2)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-3/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">SOSIALISASI</span>
+            </div>
+            <div class="duration-badge">24:08</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Sosialisasi UU Ormas bagi Pengurus Organisasi</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">15 FEB 2025</span>
+              <span class="text-brand-400 font-bold">9.2K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 4 -->
+        <article class="video-item video-card" data-vcat="dialog" onclick="openVideo(3)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-4/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">DIALOG</span>
+            </div>
+            <div class="duration-badge">45:22</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Dialog Lintas Iman: Merawat Persatuan dalam Keberagaman</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">10 FEB 2025</span>
+              <span class="text-brand-400 font-bold">16.7K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 5 -->
+        <article class="video-item video-card" data-vcat="liputan" onclick="openVideo(4)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-5/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">LIPUTAN</span>
+            </div>
+            <div class="duration-badge">06:42</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Liputan: Festival Budaya Nusantara 2025</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">08 FEB 2025</span>
+              <span class="text-brand-400 font-bold">22.1K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 6 -->
+        <article class="video-item video-card" data-vcat="sosialisasi" onclick="openVideo(5)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-6/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">SOSIALISASI</span>
+            </div>
+            <div class="duration-badge">18:33</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Pendidikan Politik bagi Pemilih Pemula 2025</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">02 FEB 2025</span>
+              <span class="text-brand-400 font-bold">7.4K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 7 -->
+        <article class="video-item video-card" data-vcat="profil" onclick="openVideo(6)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-7/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">PROFIL</span>
+            </div>
+            <div class="duration-badge">07:12</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Profil Kepala Badan Kesbangpol Kota Nusantara</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">26 JAN 2025</span>
+              <span class="text-brand-400 font-bold">11.3K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 8 -->
+        <article class="video-item video-card" data-vcat="dialog" onclick="openVideo(7)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-8/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">DIALOG</span>
+            </div>
+            <div class="duration-badge">32:50</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Dialog Pancasila: Relevansi di Era Digital</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">20 JAN 2025</span>
+              <span class="text-brand-400 font-bold">8.6K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 9 -->
+        <article class="video-item video-card" data-vcat="liputan" onclick="openVideo(8)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-9/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">LIPUTAN</span>
+            </div>
+            <div class="duration-badge">05:18</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Liputan: Apel Kesadaran Nasional 2025</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">15 JAN 2025</span>
+              <span class="text-brand-400 font-bold">5.2K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 10 -->
+        <article class="video-item video-card" data-vcat="sosialisasi" onclick="openVideo(9)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-10/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">SOSIALISASI</span>
+            </div>
+            <div class="duration-badge">28:04</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Sosialisasi Program Kampung Toleransi ke Kecamatan</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">10 JAN 2025</span>
+              <span class="text-brand-400 font-bold">6.8K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 11 -->
+        <article class="video-item video-card" data-vcat="dialog" onclick="openVideo(10)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-11/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">DIALOG</span>
+            </div>
+            <div class="duration-badge">52:18</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Talkshow Kebangsaan: Merawat NKRI Bersama</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">05 JAN 2025</span>
+              <span class="text-brand-400 font-bold">14.2K VIEWS</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Video 12 -->
+        <article class="video-item video-card" data-vcat="dokumenter" onclick="openVideo(11)">
+          <div class="video-thumb">
+            <img src="https://picsum.photos/seed/vid-12/900/500" alt="">
+            <div class="play-btn" style="width: 52px; height: 52px;">
+              <svg class="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="absolute top-3 left-3 z-3">
+              <span class="vcat-tag dark">DOKUMENTER</span>
+            </div>
+            <div class="duration-badge">22:44</div>
+          </div>
+          <div class="p-5">
+            <h3 class="font-display font-black text-sm text-paper-100 leading-snug line-clamp-2">Jejak Pengabdian: Sejarah Kesbangpol 1966-2025</h3>
+            <div class="mt-3 pt-3 border-t border-brand-500/15 flex items-center justify-between text-[10px] font-mono tracking-widest uppercase">
+              <span class="text-paper-100/40">01 JAN 2025</span>
+              <span class="text-brand-400 font-bold">10.5K VIEWS</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div id="videoEmpty" class="hidden text-center py-16">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-500/10 border border-brand-500/25 text-brand-500 mb-4">
+          <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p class="font-display text-lg font-black text-paper-100">Belum ada video</p>
+        <p class="text-sm text-paper-100/50 mt-2">Untuk kategori yang dipilih.</p>
+      </div>
+
+      <div class="mt-12 text-center reveal">
+        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 glass-darkroom border border-brand-500/30 font-mono text-[10px] font-bold tracking-widest uppercase text-paper-100 hover:bg-brand-500/10 transition rounded-full">
+          Muat Video Lainnya
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMING SOON ===================== -->
+  <section class="relative py-20 md:py-24 bg-cinema overflow-hidden">
+    <div class="absolute inset-0 pattern-dots opacity-[0.06] pointer-events-none"></div>
+    <div class="absolute top-1/3 -left-40 w-[420px] h-[420px] rounded-full bg-brand-500/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="flex items-center gap-4 mb-12 reveal justify-center">
+        <span class="w-16 h-px bg-brand-500"></span>
+        <span class="font-cinema text-xl md:text-2xl tracking-[0.4em] text-brand-400">COMING SOON</span>
+        <span class="w-16 h-px bg-brand-500"></span>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5 reveal">
+
+        <article class="ticket p-6 md:p-7">
+          <div class="flex items-center justify-between mb-4">
+            <span class="vcat-tag brand">PREMIERE</span>
+            <span class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">VID-013</span>
+          </div>
+          <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mb-2">SEGERA HADIR</p>
+          <h3 class="font-display font-black text-base text-paper-100 leading-tight">
+            Dokumenter: Potret Kampung Toleransi Setahun Kemudian
+          </h3>
+          <div class="mt-5 pt-5 border-t border-dashed border-brand-500/20">
+            <div class="flex items-center gap-3 text-xs">
+              <svg class="w-4 h-4 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <span class="font-mono text-[10px] tracking-widest uppercase text-paper-100/60">RILIS · 15 APRIL 2025</span>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60">EPISODE 13</span>
+            <span class="font-cinema text-xl tracking-widest text-brand-400">SOON</span>
+          </div>
+        </article>
+
+        <article class="ticket p-6 md:p-7">
+          <div class="flex items-center justify-between mb-4">
+            <span class="vcat-tag brand">PREMIERE</span>
+            <span class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">VID-014</span>
+          </div>
+          <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mb-2">SEGERA HADIR</p>
+          <h3 class="font-display font-black text-base text-paper-100 leading-tight">
+            Behind the Scenes: Sehari Bersama Tim Dokumentasi
+          </h3>
+          <div class="mt-5 pt-5 border-t border-dashed border-brand-500/20">
+            <div class="flex items-center gap-3 text-xs">
+              <svg class="w-4 h-4 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <span class="font-mono text-[10px] tracking-widest uppercase text-paper-100/60">RILIS · 30 APRIL 2025</span>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60">EPISODE 14</span>
+            <span class="font-cinema text-xl tracking-widest text-brand-400">SOON</span>
+          </div>
+        </article>
+
+        <article class="ticket p-6 md:p-7">
+          <div class="flex items-center justify-between mb-4">
+            <span class="vcat-tag brand">PREMIERE</span>
+            <span class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">VID-015</span>
+          </div>
+          <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mb-2">SEGERA HADIR</p>
+          <h3 class="font-display font-black text-base text-paper-100 leading-tight">
+            Liputan Khusus: Refleksi Setahun Kepemimpinan 2022-2025
+          </h3>
+          <div class="mt-5 pt-5 border-t border-dashed border-brand-500/20">
+            <div class="flex items-center gap-3 text-xs">
+              <svg class="w-4 h-4 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <span class="font-mono text-[10px] tracking-widest uppercase text-paper-100/60">RILIS · 12 MEI 2025</span>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center justify-between">
+            <span class="font-mono text-[9px] tracking-widest uppercase text-brand-500/60">EPISODE 15</span>
+            <span class="font-cinema text-xl tracking-widest text-brand-400">SOON</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STATISTIK ===================== -->
+  <section class="relative py-20 md:py-24 bg-reel overflow-hidden border-t border-brand-500/15">
+    <div class="absolute inset-0 pattern-dots opacity-[0.05] pointer-events-none"></div>
+    <div class="absolute top-1/3 -right-40 w-[420px] h-[420px] rounded-full bg-brand-500/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="text-center max-w-2xl mx-auto mb-14 reveal">
+        <div class="flex items-center gap-4 justify-center mb-6">
+          <span class="w-16 h-px bg-brand-500"></span>
+          <span class="font-cinema text-xl md:text-2xl tracking-[0.4em] text-brand-400">BOX OFFICE</span>
+          <span class="w-16 h-px bg-brand-500"></span>
+        </div>
+        <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">03</p>
+        <h2 class="mt-5 font-display text-2xl md:text-4xl font-black tracking-tight text-paper-100 leading-tight">
+          Angka di Balik <span class="italic text-gradient">Layar</span>
+        </h2>
+        <p class="mt-3 text-paper-100/60 font-book text-sm md:text-base">
+          Statistik video kegiatan Badan Kesbangpol Kota Nusantara per Maret 2025.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-4 md:gap-5 md:h-[500px] reveal">
+
+        <article class="md:col-span-5 md:row-span-2 group relative overflow-hidden rounded-2xl cinema-grad p-6 md:p-8 border border-brand-500/25">
+          <div class="absolute inset-0 spotlight opacity-60"></div>
+          <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-brand-500/20 spin-slow pointer-events-none"></div>
+
+          <div class="relative h-full flex flex-col">
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1.5 rounded-full glass-darkroom text-[10px] font-mono tracking-widest uppercase text-brand-300 border border-brand-500/25">TOTAL VIEWS</span>
+              <div class="w-11 h-11 rounded-xl bg-brand-500/10 border border-brand-500/30 flex items-center justify-center">
+                <svg class="w-5 h-5 text-brand-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+            </div>
+            <div class="mt-auto">
+              <p class="font-display font-black text-[72px] md:text-[100px] leading-none chapter-num text-paper-100">142<span class="text-brand-400 text-3xl md:text-4xl">K</span></p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mt-2">TOTAL VIEWS KESELURUHAN</p>
+              <p class="mt-4 text-sm text-paper-100/60 leading-relaxed max-w-sm font-book">
+                Akumulasi total penayangan video dari seluruh kanal distribusi (YouTube, Instagram, portal internal) sepanjang periode 2020-2025.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-2xl bg-reel border border-brand-500/20 p-5">
+          <div class="absolute top-0 right-0 w-32 h-32 pattern-diag opacity-30 rounded-bl-full"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/25 font-mono text-[10px] tracking-widest uppercase text-brand-400 w-fit">KATEGORI</span>
+
+            <div class="mt-4 space-y-3 flex-1">
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-paper-100">Dokumenter</span>
+                  <span class="font-mono text-xs text-brand-400 font-bold">18%</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-500/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 18%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-paper-100">Dialog</span>
+                  <span class="font-mono text-xs text-brand-400 font-bold">26%</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-500/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 26%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-paper-100">Sosialisasi</span>
+                  <span class="font-mono text-xs text-brand-400 font-bold">22%</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-500/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 22%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between items-baseline">
+                  <span class="text-xs font-semibold text-paper-100">Lainnya</span>
+                  <span class="font-mono text-xs text-brand-400 font-bold">34%</span>
+                </div>
+                <div class="mt-1.5 h-1.5 bg-brand-500/10 rounded-full overflow-hidden">
+                  <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 34%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-2xl bg-gradient-to-br from-brand-600 to-brand-800 p-5 text-white">
+          <div class="absolute inset-0 pattern-zigzag opacity-10"></div>
+          <div class="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-brand-500/30 blur-2xl"></div>
+
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full glass-darkroom text-[10px] font-mono tracking-widest uppercase text-orange-100 w-fit">RATING</span>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-4xl md:text-5xl chapter-num mt-6 text-white">4.8</p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-orange-200 mt-2">DARI 5.0</p>
+              <div class="mt-4 flex">
+                <svg class="w-4 h-4 star-filled" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-4 h-4 star-filled" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-4 h-4 star-filled" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-4 h-4 star-filled" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-4 h-4 star-empty" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-2xl bg-reel border border-brand-500/20 p-5">
+          <div class="absolute bottom-0 right-0 w-32 h-32 pattern-dots opacity-30 rounded-tl-full"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/25 font-mono text-[10px] tracking-widest uppercase text-brand-400 w-fit">RATA-RATA</span>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-4xl md:text-5xl text-paper-100 chapter-num mt-6">4:22</p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mt-2">MENIT PER VIDEO</p>
+              <p class="text-xs text-paper-100/60 mt-3 font-book">Rata-rata durasi optimal video kami.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-2xl cinema-grad border border-brand-500/25 p-5">
+          <div class="absolute inset-0 pattern-dots opacity-10"></div>
+          <div class="absolute -top-16 -right-16 w-40 h-40 rounded-full bg-brand-500/15 blur-2xl"></div>
+
+          <div class="relative h-full flex flex-col">
+            <svg class="w-7 h-7 text-brand-400 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+
+            <div class="mt-auto">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">DURASI TOTAL</p>
+              <p class="font-display font-black text-4xl chapter-num mt-2 text-paper-100">08:42</p>
+              <p class="text-xs text-paper-100/60 mt-2 font-book">Jam konten terpublikasi</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SUBSCRIBE ===================== -->
+  <section class="relative py-20 md:py-28 bg-cinema overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-[0.06] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center reveal">
+
+        <div class="lg:col-span-7">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="w-10 h-px bg-brand-500"></span>
+            <span class="font-mono text-[10px] tracking-[0.3em] uppercase text-brand-500">REEL 04 · KANAL RESMI</span>
+          </div>
+          <p class="font-display text-4xl md:text-5xl font-black text-gradient chapter-num leading-none">04</p>
+          <h2 class="mt-5 font-display text-2xl md:text-4xl font-black tracking-tight text-paper-100 leading-tight">
+            Ikuti Kanal <span class="italic text-gradient">Resmi</span> Kami
+          </h2>
+          <p class="mt-4 text-paper-100/70 leading-relaxed font-book text-sm md:text-base max-w-xl">
+            Dapatkan notifikasi setiap kali kami merilis video kegiatan terbaru. Kanal resmi Kesbangpol Kota Nusantara tersedia di berbagai platform.
+          </p>
+
+          <div class="mt-7 grid sm:grid-cols-2 gap-3">
+            <a href="#" class="group flex items-center gap-4 p-4 rounded-2xl bg-reel border border-brand-500/20 hover:border-brand-500/60 hover:bg-brand-500/5 transition">
+              <div class="w-10 h-10 rounded-xl bg-red-500/15 border border-red-500/30 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-red-500" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.5 31 31 0 0 0-.5-4.5ZM9.8 15.4V8.6l6 3.4-6 3.4Z"/></svg>
+              </div>
+              <div class="flex-1">
+                <p class="text-xs text-paper-100/50 font-mono tracking-widest uppercase">YOUTUBE</p>
+                <p class="font-display font-black text-xs text-paper-100 group-hover:text-brand-400 transition">@KesbangpolNusantara</p>
+              </div>
+              <svg class="w-4 h-4 text-brand-500 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+
+            <a href="#" class="group flex items-center gap-4 p-4 rounded-2xl bg-reel border border-brand-500/20 hover:border-brand-500/60 hover:bg-brand-500/5 transition">
+              <div class="w-10 h-10 rounded-xl bg-pink-500/15 border border-pink-500/30 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+              </div>
+              <div class="flex-1">
+                <p class="text-xs text-paper-100/50 font-mono tracking-widest uppercase">INSTAGRAM</p>
+                <p class="font-display font-black text-xs text-paper-100 group-hover:text-brand-400 transition">@kesbangpol.nusantara</p>
+              </div>
+              <svg class="w-4 h-4 text-brand-500 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+
+          <div class="mt-7">
+            <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-semibold text-sm shadow-glow hover:shadow-glowHover transition">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+              Berlangganan Sekarang
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="glass-darkroom rounded-2xl border border-brand-500/25 p-6 md:p-7 relative">
+            <div class="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-brand-500"></div>
+            <div class="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-brand-500"></div>
+            <div class="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-brand-500"></div>
+            <div class="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-brand-500"></div>
+
+            <div class="flex items-center gap-4 mb-5">
+              <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+              </div>
+              <div>
+                <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500">KANAL RESMI</p>
+                <p class="font-display font-black text-base text-paper-100 mt-0.5">Kesbangpol TV</p>
+              </div>
+            </div>
+
+            <div class="space-y-3.5 pt-5 border-t border-brand-500/15">
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-paper-100/60 font-mono tracking-widest uppercase">SUBSCRIBERS</span>
+                <span class="font-display font-black text-sm text-brand-400">24.8K</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-paper-100/60 font-mono tracking-widest uppercase">TOTAL VIDEO</span>
+                <span class="font-display font-black text-sm text-brand-400">32</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-paper-100/60 font-mono tracking-widest uppercase">DILUNCURKAN</span>
+                <span class="font-display font-black text-sm text-brand-400">Maret 2020</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-paper-100/60 font-mono tracking-widest uppercase">RATING</span>
+                <span class="font-display font-black text-sm text-brand-400">4.8 / 5.0</span>
+              </div>
+            </div>
+
+            <div class="mt-5 p-4 bg-brand-500/10 border border-brand-500/25 rounded-xl">
+              <p class="text-xs text-paper-100/70 leading-relaxed font-book italic">
+                "Konten video kami diproduksi secara mandiri oleh tim dokumentasi internal Kesbangpol."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="relative overflow-hidden">
+    <div class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 py-14 md:py-16 relative">
+      <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+      <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-900/40 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 relative flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-white text-center md:text-left">
+          <p class="font-mono text-[10px] tracking-widest uppercase text-orange-100/90">Suara Anda Berarti</p>
+          <h3 class="mt-2 font-display text-2xl md:text-3xl font-black leading-tight">
+            Punya kritik atau saran?
+          </h3>
+          <p class="mt-2 text-white/80 max-w-lg text-sm">Setiap masukan Anda akan kami tindak lanjuti untuk pelayanan yang lebih baik.</p>
+        </div>
+        <a href="index.html#kritik" class="group shrink-0 inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white text-brand-700 font-black text-sm shadow-2xl hover:bg-brand-50 hover:scale-105 active:scale-95 transition-all">
+          Kirim Sekarang
+          <span class="w-7 h-7 rounded-full bg-brand-600 text-white flex items-center justify-center group-hover:rotate-[-45deg] transition-transform duration-300">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== VIDEO MODAL ===================== -->
+<div id="videoModal" class="video-modal items-center justify-center p-4 md:p-10">
+  <button onclick="closeVideoModal()" class="absolute top-6 right-6 md:top-8 md:right-8 w-11 h-11 rounded-full glass-darkroom border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-white transition flex items-center justify-center z-20">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+
+  <button onclick="navVideo(-1)" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-darkroom border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-white transition flex items-center justify-center z-20">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+  </button>
+
+  <button onclick="navVideo(1)" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full glass-darkroom border border-brand-500/30 text-brand-400 hover:bg-brand-500 hover:text-white transition flex items-center justify-center z-20">
+    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m9 18 6-6-6-6"/></svg>
+  </button>
+
+  <div class="relative max-w-5xl w-full scale-in">
+    <div class="video-modal-player">
+      <img id="modalThumb" class="w-full h-full object-cover" src="" alt="">
+
+      <div class="absolute inset-0 flex items-center justify-center bg-black/40" id="modalPlayOverlay">
+        <button onclick="document.getElementById('modalPlayOverlay').style.display='none'" class="w-20 h-20 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 hover:from-brand-400 hover:to-brand-600 flex items-center justify-center text-white shadow-2xl transition pulse-play">
+          <svg class="w-9 h-9 ml-1" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+      </div>
+
+      <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 bg-gradient-to-t from-black/95 via-black/60 to-transparent">
+        <div class="mb-3 group cursor-pointer">
+          <div class="h-1 bg-white/20 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 42%"></div>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3 md:gap-4">
+          <button class="text-white hover:text-brand-400 transition">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <button class="text-white/70 hover:text-white transition">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5v14"/></svg>
+          </button>
+          <div class="flex-1 flex items-center gap-3">
+            <span class="font-mono text-[10px] text-white/80">05:18</span>
+            <span class="font-mono text-[10px] text-white/40">/</span>
+            <span class="font-mono text-[10px] text-white/60" id="modalDuration">12:34</span>
+          </div>
+          <button class="text-white/70 hover:text-white transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg>
+          </button>
+          <button class="text-white/70 hover:text-white transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5 glass-darkroom rounded-2xl p-5 md:p-6 border border-brand-500/25">
+      <div class="flex flex-col md:flex-row md:items-center gap-5 md:gap-8">
+        <div class="flex-1">
+          <p id="modalCat" class="font-mono text-[10px] tracking-widest uppercase text-brand-500 mb-2">KATEGORI</p>
+          <h3 id="modalTitle" class="font-display font-black text-base md:text-xl text-paper-100 leading-tight">Judul Video</h3>
+          <p class="text-sm text-paper-100/60 mt-2" id="modalDesc">Deskripsi video.</p>
+        </div>
+
+        <div class="flex-1 grid grid-cols-3 gap-3">
+          <div>
+            <span class="font-mono text-[8px] tracking-widest uppercase text-brand-500/60">DURASI</span>
+            <span id="modalDurationInfo" class="block font-mono text-[11px] font-bold text-brand-300">12:34</span>
+          </div>
+          <div>
+            <span class="font-mono text-[8px] tracking-widest uppercase text-brand-500/60">VIEWS</span>
+            <span id="modalViews" class="block font-mono text-[11px] font-bold text-brand-300">18.4K</span>
+          </div>
+          <div>
+            <span class="font-mono text-[8px] tracking-widest uppercase text-brand-500/60">RATING</span>
+            <span id="modalRating" class="block font-mono text-[11px] font-bold text-brand-300">4.8</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 pt-4 border-t border-brand-500/15 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">
+          <span id="modalCounter">01 / 12</span>
+          <span class="mx-2">·</span>
+          <span id="modalDate">28 Feb 2025</span>
+        </p>
+        <p class="font-mono text-[10px] tracking-widest uppercase text-brand-500/60">
+          SUTRADARA · <span id="modalDirector" class="text-brand-400 font-bold">BAGAS WICAKSONO</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#0A0503] text-white/70 pt-14 pb-8 relative overflow-hidden border-t border-brand-500/15">
+  <div class="absolute inset-0 pattern-dots opacity-[0.15]"></div>
+  <div class="absolute -top-40 left-1/3 w-96 h-96 rounded-full bg-brand-700/20 blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center ring-2 ring-white/10">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-extrabold text-white tracking-tight text-sm">KESBANGPOL</p>
+            <p class="text-[11px] text-brand-400 font-medium">Kota Nusantara</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed">
+          Badan Kesatuan Bangsa dan Politik berkomitmen menjaga stabilitas, kerukunan, dan persatuan dalam bingkai NKRI.
+        </p>
+        <div class="mt-5 flex gap-2">
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1a4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.3a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.5-1.3 2.1-2.1Z"/></svg>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.5 31 31 0 0 0-.5-4.5ZM9.8 15.4V8.6l6 3.4-6 3.4Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Tautan Cepat</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="hover:text-brand-400 transition">Beranda</a></li>
+          <li><a href="profil.html" class="hover:text-brand-400 transition">Profil Pimpinan</a></li>
+          <li><a href="sejarah.html" class="hover:text-brand-400 transition">Sejarah</a></li>
+          <li><a href="struktur.html" class="hover:text-brand-400 transition">Struktur Organisasi</a></li>
+          <li><a href="visi.html" class="hover:text-brand-400 transition">Visi &amp; Misi</a></li>
+          <li><a href="tugas.html" class="hover:text-brand-400 transition">Tugas &amp; Fungsi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Layanan</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="program.html" class="hover:text-brand-400 transition">Program</a></li>
+          <li><a href="agenda.html" class="hover:text-brand-400 transition">Agenda Pimpinan</a></li>
+          <li><a href="berita.html" class="hover:text-brand-400 transition">Berita</a></li>
+          <li><a href="foto.html" class="hover:text-brand-400 transition">Galeri Foto</a></li>
+          <li><a href="videokegiatan.html" class="hover:text-brand-400 transition">Video Kegiatan</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Lokasi &amp; Kontak</h4>
+        <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521!2d106.8195!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMTAuMiJF!5e0!3m2!1sen!2sid!4v1700000000000"
+            class="w-full h-32 border-0"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Jl. Merdeka No. 123, Kota Nusantara</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span>(021) 123-4567</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <span>info@kesbangpol.go.id</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+      <p>© 2025 Badan Kesatuan Bangsa dan Politik. Seluruh hak cipta dilindungi.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-brand-400 transition">Kebijakan Privasi</a>
+        <a href="#" class="hover:text-brand-400 transition">Syarat &amp; Ketentuan</a>
+        <a href="#" class="hover:text-brand-400 transition">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  const drawer = document.getElementById('drawer');
+  const drawerBg = document.getElementById('drawerBg');
+  const drawerPanel = document.getElementById('drawerPanel');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeDrawer = document.getElementById('closeDrawer');
+
+  function openDrawer() {
+    drawer.classList.remove('pointer-events-none');
+    requestAnimationFrame(() => {
+      drawerBg.classList.replace('opacity-0', 'opacity-100');
+      drawerPanel.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  function closeDrawerFn() {
+    drawerBg.classList.replace('opacity-100', 'opacity-0');
+    drawerPanel.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+    setTimeout(() => drawer.classList.add('pointer-events-none'), 500);
+  }
+  menuBtn.addEventListener('click', openDrawer);
+  closeDrawer.addEventListener('click', closeDrawerFn);
+  drawerBg.addEventListener('click', closeDrawerFn);
+  document.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeDrawerFn));
+
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('#navbar > div');
+    if (window.scrollY > 40) {
+      nav.style.paddingTop = '6px';
+      nav.style.paddingBottom = '6px';
+    } else {
+      nav.style.paddingTop = '';
+      nav.style.paddingBottom = '';
+    }
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+  });
+
+  const videoChips = document.querySelectorAll('.video-chip');
+  const videoItems = document.querySelectorAll('#videoGrid .video-item');
+  const videoEmpty = document.getElementById('videoEmpty');
+
+  videoChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      videoChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      const vcat = chip.dataset.vcat;
+      let visible = 0;
+
+      videoItems.forEach(item => {
+        const itemVcat = item.dataset.vcat;
+        const show = vcat === 'all' || itemVcat === vcat;
+        if (show) {
+          item.style.display = '';
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(12px)';
+          requestAnimationFrame(() => {
+            item.style.transition = 'opacity 400ms ease, transform 400ms ease';
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          });
+          visible++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      if (videoEmpty) videoEmpty.classList.toggle('hidden', visible > 0);
+    });
+  });
+
+  const VIDEOS = [
+    { src: 'https://picsum.photos/seed/vid-hero/1600/900', cat: 'DOKUMENTER', title: 'Merawat Kerukunan: Setahun Kampung Toleransi', desc: 'Dokumenter pendek tentang perjalanan program Kampung Toleransi di tiga kelurahan Kota Nusantara.', duration: '12:34', views: '18.4K', rating: '4.8', date: '28 Feb 2025', director: 'BAGAS WICAKSONO' },
+    { src: 'https://picsum.photos/seed/vid-2/1600/900', cat: 'PROFIL', title: 'Mengenal Kesbangpol: Tugas, Fungsi, dan Layanan', desc: 'Pengenalan lengkap tentang Badan Kesatuan Bangsa dan Politik Kota Nusantara.', duration: '08:15', views: '12.8K', rating: '4.7', date: '22 Feb 2025', director: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/vid-3/1600/900', cat: 'SOSIALISASI', title: 'Sosialisasi UU Ormas bagi Pengurus Organisasi', desc: 'Penjelasan tentang regulasi organisasi kemasyarakatan bagi pengurus ormas.', duration: '24:08', views: '9.2K', rating: '4.6', date: '15 Feb 2025', director: 'RINA KUSUMAWARDHANI' },
+    { src: 'https://picsum.photos/seed/vid-4/1600/900', cat: 'DIALOG', title: 'Dialog Lintas Iman: Merawat Persatuan dalam Keberagaman', desc: 'Diskusi lintas iman bersama perwakilan enam agama di Kota Nusantara.', duration: '45:22', views: '16.7K', rating: '4.9', date: '10 Feb 2025', director: 'BAGAS WICAKSONO' },
+    { src: 'https://picsum.photos/seed/vid-5/1600/900', cat: 'LIPUTAN', title: 'Liputan: Festival Budaya Nusantara 2025', desc: 'Liputan khusus perayaan keberagaman budaya Kota Nusantara.', duration: '06:42', views: '22.1K', rating: '4.8', date: '08 Feb 2025', director: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/vid-6/1600/900', cat: 'SOSIALISASI', title: 'Pendidikan Politik bagi Pemilih Pemula 2025', desc: 'Program literasi politik untuk pelajar dan mahasiswa pemilih pemula.', duration: '18:33', views: '7.4K', rating: '4.5', date: '02 Feb 2025', director: 'RINA KUSUMAWARDHANI' },
+    { src: 'https://picsum.photos/seed/vid-7/1600/900', cat: 'PROFIL', title: 'Profil Kepala Badan Kesbangpol Kota Nusantara', desc: 'Profil singkat Kepala Badan Kesbangpol beserta visi kepemimpinannya.', duration: '07:12', views: '11.3K', rating: '4.8', date: '26 Jan 2025', director: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/vid-8/1600/900', cat: 'DIALOG', title: 'Dialog Pancasila: Relevansi di Era Digital', desc: 'Diskusi bulanan tentang relevansi nilai Pancasila di era digital.', duration: '32:50', views: '8.6K', rating: '4.7', date: '20 Jan 2025', director: 'BAGAS WICAKSONO' },
+    { src: 'https://picsum.photos/seed/vid-9/1600/900', cat: 'LIPUTAN', title: 'Liputan: Apel Kesadaran Nasional 2025', desc: 'Dokumentasi apel kesadaran nasional dan pembinaan ASN.', duration: '05:18', views: '5.2K', rating: '4.5', date: '15 Jan 2025', director: 'TIM DOKUMENTASI' },
+    { src: 'https://picsum.photos/seed/vid-10/1600/900', cat: 'SOSIALISASI', title: 'Sosialisasi Program Kampung Toleransi ke Kecamatan', desc: 'Sosialisasi program Kampung Toleransi ke seluruh kecamatan.', duration: '28:04', views: '6.8K', rating: '4.6', date: '10 Jan 2025', director: 'RINA KUSUMAWARDHANI' },
+    { src: 'https://picsum.photos/seed/vid-11/1600/900', cat: 'DIALOG', title: 'Talkshow Kebangsaan: Merawat NKRI Bersama', desc: 'Talkshow kebangsaan bersama tokoh dan akademisi Kota Nusantara.', duration: '52:18', views: '14.2K', rating: '4.9', date: '05 Jan 2025', director: 'BAGAS WICAKSONO' },
+    { src: 'https://picsum.photos/seed/vid-12/1600/900', cat: 'DOKUMENTER', title: 'Jejak Pengabdian: Sejarah Kesbangpol 1966-2025', desc: 'Dokumenter sejarah perjalanan Kesbangpol dari 1966 hingga 2025.', duration: '22:44', views: '10.5K', rating: '4.8', date: '01 Jan 2025', director: 'TIM DOKUMENTASI' }
+  ];
+
+  let currentVideoIdx = 0;
+  const videoModal = document.getElementById('videoModal');
+
+  function openVideo(i) {
+    currentVideoIdx = i;
+    updateVideoModal();
+    videoModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeVideoModal() {
+    videoModal.classList.remove('open');
+    document.body.style.overflow = '';
+    document.getElementById('modalPlayOverlay').style.display = 'flex';
+  }
+
+  function navVideo(dir) {
+    currentVideoIdx = (currentVideoIdx + dir + VIDEOS.length) % VIDEOS.length;
+    updateVideoModal();
+    document.getElementById('modalPlayOverlay').style.display = 'flex';
+  }
+
+  function updateVideoModal() {
+    const v = VIDEOS[currentVideoIdx];
+    document.getElementById('modalThumb').src = v.src;
+    document.getElementById('modalCat').textContent = v.cat;
+    document.getElementById('modalTitle').textContent = v.title;
+    document.getElementById('modalDesc').textContent = v.desc;
+    document.getElementById('modalDuration').textContent = v.duration;
+    document.getElementById('modalDurationInfo').textContent = v.duration;
+    document.getElementById('modalViews').textContent = v.views;
+    document.getElementById('modalRating').textContent = v.rating;
+    document.getElementById('modalCounter').textContent = String(currentVideoIdx + 1).padStart(2, '0') + ' / ' + String(VIDEOS.length).padStart(2, '0');
+    document.getElementById('modalDate').textContent = v.date;
+    document.getElementById('modalDirector').textContent = v.director;
+  }
+
+  videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) closeVideoModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (!videoModal.classList.contains('open')) return;
+    if (e.key === 'Escape') closeVideoModal();
+    if (e.key === 'ArrowLeft') navVideo(-1);
+    if (e.key === 'ArrowRight') navVideo(1);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href.length > 1 && document.querySelector(href)) {
+        e.preventDefault();
+        const el = document.querySelector(href);
+        window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Program — Kesbangpol Kota Nusantara</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Special+Elite&family=JetBrains+Mono:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+          display: ['"Playfair Display"', 'serif'],
+          typewriter: ['"Special Elite"', 'monospace'],
+          mono: ['"JetBrains Mono"', 'monospace'],
+          book: ['Lora', 'serif'],
+        },
+        colors: {
+          brand: {
+            50:'#FFF5F5',100:'#FFE3E5',200:'#FFC9CD',300:'#FFA0A8',
+            400:'#F9707C',500:'#E84A57',600:'#D32F3E',700:'#B0202E',
+            800:'#8F1A26',900:'#731520',
+          },
+          paper: {
+            50:'#FFFCF6', 100:'#FAF4E8', 200:'#F0E6CF', 300:'#E5D4AE',
+          },
+          ink: '#2B211B'
+        },
+        boxShadow: {
+          glass: '0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
+          soft:  '0 10px 40px -12px rgba(232,74,87,0.35)',
+          glow:  '0 0 0 4px rgba(232,74,87,0.15), 0 8px 24px -6px rgba(232,74,87,0.5)',
+          glowHover: '0 0 0 6px rgba(232,74,87,0.2), 0 12px 28px -6px rgba(232,74,87,0.6)',
+          catalog: '0 1px 0 rgba(120,90,50,0.10), 0 12px 32px -12px rgba(80,50,20,0.28)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  html, body { font-family: 'Inter', sans-serif; }
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #FAF4E8; }
+  ::-webkit-scrollbar-thumb { background: linear-gradient(#E84A57, #B0202E); border-radius: 8px; }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.7),
+                inset 0 -1px 0 rgba(255,255,255,0.25);
+  }
+  .glass-dark {
+    background: rgba(30, 20, 18, 0.45);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .text-gradient {
+    background: linear-gradient(135deg, #E84A57 0%, #B0202E 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .text-gradient-light {
+    background: linear-gradient(135deg, #FFA0A8 0%, #E84A57 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  /* Paper textures */
+  .paper-texture {
+    background-color: #FAF4E8;
+    background-image:
+      radial-gradient(rgba(120,90,50,0.06) 1px, transparent 1.5px),
+      radial-gradient(rgba(120,90,50,0.04) 1px, transparent 1.5px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 1px;
+  }
+  .paper-grid {
+    background-color: #FFFCF6;
+    background-image:
+      linear-gradient(rgba(120,90,50,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,90,50,0.07) 1px, transparent 1px);
+    background-size: 26px 26px;
+  }
+
+  .pattern-dots {
+    background-image: radial-gradient(rgba(232,74,87,0.18) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+  .pattern-diag {
+    background-image: repeating-linear-gradient(
+      45deg, rgba(232,74,87,0.10) 0 1px, transparent 1px 14px
+    );
+  }
+  .pattern-zigzag {
+    background-image:
+      linear-gradient(135deg, rgba(232,74,87,0.14) 25%, transparent 25%),
+      linear-gradient(225deg, rgba(232,74,87,0.14) 25%, transparent 25%);
+    background-size: 20px 20px;
+  }
+  .pattern-dots-light {
+    background-image: radial-gradient(rgba(255,255,255,0.25) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+  .ornament-kawung {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><g fill='none' stroke='%23E84A57' stroke-width='1.2' opacity='0.35'><circle cx='30' cy='30' r='14'/><circle cx='90' cy='30' r='14'/><circle cx='30' cy='90' r='14'/><circle cx='90' cy='90' r='14'/><circle cx='60' cy='60' r='10'/></g></svg>");
+    background-size: 180px 180px;
+  }
+
+  /* Animations */
+  @keyframes spinSlow { to { transform: rotate(360deg) } }
+  .spin-slow { animation: spinSlow 40s linear infinite; }
+  @keyframes spinSlowRev { to { transform: rotate(-360deg) } }
+  .spin-slow-rev { animation: spinSlowRev 30s linear infinite; }
+  @keyframes bob { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
+  .bob { animation: bob 6s ease-in-out infinite; }
+  @keyframes floatY { 0%,100% { transform: translateY(0) rotate(-2deg) } 50% { transform: translateY(-8px) rotate(2deg) } }
+  .float-y { animation: floatY 8s ease-in-out infinite; }
+  @keyframes blinkDot { 0%,100% { opacity: 1 } 50% { opacity: 0.35 } }
+  .blink-dot { animation: blinkDot 1.8s ease-in-out infinite; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 800ms ease, transform 800ms ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 900ms ease, transform 900ms ease; }
+  .reveal-left.in { opacity: 1; transform: translateX(0); }
+  .reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 900ms ease, transform 900ms ease; }
+  .reveal-right.in { opacity: 1; transform: translateX(0); }
+
+  #scrollProgress {
+    position: fixed; top: 0; left: 0; height: 3px; z-index: 100;
+    background: linear-gradient(to right, #E84A57, #B0202E);
+    width: 0%; transition: width 100ms linear;
+    box-shadow: 0 0 12px rgba(232,74,87,0.7);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* Wax seal */
+  .wax-seal {
+    background: radial-gradient(circle at 32% 28%, #D32F3E, #8F1A26 65%, #6E1A08 100%);
+    box-shadow:
+      inset 0 3px 8px rgba(255,255,255,0.25),
+      inset 0 -6px 12px rgba(0,0,0,0.35),
+      0 8px 20px -6px rgba(120,20,10,0.55);
+  }
+
+  .stamp {
+    border: 3px double #B0202E;
+    color: #B0202E;
+    font-family: 'Special Elite', monospace;
+    transform: rotate(-8deg);
+    opacity: 0.85;
+  }
+
+  .chapter-num {
+    font-feature-settings: "tnum";
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl; text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  /* Catalog card */
+  .catalog-card {
+    position: relative;
+    background: #FFFCF6;
+    border: 1px solid rgba(120,90,50,0.15);
+    box-shadow: 0 1px 0 rgba(120,90,50,0.08), 0 12px 32px -18px rgba(80,50,20,0.28);
+    transition: all 400ms cubic-bezier(0.32, 0.72, 0, 1);
+    overflow: hidden;
+  }
+  .catalog-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #E84A57, #B0202E);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .catalog-card:hover::before { transform: scaleX(1); }
+  .catalog-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px -20px rgba(80,50,20,0.42);
+    border-color: rgba(232,74,87,0.35);
+  }
+
+  /* Corner brackets */
+  .corner-bracket::before, .corner-bracket::after {
+    content: '';
+    position: absolute;
+    width: 14px; height: 14px;
+    border: 2px solid #E84A57;
+    transition: all 300ms ease;
+  }
+  .corner-bracket::before { top: -3px; left: -3px; border-right: 0; border-bottom: 0; }
+  .corner-bracket::after { bottom: -3px; right: -3px; border-left: 0; border-top: 0; }
+  .corner-bracket:hover::before, .corner-bracket:hover::after { width: 20px; height: 20px; }
+
+  /* Filter chip */
+  .filter-chip {
+    position: relative;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid rgba(120,90,50,0.20);
+    background: #FFFCF6;
+    color: #2B211B;
+    transition: all 300ms ease;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .filter-chip:hover {
+    border-color: rgba(232,74,87,0.5);
+    transform: translateY(-2px);
+  }
+  .filter-chip.active {
+    background: linear-gradient(to right, #E84A57, #D32F3E);
+    color: #fff;
+    border-color: transparent;
+    box-shadow: 0 8px 20px -6px rgba(232,74,87,0.5);
+  }
+  .filter-chip .chip-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    background: rgba(232,74,87,0.12);
+    color: #B0202E;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 0 6px;
+    margin-left: 6px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .filter-chip.active .chip-count {
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+  }
+
+  /* Program card category band */
+  .cat-band {
+    position: absolute;
+    left: 0;
+    top: 24px;
+    width: 4px;
+    height: 40px;
+    border-radius: 0 4px 4px 0;
+    transition: all 400ms ease;
+  }
+  .catalog-card:hover .cat-band {
+    top: 20px;
+    height: 56px;
+  }
+
+  /* Roman numeral */
+  .roman-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    line-height: 0.85;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.04em;
+  }
+
+  /* Expandable detail */
+  .program-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 500ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .program-detail.open {
+    max-height: 800px;
+  }
+  .program-chevron {
+    transition: transform 400ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .program-chevron.open { transform: rotate(180deg); }
+
+  /* Progress bar */
+  .progress-track {
+    height: 6px;
+    background: rgba(120,90,50,0.12);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, #E84A57, #B0202E);
+    border-radius: 999px;
+    position: relative;
+  }
+  .progress-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.2) 0 6px, transparent 6px 12px);
+    animation: stripes 1.2s linear infinite;
+  }
+  @keyframes stripes { to { background-position: 24px 0 } }
+
+  /* Step number */
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-feature-settings: "tnum";
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+  }
+
+  /* Timeline dot for roadmap */
+  .roadmap-dot {
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    border: 3px solid #E84A57;
+    box-shadow: 0 0 0 5px rgba(232,74,87,0.15);
+    position: relative;
+    z-index: 10;
+  }
+  .roadmap-dot.current {
+    background: #E84A57;
+    animation: pulseRoad 2s ease-in-out infinite;
+  }
+  @keyframes pulseRoad {
+    0%, 100% { box-shadow: 0 0 0 5px rgba(232,74,87,0.15); }
+    50% { box-shadow: 0 0 0 10px rgba(232,74,87,0.08); }
+  }
+
+  /* Chapter divider */
+  .chapter-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: rgba(120,90,50,0.4);
+  }
+  .chapter-divider::before,
+  .chapter-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(120,90,50,0.25), transparent);
+  }
+</style>
+</head>
+
+<body class="bg-paper-100 text-ink antialiased selection:bg-brand-500/20 overflow-x-hidden">
+
+<div id="scrollProgress"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+  <div class="glass rounded-full px-3 md:px-5 py-2 relative flex items-center gap-3">
+
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 pl-1 z-10">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft ring-2 ring-white/70">
+        <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="leading-tight hidden sm:block">
+        <p class="font-extrabold text-[15px] tracking-tight text-gray-900">KESBANGPOL</p>
+        <p class="text-[10px] font-medium text-brand-600/90 tracking-wide">KOTA NUSANTARA</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
+      <li><a href="index.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Beranda</a></li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Profil
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-56 shadow-2xl">
+            <a href="profil.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Profil Pimpinan</a>
+            <a href="sejarah.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="struktur.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="program.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-brand-600 bg-brand-50/80 transition">Program</a></li>
+      <li><a href="agenda.html" class="block px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">Agenda Pimpinan</a></li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Publikasi
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="berita.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="relative group">
+        <button class="flex items-center gap-1 px-3.5 py-2 rounded-full text-[13.5px] font-semibold text-gray-700 hover:bg-white/70 hover:text-brand-600 transition">
+          Galeri
+          <svg class="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200">
+          <div class="glass rounded-2xl p-2 w-52 shadow-2xl">
+            <a href="foto.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Galeri Foto</a>
+            <a href="videokegiatan.html" class="block px-3 py-2 rounded-xl text-[13px] font-medium text-gray-700 hover:bg-brand-50 hover:text-brand-700 transition">Video Kegiatan</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <a href="index.html#kritik" class="hidden lg:inline-flex ml-auto shrink-0 items-center gap-2 px-5 py-2.5 rounded-full text-white text-[13px] font-bold bg-gradient-to-r from-brand-500 to-brand-600 shadow-glow hover:shadow-glowHover hover:from-brand-600 hover:to-brand-700 active:scale-95 transition-all duration-300">
+      <span class="relative flex w-1.5 h-1.5">
+        <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+        <span class="relative inline-flex w-1.5 h-1.5 rounded-full bg-white"></span>
+      </span>
+      Kritik &amp; Saran
+      <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+
+    <button id="menuBtn" class="lg:hidden ml-auto w-11 h-11 rounded-full flex items-center justify-center glass text-gray-800 active:scale-95 transition z-10">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 7h16M4 12h10M4 17h16"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ===================== MOBILE DRAWER ===================== -->
+<div id="drawer" class="fixed inset-0 z-[60] lg:hidden pointer-events-none">
+  <div id="drawerBg" class="absolute inset-0 bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+
+  <aside id="drawerPanel" class="absolute right-0 top-0 h-full w-[88%] max-w-[380px] bg-white/95 backdrop-blur-2xl shadow-[-20px_0_60px_-20px_rgba(0,0,0,0.4)] translate-x-full transition-transform duration-500 flex flex-col" style="transition-timing-function: cubic-bezier(0.32, 0.72, 0, 1);">
+
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100/80">
+      <div class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-soft">
+          <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+        </div>
+        <div>
+          <p class="font-extrabold text-[15px] tracking-tight text-gray-900">KESBANGPOL</p>
+          <p class="text-[10px] font-medium text-brand-600 tracking-wide">KOTA NUSANTARA</p>
+        </div>
+      </div>
+      <button id="closeDrawer" class="w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center text-gray-700 active:scale-95 transition">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-3 py-4 space-y-1 no-scrollbar">
+      <a href="index.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">01</span>
+        Beranda
+      </a>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition" data-target="acc-profil">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">02</span>
+            Profil
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-profil" class="acc-body">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="profil.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Profil Pimpinan</a>
+            <a href="sejarah.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Sejarah</a>
+            <a href="strukturi.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Struktur Organisasi</a>
+            <a href="visi.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Visi dan Misi</a>
+            <a href="tugas.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Tugas dan Fungsi</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="program.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-brand-600 bg-brand-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xs font-bold">03</span>
+        Program
+      </a>
+      <a href="agenda.html" data-close class="flex items-center gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition">
+        <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">04</span>
+        Agenda Pimpinan
+      </a>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition" data-target="acc-publikasi">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">05</span>
+            Publikasi
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-publikasi" class="acc-body">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="berita.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Berita</a>
+            <a href="detail.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Detail Berita</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-2xl overflow-hidden">
+        <button class="acc-btn w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl font-semibold text-gray-800 hover:bg-gray-50 transition" data-target="acc-galeri">
+          <span class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center text-xs font-bold">06</span>
+            Galeri
+          </span>
+          <svg class="acc-chevron w-4 h-4 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div id="acc-galeri" class="acc-body">
+          <div class="pl-4 pr-2 py-1 space-y-0.5">
+            <a href="foto.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Galeri Foto</a>
+            <a href="videokegiatan.html" data-close class="block px-4 py-2.5 rounded-xl text-[13.5px] font-medium text-gray-600 hover:bg-brand-50 hover:text-brand-700 transition">Video Kegiatan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-4 border-t border-gray-100">
+      <a href="index.html#kritik" data-close class="flex items-center justify-center gap-2 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-700 text-white font-bold shadow-soft active:scale-[0.98] transition">
+        <span class="relative flex w-2 h-2">
+          <span class="absolute inline-flex w-full h-full rounded-full bg-white opacity-75 animate-ping"></span>
+          <span class="relative inline-flex w-2 h-2 rounded-full bg-white"></span>
+        </span>
+        Kirim Kritik &amp; Saran
+      </a>
+    </div>
+  </aside>
+</div>
+
+<!-- ============================================================= -->
+<!-- =====================        PAGE        =================== -->
+<!-- ============================================================= -->
+<main>
+
+  <!-- ===================== HERO — KATALOG EKSPEDISI ===================== -->
+  <section class="relative min-h-screen overflow-hidden paper-texture">
+
+    <!-- Ornamen -->
+    <div class="absolute inset-0 pattern-dots opacity-25 pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-500 via-brand-700 to-brand-500"></div>
+
+    <!-- Big rotating seal -->
+    <div class="hidden md:block absolute top-32 right-10 w-[480px] h-[480px] spin-slow pointer-events-none opacity-[0.06]">
+      <svg viewBox="0 0 200 200" class="w-full h-full">
+        <circle cx="100" cy="100" r="96" fill="none" stroke="#731520" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#731520" stroke-width="1"/>
+        <circle cx="100" cy="100" r="64" fill="none" stroke="#731520" stroke-width="0.8" stroke-dasharray="3 4"/>
+        <text x="100" y="88" text-anchor="middle" font-family="Playfair Display" font-size="22" font-weight="900" fill="#731520">KATALOG</text>
+        <text x="100" y="122" text-anchor="middle" font-family="Playfair Display" font-size="14" font-weight="700" fill="#731520">PROGRAM</text>
+      </svg>
+    </div>
+
+    <!-- Vertical text margin -->
+    <div class="hidden lg:block absolute left-8 top-1/2 -translate-y-1/2 vertical-text font-mono text-[10px] tracking-[0.5em] uppercase text-ink/30">
+      Katalog Program · Kesbangpol · Kota Nusantara · 2025
+    </div>
+
+    <!-- Header strip -->
+    <div class="relative pt-28 md:pt-32">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-mono tracking-widest text-ink/60 uppercase">
+          <span class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-600 blink-dot"></span>
+            Katalog No. KTL-PRG/2025-04
+          </span>
+          <span class="hidden sm:inline text-ink/30">|</span>
+          <span>12 Program Aktif</span>
+          <span class="hidden sm:inline text-ink/30">|</span>
+          <span>Tahun Anggaran 2025</span>
+        </div>
+        <div class="mt-4 h-px bg-gradient-to-r from-ink/20 via-ink/10 to-transparent"></div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative max-w-7xl mx-auto px-6 md:px-10 pt-12 md:pt-16 pb-24 md:pb-28">
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+
+        <!-- LEFT -->
+        <div class="lg:col-span-7 reveal">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="w-12 h-px bg-brand-600"></span>
+            <span class="font-typewriter text-[11px] tracking-[0.3em] uppercase text-brand-700">Katalog · Arah Kegiatan</span>
+          </div>
+
+          <h1 class="font-display font-black text-[56px] sm:text-[76px] md:text-[96px] lg:text-[116px] leading-[0.85] tracking-[-0.035em] text-ink">
+            <span class="block">Program</span>
+            <span class="block italic text-gradient">Kami.</span>
+          </h1>
+
+          <p class="mt-8 text-ink/70 text-lg md:text-xl leading-relaxed max-w-2xl font-book">
+            Dua belas program dalam lima pilar. Setiap program adalah <span class="italic text-brand-700">langkah nyata</span> menuju masyarakat Kota Nusantara yang bersatu, rukun, dan demokratis.
+          </p>
+
+          <!-- Quick index -->
+          <div class="mt-10 grid grid-cols-2 md:grid-cols-5 gap-3 max-w-2xl">
+            <div class="border-l-2 border-brand-500 pl-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">PILAR</p>
+              <p class="font-display font-black text-base text-ink mt-1">5</p>
+            </div>
+            <div class="border-l-2 border-brand-500 pl-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">PROGRAM</p>
+              <p class="font-display font-black text-base text-ink mt-1">12</p>
+            </div>
+            <div class="border-l-2 border-brand-500 pl-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">KEGIATAN</p>
+              <p class="font-display font-black text-base text-ink mt-1">150+</p>
+            </div>
+            <div class="border-l-2 border-brand-500 pl-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">PESERTA</p>
+              <p class="font-display font-black text-base text-ink mt-1">5K+</p>
+            </div>
+            <div class="border-l-2 border-brand-500 pl-3">
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 uppercase">KECAMATAN</p>
+              <p class="font-display font-black text-base text-ink mt-1">8</p>
+            </div>
+          </div>
+
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a href="#katalog" class="group inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 font-semibold text-white shadow-soft hover:from-brand-600 hover:to-brand-700 transition">
+              Telusuri Katalog
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#roadmap" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-paper-50 border border-ink/10 font-semibold text-ink hover:border-brand-400 hover:text-brand-700 transition">
+              Lihat Roadmap
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT — Grid preview kartu mini -->
+        <div class="lg:col-span-5 relative reveal">
+          <div class="relative">
+            <!-- Dashed frame -->
+            <div class="absolute -inset-4 border-2 border-dashed border-ink/15 rounded-3xl pointer-events-none"></div>
+
+            <!-- Mini grid preview -->
+            <div class="grid grid-cols-3 gap-3">
+              <div class="aspect-square bg-paper-50 border border-ink/10 rounded-2xl p-3 flex flex-col justify-between rotate-[-2deg] hover:rotate-0 transition-transform">
+                <p class="font-display text-2xl font-black text-brand-600 roman-num">I</p>
+                <div>
+                  <p class="font-mono text-[8px] tracking-widest text-ink/50 uppercase">PILAR</p>
+                  <p class="text-[10px] font-bold text-ink leading-tight mt-0.5">Ideologi</p>
+                </div>
+              </div>
+              <div class="aspect-square bg-gradient-to-br from-brand-500 to-brand-700 rounded-2xl p-3 flex flex-col justify-between rotate-[3deg] hover:rotate-0 transition-transform text-white shadow-lg">
+                <p class="font-display text-2xl font-black roman-num">II</p>
+                <div>
+                  <p class="font-mono text-[8px] tracking-widest text-orange-100/80 uppercase">PILAR</p>
+                  <p class="text-[10px] font-bold leading-tight mt-0.5">Kerukunan</p>
+                </div>
+              </div>
+              <div class="aspect-square bg-paper-50 border border-ink/10 rounded-2xl p-3 flex flex-col justify-between rotate-[-1deg] hover:rotate-0 transition-transform">
+                <p class="font-display text-2xl font-black text-brand-600 roman-num">III</p>
+                <div>
+                  <p class="font-mono text-[8px] tracking-widest text-ink/50 uppercase">PILAR</p>
+                  <p class="text-[10px] font-bold text-ink leading-tight mt-0.5">Politik</p>
+                </div>
+              </div>
+              <div class="aspect-square bg-paper-50 border border-ink/10 rounded-2xl p-3 flex flex-col justify-between rotate-[1.5deg] hover:rotate-0 transition-transform">
+                <p class="font-display text-2xl font-black text-brand-600 roman-num">IV</p>
+                <div>
+                  <p class="font-mono text-[8px] tracking-widest text-ink/50 uppercase">PILAR</p>
+                  <p class="text-[10px] font-bold text-ink leading-tight mt-0.5">Sosbud</p>
+                </div>
+              </div>
+              <div class="aspect-square bg-paper-50 border border-ink/10 rounded-2xl p-3 flex flex-col justify-between rotate-[-3deg] hover:rotate-0 transition-transform">
+                <p class="font-display text-2xl font-black text-brand-600 roman-num">V</p>
+                <div>
+                  <p class="font-mono text-[8px] tracking-widest text-ink/50 uppercase">PILAR</p>
+                  <p class="text-[10px] font-bold text-ink leading-tight mt-0.5">Karakter</p>
+                </div>
+              </div>
+              <div class="aspect-square bg-ink text-paper-50 rounded-2xl p-3 flex flex-col justify-between rotate-[2deg] hover:rotate-0 transition-transform">
+                <p class="font-display text-2xl font-black text-brand-400 roman-num">✓</p>
+                <div>
+                  <p class="font-mono text-[8px] tracking-widest text-paper-50/60 uppercase">TOTAL</p>
+                  <p class="text-[10px] font-bold leading-tight mt-0.5">12 Program</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating badge -->
+            <div class="absolute -top-6 -right-6 bg-ink text-paper-50 rounded-2xl px-4 py-3 shadow-2xl float-y hidden md:block">
+              <p class="font-mono text-[9px] tracking-widest uppercase opacity-60">Edisi</p>
+              <p class="font-display font-black text-2xl leading-none mt-0.5">2025</p>
+            </div>
+
+            <!-- Stamp -->
+            <div class="absolute -bottom-6 -left-6 stamp rounded-lg px-4 py-2 text-[10px] tracking-[0.2em] uppercase hidden md:block">
+              <p class="font-black text-sm">KATALOG RESMI</p>
+              <p class="text-[9px]">KESBANGPOL · 2025</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom indicator -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ink/40 text-[10px] font-typewriter tracking-widest uppercase">
+      <span>Telusuri</span>
+      <span class="w-px h-8 bg-gradient-to-b from-ink/40 to-transparent"></span>
+    </div>
+  </section>
+
+  <!-- ===================== QUICK FACTS STRIP ===================== -->
+  <section class="relative -mt-14 md:-mt-16 z-20 px-6 md:px-10">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-paper-50 rounded-[2rem] shadow-catalog p-6 md:p-8 border border-ink/15 relative">
+        <div class="absolute -top-2 -left-2 w-5 h-5 border-t-2 border-l-2 border-brand-600"></div>
+        <div class="absolute -top-2 -right-2 w-5 h-5 border-t-2 border-r-2 border-brand-600"></div>
+        <div class="absolute -bottom-2 -left-2 w-5 h-5 border-b-2 border-l-2 border-brand-600"></div>
+        <div class="absolute -bottom-2 -right-2 w-5 h-5 border-b-2 border-r-2 border-brand-600"></div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-ink/10">
+
+          <div class="md:px-4">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">Pilar Utama</p>
+            <p class="mt-2 font-display font-black text-lg text-ink leading-tight">5 Pilar</p>
+            <p class="text-xs text-ink/50 mt-1">Bidang program unggulan</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">Program Aktif</p>
+            <p class="mt-2 font-display font-black text-lg text-ink leading-tight">12 Program</p>
+            <p class="text-xs text-ink/50 mt-1">Berjalan tahun 2025</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">Kegiatan</p>
+            <p class="mt-2 font-display font-black text-lg text-ink leading-tight">150+ Kegiatan</p>
+            <p class="text-xs text-ink/50 mt-1">Sepanjang tahun</p>
+          </div>
+
+          <div class="md:px-4 pt-4 md:pt-0">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">Jangkauan</p>
+            <p class="mt-2 font-display font-black text-lg text-ink leading-tight">8 Kecamatan</p>
+            <p class="text-xs text-ink/50 mt-1">Seluruh wilayah kota</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== KATALOG PROGRAM ===================== -->
+  <section id="katalog" class="relative py-24 md:py-32 paper-grid overflow-hidden">
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-20 pointer-events-none"></div>
+    <div class="absolute bottom-20 left-0 w-72 h-72 pattern-dots opacity-40 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <!-- Chapter header -->
+      <div class="chapter-divider mb-14 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB I</span>
+        <span class="font-display text-xl font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">KATALOG PROGRAM</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 reveal">
+        <div>
+          <p class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num leading-none">01</p>
+          <h2 class="mt-4 font-display text-2xl md:text-4xl font-black tracking-tight text-ink leading-tight">
+            Dua Belas <span class="italic text-gradient">Program</span>
+          </h2>
+          <p class="mt-4 text-ink/60 max-w-xl font-book">
+            Setiap program punya cerita, tujuan, dan dampaknya sendiri. Telusuri sesuai minat dan kebutuhan Anda.
+          </p>
+        </div>
+        <p class="font-mono text-[10px] tracking-widest text-ink/40 shrink-0">
+          FILTER · KATEGORI
+        </p>
+      </div>
+
+      <!-- Filter chips -->
+      <div class="sticky top-24 z-30 mb-10 -mx-6 px-6 md:mx-0 md:px-0 py-3 bg-paper-100/80 backdrop-blur-md border-y border-ink/10 reveal">
+        <div class="flex gap-2.5 overflow-x-auto no-scrollbar py-1">
+          <button data-filter="all" class="filter-chip active">Semua <span class="chip-count">12</span></button>
+          <button data-filter="ideologi" class="filter-chip">Ideologi &amp; Wawasan <span class="chip-count">3</span></button>
+          <button data-filter="kerukunan" class="filter-chip">Kerukunan <span class="chip-count">3</span></button>
+          <button data-filter="politik" class="filter-chip">Politik <span class="chip-count">2</span></button>
+          <button data-filter="sosbud" class="filter-chip">Sosial Budaya <span class="chip-count">2</span></button>
+          <button data-filter="karakter" class="filter-chip">Karakter Bangsa <span class="chip-count">2</span></button>
+        </div>
+      </div>
+
+      <!-- Program grid -->
+      <div id="programGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+
+        <!-- PROGRAM I — Ideologi -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="ideologi">
+          <div class="cat-band" style="background: #E84A57;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">I</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-001</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">IDEOLOGI &amp; WAWASAN</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Sekolah Wawasan Kebangsaan</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Program pendidikan wawasan kebangsaan bagi pelajar, mahasiswa, dan pemuda di seluruh kecamatan.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">SASARAN</p>
+              <p class="font-bold text-xs text-ink mt-1">500 Pemuda</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">12 Angkatan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">72%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:72%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Menanamkan nilai-nilai Pancasila dan wawasan kebangsaan kepada generasi muda melalui kurikulum 3 bulan yang mencakup teori, diskusi, dan kunjungan lapangan.</p>
+              <p><strong class="text-ink">Peserta:</strong> Pelajar SMA/SMK, mahasiswa, dan pemuda usia 15–30 tahun.</p>
+              <p><strong class="text-ink">Lokasi:</strong> 8 kecamatan di Kota Nusantara.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM II — Ideologi -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="ideologi">
+          <div class="cat-band" style="background: #D32F3E;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">II</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-002</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">IDEOLOGI &amp; WAWASAN</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Dialog Pancasila Rutin</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Diskusi bulanan bersama tokoh agama, akademisi, dan masyarakat membahas implementasi Pancasila.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">SASARAN</p>
+              <p class="font-bold text-xs text-ink mt-1">1.200 Peserta</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">Bulanan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">83%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:83%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Menyediakan ruang dialog lintas latar belakang untuk membumikan Pancasila dalam kehidupan sehari-hari.</p>
+              <p><strong class="text-ink">Peserta:</strong> Tokoh agama, akademisi, mahasiswa, ormas, dan masyarakat umum.</p>
+              <p><strong class="text-ink">Lokasi:</strong> Aula Kesbangpol dan balai kecamatan (bergilir).</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM III — Kerukunan -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="kerukunan">
+          <div class="cat-band" style="background: #B0202E;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">III</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-003</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">KERUKUNAN</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Forum Kerukunan Umat Beragama</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Fasilitasi FKUB untuk dialog lintas iman, kunjungan silaturahmi, dan kegiatan kerukunan bersama.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">SASARAN</p>
+              <p class="font-bold text-xs text-ink mt-1">6 Agama</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">Triwulan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">90%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:90%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Memperkuat kerukunan antar umat beragama melalui dialog rutin, kunjungan silaturahmi, dan kegiatan sosial bersama.</p>
+              <p><strong class="text-ink">Mitra:</strong> FKUB, MUI, PGI, Walubi, PHDI, KWI, dan lembaga keagamaan lainnya.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM IV — Kerukunan -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="kerukunan">
+          <div class="cat-band" style="background: #8F1A26;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">IV</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-004</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">KERUKUNAN</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Kampung Toleransi</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Program percontohan kerukunan berbasis lingkungan di 3 kelurahan dengan pendekatan partisipatif.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">LOKASI</p>
+              <p class="font-bold text-xs text-ink mt-1">3 Kelurahan</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">DURASI</p>
+              <p class="font-bold text-xs text-ink mt-1">12 Bulan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">65%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:65%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Membangun model kerukunan berbasis lingkungan yang dapat direplikasi ke kelurahan lain.</p>
+              <p><strong class="text-ink">Kegiatan:</strong> Gotong royong lintas iman, festival budaya, dan pendampingan warga.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM V — Politik -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="politik">
+          <div class="cat-band" style="background: #E84A57;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">V</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-005</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">POLITIK</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Pendidikan Politik Pemilih Pemula</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Program literasi politik bagi pelajar dan mahasiswa untuk meningkatkan partisipasi cerdas.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">SASARAN</p>
+              <p class="font-bold text-xs text-ink mt-1">2.000 Siswa</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">20 Sekolah</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">58%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:58%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Meningkatkan pemahaman politik, kesadaran berdemokrasi, dan partisipasi pemilih pemula pada Pemilu 2029.</p>
+              <p><strong class="text-ink">Metode:</strong> Roadshow ke sekolah, simulasi pemilu, dan lomba karya tulis.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM VI — Politik -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="politik">
+          <div class="cat-band" style="background: #D32F3E;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">VI</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-006</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">POLITIK</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Fasilitasi Partai Politik</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Pendampingan, pembinaan, dan fasilitasi kegiatan partai politik di tingkat kota.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PARPOL</p>
+              <p class="font-bold text-xs text-ink mt-1">12 Partai</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">Semester</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">75%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:75%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Mendukung parpol menjalankan fungsi pendidikan politik dan kaderisasi sesuai AD/ART dan regulasi.</p>
+              <p><strong class="text-ink">Kegiatan:</strong> Sosialisasi regulasi, pelatihan kader, dan fasilitasi kegiatan partai.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM VII — Sosbud -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="sosbud">
+          <div class="cat-band" style="background: #B0202E;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">VII</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-007</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">SOSIAL BUDAYA</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Pembinaan Ormas &amp; LSM</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Fasilitasi pendaftaran, pembinaan, dan pemberdayaan organisasi kemasyarakatan.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">ORMAS</p>
+              <p class="font-bold text-xs text-ink mt-1">120 Ormas</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">Bulanan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">80%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Memastikan ormas dan LSM beroperasi sesuai regulasi serta berperan aktif dalam pembangunan.</p>
+              <p><strong class="text-ink">Kegiatan:</strong> Sosialisasi UU Ormas, pembinaan administrasi, dan fasilitasi legalitas.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM VIII — Sosbud -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="sosbud">
+          <div class="cat-band" style="background: #8F1A26;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">VIII</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-008</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">SOSIAL BUDAYA</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Bakti Sosial Ramadan</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Program tahunan bakti sosial ke panti asuhan, lansia, dan warga prasejahtera di seluruh kota.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PENERIMA</p>
+              <p class="font-bold text-xs text-ink mt-1">800 KK</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">Tahunan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">100%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:100%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Menghadirkan kepedulian sosial dan memperkuat solidaritas antar warga kota.</p>
+              <p><strong class="text-ink">Bentuk:</strong> Pembagian sembako, santunan, dan kegiatan berbuka bersama.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM IX — Karakter -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="karakter">
+          <div class="cat-band" style="background: #E84A57;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">IX</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-009</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">KARAKTER BANGSA</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Pelatihan Bela Negara</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Pelatihan bela negara bagi pemuda, ASN, dan masyarakat untuk memperkuat cinta tanah air.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PESERTA</p>
+              <p class="font-bold text-xs text-ink mt-1">300 Orang</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">DURASI</p>
+              <p class="font-bold text-xs text-ink mt-1">3 Hari/Angkatan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">68%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:68%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Menanamkan nilai cinta tanah air, disiplin, dan kesiapsiagaan dalam menghadapi tantangan bangsa.</p>
+              <p><strong class="text-ink">Materi:</strong> Wawasan kebangsaan, ketahanan nasional, fisik dasar, dan baris-berbaris.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM X — Karakter -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="karakter">
+          <div class="cat-band" style="background: #D32F3E;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">X</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-010</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">KARAKTER BANGSA</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Sekolah Karakter Pemuda</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Program pembinaan karakter pemuda berbasis nilai-nilai Pancasila dan kearifan lokal.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PESERTA</p>
+              <p class="font-bold text-xs text-ink mt-1">200 Pemuda</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">DURASI</p>
+              <p class="font-bold text-xs text-ink mt-1">6 Bulan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">85%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:85%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Membentuk pemuda yang berkarakter, cinta tanah air, dan berkontribusi bagi masyarakat.</p>
+              <p><strong class="text-ink">Kegiatan:</strong> Pelatihan kepemimpinan, mentoring, dan proyek sosial.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM XI — Kerukunan -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="kerukunan">
+          <div class="cat-band" style="background: #731520;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">XI</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-011</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">KERUKUNAN</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Festival Budaya Nusantara</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Festival tahunan yang merayakan keberagaman budaya, kuliner, dan seni dari berbagai daerah.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PENGUNJUNG</p>
+              <p class="font-bold text-xs text-ink mt-1">10.000+</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">Tahunan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">40%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:40%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Merayakan keberagaman sebagai kekayaan, bukan perbedaan yang memecah.</p>
+              <p><strong class="text-ink">Bentuk:</strong> Panggung seni, stan kuliner, workshop budaya, dan pameran UMKM.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROGRAM XII — Ideologi -->
+        <article class="catalog-card rounded-2xl p-6 corner-bracket" data-cat="ideologi">
+          <div class="cat-band" style="background: #B0202E;"></div>
+
+          <div class="flex items-start justify-between mb-5">
+            <div class="flex items-baseline gap-2">
+              <p class="font-display text-4xl font-black text-gradient roman-num">XII</p>
+              <span class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PRG-012</span>
+            </div>
+            <span class="px-2.5 py-1 rounded-full bg-brand-50 border border-brand-200 text-brand-700 font-mono text-[9px] tracking-widest uppercase">AKTIF</span>
+          </div>
+
+          <p class="font-mono text-[9px] tracking-widest uppercase text-brand-700 mb-2">IDEOLOGI &amp; WAWASAN</p>
+          <h3 class="font-display font-black text-lg text-ink leading-tight">Lomba Karya Tulis Kebangsaan</h3>
+          <p class="mt-3 text-sm text-ink/65 leading-relaxed line-clamp-2 font-book">
+            Kompetisi tahunan menulis esai dan karya ilmiah bertema kebangsaan untuk pelajar &amp; mahasiswa.
+          </p>
+
+          <div class="mt-5 pt-5 border-t border-dashed border-ink/15 grid grid-cols-2 gap-3">
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">PESERTA</p>
+              <p class="font-bold text-xs text-ink mt-1">500 Karya</p>
+            </div>
+            <div>
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">FREKUENSI</p>
+              <p class="font-bold text-xs text-ink mt-1">Tahunan</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <div class="flex items-center justify-between mb-2">
+              <p class="font-mono text-[9px] tracking-widest text-ink/40 uppercase">CAPAIAN 2025</p>
+              <p class="font-mono text-[9px] tracking-widest text-brand-700 font-bold">60%</p>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width:60%"></div></div>
+          </div>
+
+          <button class="program-toggle mt-5 w-full flex items-center justify-between text-sm font-semibold text-brand-700 hover:text-brand-800 transition pt-4 border-t border-ink/10">
+            Detail Program
+            <svg class="program-chevron w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <div class="program-detail">
+            <div class="pt-4 space-y-3 text-xs text-ink/65 leading-relaxed">
+              <p><strong class="text-ink">Tujuan:</strong> Menumbuhkan budaya literasi dan pemikiran kritis di kalangan generasi muda tentang isu kebangsaan.</p>
+              <p><strong class="text-ink">Hadiah:</strong> Total hadiah Rp 50 juta + publikasi karya terbaik.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Empty state -->
+      <div id="emptyState" class="hidden mt-10 text-center py-16">
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-brand-50 text-brand-600 mb-5">
+          <svg class="w-9 h-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </div>
+        <p class="font-display text-xl font-black text-ink">Tidak ada program</p>
+        <p class="text-sm text-ink/50 mt-2">Coba pilih kategori lain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ROADMAP TAHUNAN ===================== -->
+  <section id="roadmap" class="relative py-24 md:py-32 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-dots opacity-20 pointer-events-none"></div>
+    <div class="absolute top-1/3 -left-40 w-[420px] h-[420px] rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-14 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB II</span>
+        <span class="font-display text-xl font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">ROADMAP TAHUNAN</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 reveal">
+        <div>
+          <p class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num leading-none">02</p>
+          <h2 class="mt-4 font-display text-2xl md:text-4xl font-black tracking-tight text-ink leading-tight">
+            Roadmap <span class="italic text-gradient">2025</span>
+          </h2>
+          <p class="mt-4 text-ink/60 max-w-xl font-book">
+            Setiap kuartal memiliki fokus yang berbeda. Berikut panduan program per triwulan.
+          </p>
+        </div>
+      </div>
+
+      <!-- Roadmap horizontal scroll -->
+      <div class="relative reveal">
+
+        <!-- Garis timeline -->
+        <div class="hidden md:block absolute top-[68px] left-8 right-8 h-[2px] bg-gradient-to-r from-brand-500/20 via-brand-500 to-brand-500/20 rounded-full"></div>
+
+        <div class="overflow-x-auto no-scrollbar pb-6 -mx-6 px-6 md:mx-0 md:px-0">
+          <div class="flex gap-5 md:gap-6 md:min-w-full" style="min-width: max-content;">
+
+            <!-- Q1 -->
+            <article class="shrink-0 w-[280px] md:w-[300px] relative reveal-left">
+              <div class="roadmap-dot current mx-auto mb-6 md:mb-8"></div>
+              <div class="bg-paper-50 rounded-2xl border border-ink/10 p-6 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full"></div>
+                <div class="relative">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">TRIWULAN I</p>
+                  <p class="font-display font-black text-3xl text-ink mt-2">Q1</p>
+                  <p class="font-mono text-[10px] tracking-widest text-ink/50 mt-1">JAN — MAR 2025</p>
+
+                  <div class="mt-6 pt-6 border-t border-dashed border-ink/15">
+                    <p class="font-mono text-[9px] tracking-widest uppercase text-ink/50 mb-3">FOKUS</p>
+                    <p class="font-display font-black text-base text-ink leading-snug">Landasan &amp; Persiapan</p>
+                    <p class="text-xs text-ink/60 mt-2 leading-relaxed">Perencanaan, koordinasi, dan kick-off program tahunan.</p>
+                  </div>
+
+                  <div class="mt-5 space-y-2">
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Sosialisasi Wawasan Kebangsaan
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Rapat Koordinasi FKUB
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Pendidikan Politik Pemula
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Q2 -->
+            <article class="shrink-0 w-[280px] md:w-[300px] relative reveal-left">
+              <div class="roadmap-dot mx-auto mb-6 md:mb-8"></div>
+              <div class="bg-paper-50 rounded-2xl border border-ink/10 p-6 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full"></div>
+                <div class="relative">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">TRIWULAN II</p>
+                  <p class="font-display font-black text-3xl text-ink mt-2">Q2</p>
+                  <p class="font-mono text-[10px] tracking-widest text-ink/50 mt-1">APR — JUN 2025</p>
+
+                  <div class="mt-6 pt-6 border-t border-dashed border-ink/15">
+                    <p class="font-mono text-[9px] tracking-widest uppercase text-ink/50 mb-3">FOKUS</p>
+                    <p class="font-display font-black text-base text-ink leading-snug">Pelaksanaan Intensif</p>
+                    <p class="text-xs text-ink/60 mt-2 leading-relaxed">Puncak pelaksanaan program pendidikan dan kerukunan.</p>
+                  </div>
+
+                  <div class="mt-5 space-y-2">
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Bakti Sosial Ramadan
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Festival Budaya Nusantara
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Pelatihan Bela Negara
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Q3 -->
+            <article class="shrink-0 w-[280px] md:w-[300px] relative reveal-left">
+              <div class="roadmap-dot mx-auto mb-6 md:mb-8"></div>
+              <div class="bg-paper-50 rounded-2xl border border-ink/10 p-6 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full"></div>
+                <div class="relative">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">TRIWULAN III</p>
+                  <p class="font-display font-black text-3xl text-ink mt-2">Q3</p>
+                  <p class="font-mono text-[10px] tracking-widest text-ink/50 mt-1">JUL — SEP 2025</p>
+
+                  <div class="mt-6 pt-6 border-t border-dashed border-ink/15">
+                    <p class="font-mono text-[9px] tracking-widest uppercase text-ink/50 mb-3">FOKUS</p>
+                    <p class="font-display font-black text-base text-ink leading-snug">Penguatan &amp; Ekspansi</p>
+                    <p class="text-xs text-ink/60 mt-2 leading-relaxed">Perluasan jangkauan ke sekolah dan komunitas.</p>
+                  </div>
+
+                  <div class="mt-5 space-y-2">
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Sekolah Karakter Pemuda
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Lomba Karya Tulis
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Pembinaan Ormas
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Q4 -->
+            <article class="shrink-0 w-[280px] md:w-[300px] relative reveal-left">
+              <div class="roadmap-dot mx-auto mb-6 md:mb-8"></div>
+              <div class="bg-paper-50 rounded-2xl border border-ink/10 p-6 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-24 h-24 pattern-diag opacity-40 rounded-bl-full"></div>
+                <div class="relative">
+                  <p class="font-mono text-[10px] tracking-widest uppercase text-brand-700">TRIWULAN IV</p>
+                  <p class="font-display font-black text-3xl text-ink mt-2">Q4</p>
+                  <p class="font-mono text-[10px] tracking-widest text-ink/50 mt-1">OKT — DES 2025</p>
+
+                  <div class="mt-6 pt-6 border-t border-dashed border-ink/15">
+                    <p class="font-mono text-[9px] tracking-widest uppercase text-ink/50 mb-3">FOKUS</p>
+                    <p class="font-display font-black text-base text-ink leading-snug">Refleksi &amp; Evaluasi</p>
+                    <p class="text-xs text-ink/60 mt-2 leading-relaxed">Penutupan, evaluasi, dan persiapan program berikutnya.</p>
+                  </div>
+
+                  <div class="mt-5 space-y-2">
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Dialog Pancasila Akhir Tahun
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Refleksi Kampung Toleransi
+                    </div>
+                    <div class="flex items-center gap-2 text-xs text-ink/70">
+                      <span class="w-1.5 h-1.5 rounded-full bg-brand-500"></span>
+                      Penyusunan Program 2026
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Scroll hint -->
+        <div class="mt-6 flex items-center justify-between">
+          <p class="font-mono text-[10px] tracking-widest uppercase text-ink/40">← Geser untuk semua kuartal →</p>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brand-500"></span>
+            <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50">Tahun Berjalan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DAMPAK / IMPACT ===================== -->
+  <section class="relative py-24 md:py-32 paper-texture overflow-hidden border-y border-ink/10">
+    <div class="absolute inset-0 pattern-dots opacity-20 pointer-events-none"></div>
+    <div class="absolute top-20 right-0 w-[420px] h-[420px] ornament-kawung opacity-20 pointer-events-none"></div>
+    <div class="absolute bottom-20 -left-40 w-[420px] h-[420px] rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-14 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB III</span>
+        <span class="font-display text-xl font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">DAMPAK</span>
+      </div>
+
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+        <p class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num leading-none">03</p>
+        <h2 class="mt-4 font-display text-2xl md:text-4xl font-black tracking-tight text-ink leading-tight">
+          Dampak <span class="italic text-gradient">Nyata</span>
+        </h2>
+        <p class="mt-4 text-ink/60 font-book">
+          Angka-angka di bawah bukan sekadar statistik — mereka adalah cerita dari setiap program yang berjalan.
+        </p>
+      </div>
+
+      <!-- Bento impact -->
+      <div class="grid grid-cols-1 md:grid-cols-12 md:grid-rows-2 gap-5 md:h-[560px] reveal">
+
+        <!-- Big impact -->
+        <article class="md:col-span-5 md:row-span-2 group relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 via-brand-700 to-brand-900 p-7 md:p-9 text-white shadow-2xl border border-brand-500/30">
+          <div class="absolute inset-0 pattern-dots-light opacity-15"></div>
+          <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full border border-white/20 spin-slow pointer-events-none"></div>
+          <div class="absolute bottom-6 right-6 text-white/10 text-[220px] font-display font-black leading-none select-none roman-num">5K</div>
+
+          <div class="relative h-full flex flex-col">
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1.5 rounded-full glass-dark text-[10px] font-mono tracking-widest uppercase text-orange-100">TOTAL PESERTA</span>
+              <div class="w-12 h-12 rounded-xl bg-white/10 backdrop-blur ring-1 ring-white/30 flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+            </div>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-[100px] md:text-[130px] leading-none chapter-num">5<span class="text-brand-300">K+</span></p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-brand-300 mt-2">PESERTA PROGRAM · 2025</p>
+              <p class="mt-5 text-sm text-white/75 leading-relaxed max-w-sm font-book">
+                Total peserta dari seluruh program aktif sepanjang tahun. Dari pelajar, mahasiswa, pemuda, hingga masyarakat umum.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Impact 2 -->
+        <article class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-3xl bg-paper-50 border border-ink/10 p-6 shadow-sm hover:shadow-2xl transition">
+          <div class="absolute top-0 right-0 w-32 h-32 pattern-diag opacity-50 rounded-bl-full"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 font-mono text-[10px] tracking-widest uppercase border border-brand-200 w-fit">KEGIATAN</span>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-5xl md:text-6xl text-ink chapter-num mt-6">150<span class="text-brand-500 text-3xl">+</span></p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mt-2">KEGIATAN TERLAKSANA</p>
+              <div class="mt-4 h-2 bg-brand-100 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-brand-500 to-brand-700 rounded-full" style="width: 92%"></div>
+              </div>
+              <p class="text-xs text-ink/60 mt-3 font-book">92% dari target tahunan tercapai</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Impact 3 -->
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-3xl bg-ink text-paper-50 p-6 shadow-2xl">
+          <div class="absolute inset-0 pattern-dots-light opacity-[0.08]"></div>
+          <div class="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-brand-500/25 blur-2xl"></div>
+
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full glass-dark text-[10px] font-mono tracking-widest uppercase text-orange-100 w-fit">KECAMATAN</span>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-5xl md:text-6xl text-brand-400 chapter-num mt-6">8</p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-paper-50/60 mt-2">WILAYAH TERJANGKAU</p>
+              <div class="mt-4 flex flex-wrap gap-1.5">
+                <span class="w-3 h-3 rounded-sm bg-brand-500"></span>
+                <span class="w-3 h-3 rounded-sm bg-brand-500"></span>
+                <span class="w-3 h-3 rounded-sm bg-brand-500"></span>
+                <span class="w-3 h-3 rounded-sm bg-brand-500"></span>
+                <span class="w-3 h-3 rounded-sm bg-brand-500"></span>
+                <span class="w-3 h-3 rounded-sm bg-brand-500"></span>
+                <span class="w-3 h-3 rounded-sm bg-brand-500"></span>
+                <span class="w-3 h-3 rounded-sm bg-brand-500"></span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Impact 4 -->
+        <article class="md:col-span-4 md:row-span-1 group relative overflow-hidden rounded-3xl bg-paper-50 border border-ink/10 p-6 shadow-sm hover:shadow-2xl transition">
+          <div class="absolute bottom-0 right-0 w-32 h-32 pattern-dots opacity-50 rounded-tl-full"></div>
+          <div class="relative h-full flex flex-col">
+            <span class="px-3 py-1.5 rounded-full bg-brand-50 text-brand-700 font-mono text-[10px] tracking-widest uppercase border border-brand-200 w-fit">KEPUASAN</span>
+
+            <div class="mt-auto">
+              <p class="font-display font-black text-5xl md:text-6xl text-ink chapter-num mt-6">94<span class="text-brand-500 text-3xl">%</span></p>
+              <p class="font-mono text-[10px] tracking-widest uppercase text-ink/50 mt-2">PESERTA PUAS</p>
+              <div class="mt-4 flex gap-1">
+                <svg class="w-5 h-5 text-brand-500" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-5 h-5 text-brand-500" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-5 h-5 text-brand-500" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-5 h-5 text-brand-500" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+                <svg class="w-5 h-5 text-brand-300" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.4 5 5.6.8-4 4 1 5.6L12 14.8 6.9 17.4l1-5.6-4-4 5.6-.8Z"/></svg>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Impact 5 -->
+        <article class="md:col-span-3 md:row-span-1 group relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-500 to-brand-600 p-6 text-white shadow-lg hover:shadow-2xl transition">
+          <div class="absolute inset-0 pattern-zigzag opacity-10"></div>
+          <div class="relative h-full flex flex-col">
+            <svg class="w-8 h-8 text-white/80 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/></svg>
+
+            <div class="mt-auto">
+              <p class="font-mono text-[10px] tracking-widest uppercase text-orange-100">MITRA AKTIF</p>
+              <p class="font-display font-black text-5xl chapter-num mt-2">45</p>
+              <p class="text-xs text-white/75 mt-2 font-book">Instansi, ormas, dan komunitas</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CARA MENGIKUTI PROGRAM ===================== -->
+  <section class="relative py-24 md:py-32 bg-white overflow-hidden">
+    <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+    <div class="absolute top-1/4 -right-40 w-96 h-96 rounded-full bg-brand-100/50 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+
+      <div class="chapter-divider mb-14 reveal">
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">BAB IV</span>
+        <span class="font-display text-xl font-black text-brand-600">§</span>
+        <span class="font-mono text-[10px] tracking-widest uppercase text-ink/40">CARA MENGIKUTI</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 reveal">
+        <div>
+          <p class="font-display text-5xl md:text-6xl font-black text-gradient chapter-num leading-none">04</p>
+          <h2 class="mt-4 font-display text-2xl md:text-4xl font-black tracking-tight text-ink leading-tight">
+            Empat <span class="italic text-gradient">Langkah</span> Mudah
+          </h2>
+          <p class="mt-4 text-ink/60 max-w-xl font-book">
+            Ingin ikut program kami? Ikuti langkah berikut. Prosesnya cepat, mudah, dan gratis.
+          </p>
+        </div>
+      </div>
+
+      <!-- Steps -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+
+        <!-- Step 1 -->
+        <div class="relative bg-paper-50 rounded-2xl p-6 border border-ink/10 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+          <div class="absolute -top-4 -right-4 font-display text-[100px] font-black text-brand-100/70 leading-none select-none step-num">01</div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white shadow-soft">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2 4 6v6c0 5 4 9 8 10 4-1 8-5 8-10V6l-8-4Z"/></svg>
+            </div>
+            <p class="mt-6 font-mono text-[10px] tracking-widest uppercase text-brand-700">LANGKAH 01</p>
+            <h3 class="mt-2 font-display font-black text-lg text-ink leading-tight">Pilih Program</h3>
+            <p class="mt-3 text-sm text-ink/60 leading-relaxed font-book">
+              Pilih program yang sesuai dengan minat dan kebutuhan Anda dari 12 program yang tersedia.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative bg-paper-50 rounded-2xl p-6 border border-ink/10 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+          <div class="absolute -top-4 -right-4 font-display text-[100px] font-black text-brand-100/70 leading-none select-none step-num">02</div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white shadow-soft">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M14 2v6h6M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"/><path d="M9 15h6M9 11h3"/></svg>
+            </div>
+            <p class="mt-6 font-mono text-[10px] tracking-widest uppercase text-brand-700">LANGKAH 02</p>
+            <h3 class="mt-2 font-display font-black text-lg text-ink leading-tight">Daftar Online</h3>
+            <p class="mt-3 text-sm text-ink/60 leading-relaxed font-book">
+              Isi formulir pendaftaran melalui portal online atau datang langsung ke kantor kami.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative bg-paper-50 rounded-2xl p-6 border border-ink/10 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 overflow-hidden">
+          <div class="absolute -top-4 -right-4 font-display text-[100px] font-black text-brand-100/70 leading-none select-none step-num">03</div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white shadow-soft">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg>
+            </div>
+            <p class="mt-6 font-mono text-[10px] tracking-widest uppercase text-brand-700">LANGKAH 03</p>
+            <h3 class="mt-2 font-display font-black text-lg text-ink leading-tight">Ikuti Kegiatan</h3>
+            <p class="mt-3 text-sm text-ink/60 leading-relaxed font-book">
+              Hadir di setiap sesi, ikuti arahan fasilitator, dan manfaatkan seluruh materi dengan baik.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative bg-gradient-to-br from-brand-600 to-brand-800 text-white rounded-2xl p-6 shadow-2xl overflow-hidden hover:-translate-y-2 transition-all duration-300">
+          <div class="absolute inset-0 pattern-dots-light opacity-15"></div>
+          <div class="absolute -top-4 -right-4 font-display text-[100px] font-black text-white/15 leading-none select-none step-num">04</div>
+          <div class="relative">
+            <div class="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur ring-1 ring-white/30 flex items-center justify-center">
+              <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <p class="mt-6 font-mono text-[10px] tracking-widest uppercase text-orange-200">LANGKAH 04</p>
+            <h3 class="mt-2 font-display font-black text-lg leading-tight">Dapatkan Sertifikat</h3>
+            <p class="mt-3 text-sm text-white/75 leading-relaxed font-book">
+              Selesaikan program dan dapatkan sertifikat resmi sebagai bentuk pengakuan partisipasi Anda.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA inline -->
+      <div class="mt-12 text-center reveal">
+        <a href="#" class="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-brand-500 to-brand-600 text-white font-bold shadow-soft hover:shadow-glowHover hover:scale-105 active:scale-95 transition-all">
+          Daftar Sekarang
+          <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center group-hover:rotate-[-45deg] transition-transform duration-300">
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA BAND ===================== -->
+  <section class="relative overflow-hidden">
+    <div class="bg-gradient-to-r from-brand-600 via-brand-500 to-brand-700 py-16 md:py-20 relative">
+      <div class="absolute inset-0 pattern-diag opacity-20 pointer-events-none"></div>
+      <div class="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-900/40 blur-3xl"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10 relative flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="text-white text-center md:text-left">
+          <p class="font-mono text-[11px] tracking-widest uppercase text-orange-100/90">Suara Anda Berarti</p>
+          <h3 class="mt-2 font-display text-3xl md:text-5xl font-black leading-tight">
+            Punya kritik atau saran?
+          </h3>
+          <p class="mt-2 text-white/80 max-w-lg">Setiap masukan Anda akan kami tindak lanjuti untuk pelayanan yang lebih baik.</p>
+        </div>
+        <a href="index.html#kritik" class="group shrink-0 inline-flex items-center gap-3 px-7 py-4 rounded-full bg-white text-brand-700 font-black shadow-2xl hover:bg-brand-50 hover:scale-105 active:scale-95 transition-all">
+          Kirim Sekarang
+          <span class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center group-hover:rotate-[-45deg] transition-transform duration-300">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-[#1A0F0B] text-white/70 pt-16 pb-8 relative overflow-hidden">
+  <div class="absolute inset-0 pattern-dots opacity-[0.15]"></div>
+  <div class="absolute -top-40 left-1/3 w-96 h-96 rounded-full bg-brand-700/30 blur-3xl"></div>
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center ring-2 ring-white/10">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 3 6v6c0 5 3.8 9.4 9 10 5.2-.6 9-5 9-10V6l-9-4Z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="font-extrabold text-white tracking-tight">KESBANGPOL</p>
+            <p class="text-[11px] text-brand-400 font-medium">Kota Nusantara</p>
+          </div>
+        </div>
+        <p class="mt-5 text-sm leading-relaxed">
+          Badan Kesatuan Bangsa dan Politik berkomitmen menjaga stabilitas, kerukunan, dan persatuan dalam bingkai NKRI.
+        </p>
+        <div class="mt-5 flex gap-2">
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12Z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.9c-.7.3-1.5.5-2.4.6.9-.5 1.5-1.3 1.8-2.3-.8.5-1.7.8-2.6 1a4.1 4.1 0 0 0-7 3.7A11.7 11.7 0 0 1 3.4 4.6a4.1 4.1 0 0 0 1.3 5.5c-.7 0-1.3-.2-1.9-.5v.1c0 2 1.4 3.6 3.3 4-.3.1-.7.1-1.1.1-.3 0-.5 0-.8-.1a4.1 4.1 0 0 0 3.8 2.8A8.2 8.2 0 0 1 2 18.3a11.6 11.6 0 0 0 6.3 1.8c7.5 0 11.6-6.2 11.6-11.6v-.5c.8-.6 1.5-1.3 2.1-2.1Z"/></svg>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-600 flex items-center justify-center transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.5 31 31 0 0 0-.5-4.5ZM9.8 15.4V8.6l6 3.4-6 3.4Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Tautan Cepat</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="index.html" class="hover:text-brand-400 transition">Beranda</a></li>
+          <li><a href="profil.html" class="hover:text-brand-400 transition">Profil Pimpinan</a></li>
+          <li><a href="sejarah.html" class="hover:text-brand-400 transition">Sejarah</a></li>
+          <li><a href="struktur.html" class="hover:text-brand-400 transition">Struktur Organisasi</a></li>
+          <li><a href="visi.html" class="hover:text-brand-400 transition">Visi &amp; Misi</a></li>
+          <li><a href="tugas.html" class="hover:text-brand-400 transition">Tugas &amp; Fungsi</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Layanan</h4>
+        <ul class="space-y-3 text-sm">
+          <li><a href="berita.html" class="hover:text-brand-400 transition">Berita</a></li>
+          <li><a href="agenda.html"hover:text-brand-400 transition">Agenda Pimpinan</a></li>
+          <li><a href="foto.html" class="hover:text-brand-400 transition">Galeri Foto</a></li>
+          <li><a href="videokegiatan.html" class="hover:text-brand-400 transition">Video Kegiatan</a></li>
+          <li><a href="index.html#kritik" class="hover:text-brand-400 transition">Kritik &amp; Saran</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-bold mb-5 text-sm tracking-wide uppercase">Lokasi &amp; Kontak</h4>
+        <div class="rounded-2xl overflow-hidden ring-1 ring-white/10 mb-4">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521!2d106.8195!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDknMTAuMiJF!5e0!3m2!1sen!2sid!4v1700000000000"
+            class="w-full h-36 border-0"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <ul class="space-y-2.5 text-sm">
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Jl. Merdeka No. 123, Kota Nusantara</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg>
+            <span>(021) 123-4567</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m4 6 8 6 8-6"/></svg>
+            <span>info@kesbangpol.go.id</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+      <p>© 2025 Badan Kesatuan Bangsa dan Politik. Seluruh hak cipta dilindungi.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-brand-400 transition">Kebijakan Privasi</a>
+        <a href="#" class="hover:text-brand-400 transition">Syarat &amp; Ketentuan</a>
+        <a href="#" class="hover:text-brand-400 transition">Peta Situs</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script>
+  /* ============ MOBILE DRAWER ============ */
+  const drawer = document.getElementById('drawer');
+  const drawerBg = document.getElementById('drawerBg');
+  const drawerPanel = document.getElementById('drawerPanel');
+  const menuBtn = document.getElementById('menuBtn');
+  const closeDrawer = document.getElementById('closeDrawer');
+
+  function openDrawer() {
+    drawer.classList.remove('pointer-events-none');
+    requestAnimationFrame(() => {
+      drawerBg.classList.replace('opacity-0', 'opacity-100');
+      drawerPanel.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+  function closeDrawerFn() {
+    drawerBg.classList.replace('opacity-100', 'opacity-0');
+    drawerPanel.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+    setTimeout(() => drawer.classList.add('pointer-events-none'), 500);
+  }
+  menuBtn.addEventListener('click', openDrawer);
+  closeDrawer.addEventListener('click', closeDrawerFn);
+  drawerBg.addEventListener('click', closeDrawerFn);
+  document.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeDrawerFn));
+
+  /* ============ ACCORDION ============ */
+  document.querySelectorAll('.acc-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      const chevron = btn.querySelector('.acc-chevron');
+      const isOpen = target.classList.contains('open');
+
+      document.querySelectorAll('.acc-body.open').forEach(b => {
+        if (b !== target) {
+          b.classList.remove('open');
+          const oc = b.previousElementSibling.querySelector('.acc-chevron');
+          if (oc) oc.classList.remove('open');
+        }
+      });
+
+      if (isOpen) {
+        target.classList.remove('open');
+        chevron.classList.remove('open');
+      } else {
+        target.classList.add('open');
+        chevron.classList.add('open');
+      }
+    });
+  });
+
+  /* ============ NAVBAR SCROLL ============ */
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('#navbar > div');
+    if (window.scrollY > 40) {
+      nav.style.paddingTop = '6px';
+      nav.style.paddingBottom = '6px';
+    } else {
+      nav.style.paddingTop = '';
+      nav.style.paddingBottom = '';
+    }
+  });
+
+  /* ============ REVEAL ============ */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+
+  /* ============ SCROLL PROGRESS ============ */
+  const progressBar = document.getElementById('scrollProgress');
+  window.addEventListener('scroll', () => {
+    const st = window.scrollY;
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    progressBar.style.width = (st / dh) * 100 + '%';
+  });
+
+  /* ============ FILTER PROGRAM ============ */
+  const filterChips = document.querySelectorAll('.filter-chip');
+  const programCards = document.querySelectorAll('#programGrid .catalog-card');
+  const emptyState = document.getElementById('emptyState');
+
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      const filter = chip.dataset.filter;
+      let visibleCount = 0;
+
+      programCards.forEach(card => {
+        const cat = card.dataset.cat;
+        const show = filter === 'all' || cat === filter;
+        if (show) {
+          card.style.display = '';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px)';
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity 400ms ease, transform 400ms ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (emptyState) {
+        emptyState.classList.toggle('hidden', visibleCount > 0);
+      }
+    });
+  });
+
+  /* ============ PROGRAM DETAIL TOGGLE ============ */
+  document.querySelectorAll('.program-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const detail = btn.nextElementSibling;
+      const chevron = btn.querySelector('.program-chevron');
+      if (detail && detail.classList.contains('program-detail')) {
+        detail.classList.toggle('open');
+        if (chevron) chevron.classList.toggle('open');
+      }
+    });
+  });
+
+  /* ============ SMOOTH ANCHOR ============ */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href.length > 1 && document.querySelector(href)) {
+        e.preventDefault();
+        const el = document.querySelector(href);
+        window.scrollTo({ top: el.offsetTop - 100, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html> 
